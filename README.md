@@ -17,6 +17,10 @@ target card is a Xeon Phi 7120A.
 
 Not yet produced: a reply token out of the model file (65 M steps per 2B position at about 100 steps/s on the host).
 
+## Repository
+Public: https://github.com/Lasimeri/Intel-Phi-QwenGPU. Models, the image and every build output stay out of it; the
+logs in `logs/` are the measurements the documents cite.
+
 ## Read
 - `docs/INDEX.md`: the tree, the build, the tests, every log.
 - `docs/handoff.md`: state, proofs, root causes, how to continue.
