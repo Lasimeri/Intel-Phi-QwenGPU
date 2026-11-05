@@ -1,0 +1,34 @@
+host: circuit: 206699 units, 23446 nodes (9 heads, 67 banks), 31598 dims, 141 layers, built in 0.2 s
+host: prompt 19 tokens, 8 to generate; the circuit predicts every token of the reference's stream
+host: 99999 tokens agree, 240.3 passes/s
+host: 199999 tokens agree, 395.6 passes/s
+host: 299999 tokens agree, 529.8 passes/s
+host: 399999 tokens agree, 639.8 passes/s
+host: 499999 tokens agree, 733.5 passes/s
+host: 599999 tokens agree, 803.6 passes/s
+host: 699999 tokens agree, 866.7 passes/s
+host: 799999 tokens agree, 914.4 passes/s
+host: 899999 tokens agree, 958.1 passes/s
+host: 999999 tokens agree, 1001.1 passes/s
+host: 1099999 tokens agree, 1040.5 passes/s
+host: 1199999 tokens agree, 1077.2 passes/s
+host: 1299999 tokens agree, 1110.7 passes/s
+host: 1399999 tokens agree, 1140.2 passes/s
+host: 1499999 tokens agree, 1166.8 passes/s
+host: 1599999 tokens agree, 1192.5 passes/s
+host: 1699999 tokens agree, 1211.8 passes/s
+host: 1799999 tokens agree, 1228.4 passes/s
+host: 1899999 tokens agree, 1245.7 passes/s
+host: 1999999 tokens agree, 1260.7 passes/s
+host: 2099999 tokens agree, 1270.6 passes/s
+host: 2199999 tokens agree, 1282.5 passes/s
+host: 2299999 tokens agree, 1293.7 passes/s
+host: 2399999 tokens agree, 1306.9 passes/s
+host: 2499999 tokens agree, 1320.1 passes/s
+host: 2599999 tokens agree, 1332.3 passes/s
+host: 2699999 tokens agree, 1344.0 passes/s
+host: 2799999 tokens agree, 1355.2 passes/s
+host: 2899999 tokens agree, 1365.2 passes/s
+host: 2999999 tokens agree, 1373.4 passes/s
+host: rc 4; 3000000 tokens fed, 2999999 agreed, 3000000 passes, 1373.4 passes/s, 2184.4 s
+host: circ_gate: every token predicted (to the token limit)

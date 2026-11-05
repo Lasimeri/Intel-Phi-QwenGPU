@@ -1,0 +1,11 @@
+host: device: SIMT GPU in Qwen3.8-35B (reference machine, the 2B's image)
+token 57044
+token 16563
+token 11
+token 198
+token 1719
+token 12515
+token 15417
+token 6669
+host: 8 tokens emitted, 24818 launches, 17968145 records, 1236731519 trace tokens, 24905 program steps
+host: q2b_cl: TOKENS DIFFER FROM THE EXPECTED LIST

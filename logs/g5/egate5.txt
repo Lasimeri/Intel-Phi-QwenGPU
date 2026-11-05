@@ -1,0 +1,24 @@
+host: the file: 143 layers, hidden 16384, 2020797 nonzero weights, 2.82 GB of data, loaded in 14.4 s
+host: prompt 19 tokens, 8 to generate; the file predicts every token of the reference's stream
+host: 9999 tokens agree, 133.3 passes/s
+host: 19999 tokens agree, 139.5 passes/s
+host: 29999 tokens agree, 141.9 passes/s
+host: 39999 tokens agree, 143.8 passes/s
+host: 49999 tokens agree, 142.1 passes/s
+host: 59999 tokens agree, 128.2 passes/s
+host: 69999 tokens agree, 120.0 passes/s
+host: 79999 tokens agree, 115.0 passes/s
+host: 89999 tokens agree, 110.8 passes/s
+host: 99999 tokens agree, 107.6 passes/s
+host: 109999 tokens agree, 105.0 passes/s
+host: 119999 tokens agree, 103.2 passes/s
+host: 129999 tokens agree, 103.1 passes/s
+host: 139999 tokens agree, 105.6 passes/s
+host: 149999 tokens agree, 107.8 passes/s
+host: 159999 tokens agree, 108.8 passes/s
+host: 169999 tokens agree, 106.9 passes/s
+host: 179999 tokens agree, 105.8 passes/s
+host: 189999 tokens agree, 104.5 passes/s
+host: 199999 tokens agree, 103.3 passes/s
+host: rc 4; 200000 tokens fed, 199999 agreed, 103.3 passes/s, 1935.9 s, 0 full scans of the output head
+host: emit_gate: every token predicted by the file (to the token limit)

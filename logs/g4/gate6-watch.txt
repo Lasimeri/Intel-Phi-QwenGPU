@@ -1,0 +1,84 @@
+host: circuit: 206702 units, 23449 nodes (9 heads, 67 banks), 31601 dims, 141 layers, built in 0.2 s
+host: prompt 19 tokens, 8 to generate; the circuit predicts every token of the reference's stream
+host: 99999 tokens agree, 977.0 passes/s
+host: 199999 tokens agree, 989.2 passes/s
+host: 299999 tokens agree, 995.4 passes/s
+host: 399999 tokens agree, 1005.4 passes/s
+host: 499999 tokens agree, 1011.4 passes/s
+host: 599999 tokens agree, 1014.9 passes/s
+store M[41056] = 3638  (block 120, warp 0, descriptor 13) u: 115458 121602 138498 0 1 0 3638 41056 0 3638 3616 4294967264 0 0 8360 0
+store M[41056] = 3638  (block 120, warp 1, descriptor 13) u: 115458 121602 138498 0 1 0 2522 41056 0 3638 3680 0 0 0 8360 0
+store M[41056] = 3638  (block 120, warp 2, descriptor 13) u: 115458 121602 138498 0 1 0 3388 41056 0 3638 3744 0 0 0 8360 0
+store M[41056] = 4641  (block 120, warp 3, descriptor 13) u: 115458 121602 138498 0 1 0 4641 41056 0 4641 3808 0 0 0 8360 0
+circuit: pass 688085 store M[41056] = 3638 (bank.stv.m, width 32)
+circuit: pass 688086 store M[41056] = 3638 (bank.stv.m, width 32)
+circuit: pass 688087 store M[41056] = 3638 (bank.stv.m, width 32)
+circuit: pass 688426 store M[41056] = 3638 (bank.stv.m, width 32)
+circuit: pass 688427 store M[41056] = 3638 (bank.stv.m, width 32)
+circuit: pass 688428 store M[41056] = 3638 (bank.stv.m, width 32)
+circuit: pass 688767 store M[41056] = 3638 (bank.stv.m, width 32)
+circuit: pass 688768 store M[41056] = 3638 (bank.stv.m, width 32)
+circuit: pass 688769 store M[41056] = 3638 (bank.stv.m, width 32)
+circuit: pass 689108 store M[41056] = 4641 (bank.stv.m, width 32)
+circuit: pass 689109 store M[41056] = 4641 (bank.stv.m, width 32)
+circuit: pass 689110 store M[41056] = 4641 (bank.stv.m, width 32)
+host: 699999 tokens agree, 1013.3 passes/s
+store M[41056] = 2928  (block 120, warp 0, descriptor 14) u: 117506 123650 138530 0 0 49213 2928 41056 87273 4641 41086 7713 0 138512 8368 0
+store M[41056] = 4063  (block 120, warp 1, descriptor 14) u: 117506 123650 138530 0 0 49213 4063 41056 87273 4063 41086 7713 0 138512 8368 0
+store M[41056] = 8261  (block 120, warp 2, descriptor 14) u: 117506 123650 138530 0 0 49213 8261 41056 87273 8261 41086 7713 0 138512 8368 0
+store M[41056] = 12890  (block 120, warp 3, descriptor 14) u: 117506 123650 138530 0 0 49213 12890 41056 87273 12890 41086 7713 0 138512 8368 0
+store M[41056] = 386  (block 131, warp 0, descriptor 15) u: 0 123650 386 41056 0 12890 148058 41070 57107 56894 41086 57107 0 138544 8376 0
+store M[41056] = 14391  (block 131, warp 1, descriptor 15) u: 0 123650 14391 41056 0 14391 148058 41070 57107 14391 41086 57107 0 138544 8376 0
+store M[41056] = 14391  (block 131, warp 2, descriptor 15) u: 0 123650 634 41056 0 14391 148058 41070 57107 14391 41086 57107 0 138544 8376 0
+store M[41056] = 14391  (block 131, warp 3, descriptor 15) u: 0 123650 10667 41056 0 14391 148058 41070 57107 14391 41086 57107 0 138544 8376 0
+circuit: pass 736405 store M[41056] = 2928 (bank.stv.m, width 32)
+circuit: pass 736406 store M[41056] = 2928 (bank.stv.m, width 32)
+circuit: pass 736407 store M[41056] = 2928 (bank.stv.m, width 32)
+circuit: pass 736746 store M[41056] = 4063 (bank.stv.m, width 32)
+circuit: pass 736747 store M[41056] = 4063 (bank.stv.m, width 32)
+circuit: pass 736748 store M[41056] = 4063 (bank.stv.m, width 32)
+circuit: pass 737087 store M[41056] = 8261 (bank.stv.m, width 32)
+circuit: pass 737088 store M[41056] = 8261 (bank.stv.m, width 32)
+circuit: pass 737089 store M[41056] = 8261 (bank.stv.m, width 32)
+circuit: pass 737428 store M[41056] = 12890 (bank.stv.m, width 32)
+circuit: pass 737429 store M[41056] = 12890 (bank.stv.m, width 32)
+circuit: pass 737430 store M[41056] = 12890 (bank.stv.m, width 32)
+circuit: pass 784684 store M[41056] = 386 (bank.stv.m, width 32)
+circuit: pass 784685 store M[41056] = 386 (bank.stv.m, width 32)
+circuit: pass 784686 store M[41056] = 386 (bank.stv.m, width 32)
+circuit: pass 784984 store M[41056] = 14391 (bank.stv.m, width 32)
+circuit: pass 784985 store M[41056] = 14391 (bank.stv.m, width 32)
+circuit: pass 784986 store M[41056] = 14391 (bank.stv.m, width 32)
+circuit: pass 785284 store M[41056] = 14391 (bank.stv.m, width 32)
+circuit: pass 785285 store M[41056] = 14391 (bank.stv.m, width 32)
+circuit: pass 785286 store M[41056] = 14391 (bank.stv.m, width 32)
+circuit: pass 785584 store M[41056] = 14391 (bank.stv.m, width 32)
+circuit: pass 785585 store M[41056] = 14391 (bank.stv.m, width 32)
+circuit: pass 785586 store M[41056] = 14391 (bank.stv.m, width 32)
+host: 799999 tokens agree, 1014.0 passes/s
+store M[41056] = 64742  (block 186, warp 0, descriptor 16) u: 64742 41056 4592178 0 64742 0 6217 4592002 24377 80605 4469 29009 4592162 15 8384 0
+store M[41056] = 2740733  (block 186, warp 1, descriptor 16) u: 2740733 41056 4592178 0 2740733 0 6217 4592002 24377 80605 4469 29009 4592162 15 8384 0
+store M[41056] = 2740733  (block 186, warp 2, descriptor 16) u: 129483 41056 4592178 0 2740733 0 6217 4592002 24377 80605 4469 29009 4592162 15 8384 0
+store M[41056] = 2740733  (block 186, warp 3, descriptor 16) u: 2028574 41056 4592178 0 2740733 0 6217 4592002 24377 80605 4469 29009 4592162 15 8384 0
+store M[41056] = 178  (block 289, warp 0, descriptor 16) u: 18 41056 4578 41072 0 41088 465422 4592002 3 16 4469 29009 4592162 15 8384 0
+store M[41056] = 16451  (block 289, warp 1, descriptor 16) u: 18 41056 4578 41072 0 41088 465422 4592002 3 16 4469 29009 4592162 15 8384 0
+store M[41056] = 16661  (block 289, warp 2, descriptor 16) u: 18 41056 4578 41072 0 41088 465422 4592002 3 16 4469 29009 4592162 15 8384 0
+circuit: pass 818166 store M[41056] = 64742 (bank.stv.m, width 32)
+circuit: pass 818167 store M[41056] = 64742 (bank.stv.m, width 32)
+circuit: pass 821613 store M[41056] = 2740733 (bank.stv.m, width 32)
+circuit: pass 821614 store M[41056] = 2740733 (bank.stv.m, width 32)
+circuit: pass 825060 store M[41056] = 2740733 (bank.stv.m, width 32)
+circuit: pass 825061 store M[41056] = 2740733 (bank.stv.m, width 32)
+circuit: pass 828507 store M[41056] = 2740733 (bank.stv.m, width 32)
+circuit: pass 828508 store M[41056] = 2740733 (bank.stv.m, width 32)
+circuit: pass 853572 store M[41056] = 178 (bank.stv.m, width 32)
+circuit: pass 853573 store M[41056] = 178 (bank.stv.m, width 32)
+circuit: pass 853574 store M[41056] = 178 (bank.stv.m, width 32)
+circuit: pass 853744 store M[41056] = 16451 (bank.stv.m, width 32)
+circuit: pass 853745 store M[41056] = 32724 (bank.stv.m, width 32)
+circuit: pass 853746 store M[41056] = 32724 (bank.stv.m, width 32)
+host: MISMATCH at token 853915: the machine wrote VLO(16661), the circuit predicted VLO(32934)
+host: the tokens before it: EXEC(289) VLO(9) VEND(0) VLO(9) VEND(0) VLO(9) VEND(0) VLO(9) VEND(0) VLO(18) VEND(0) VLO(27) VEND(0) VLO(43) VEND(0) VLO(43) VEND(0) VLO(43) VEND(0) VLO(43) VEND(0) VLO(52) VEND(0) VLO(61) VEND(0) VLO(70) VEND(0) VLO(79) VEND(0) VLO(88) VEND(0) VLO(88) VEND(0) VLO(97) VEND(0) VLO(97) VEND(0) VLO(106) VEND(0) VLO(115) VEND(0) VLO(124) VEND(0) VLO(173) VEND(0) VLO(173) VEND(0) VLO(173) VEND(0) VLO(182) VEND(0) VLO(191) VEND(0) VLO(192) VEND(0) VLO(201) VEND(0) VLO(210) VEND(0) VLO(210) VEND(0) VLO(210) VEND(0) VLO(210) VEND(0)
+host: rc 4; 853915 tokens fed, 853914 agreed, 853915 passes, 1014.6 passes/s, 841.6 s
+host: M[41056]: machine 16661, circuit 32724
+host: scratch: 32 0 0 0 210 210 0 0 4516 0 465422 0 53151 0 46159 0 387848265 0 0 0 0 0 0 0 0 0 0 0 0 41056 32934 8 0 0 0 0 0 0 0 0 0 0 0 0 41056 0 0 0 0 0 0 3 0 0 0 0 41056 1 0 127 0 2047 0 0 0 0 0 4578 0 0 0 1705155351 0 0 0

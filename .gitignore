@@ -1,0 +1,16 @@
+.cache/
+compile_commands.json
+*.gguf
+input/
+logs/**/*.bin
+logs/live/
+logs/native/hash.txt
+logs/t10/ref-hash.txt
+logs/t10/run-hash*.txt
+logs/t13/chip_vpu.good-copy.c
+logs/t13/ref-hash.txt
+*.new
+*.o
+out/
+*.ptx
+*.q8

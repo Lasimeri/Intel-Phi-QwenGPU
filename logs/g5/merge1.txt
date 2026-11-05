@@ -1,0 +1,3 @@
+host: 143 computer layers, hidden 16384 (Qwen's 2048 + 16 ballast + 9045 slots for 31598 dims, 5275 spare), shared expert 8192 units, c = 2^-35; circuit 206699 units, 23446 nodes, 67 banks
+host: the base's 37.79 GB copied unchanged
+host: wrote out/model/q35-with-gpu.gguf: 9 key heads, 9 value heads, 67 banks, 238275 units (31577 of them handovers and the exit's clears; 17 constant-zero units left out), 2020776 nonzero weights, 1450919 pages written, logical 439.43 GB

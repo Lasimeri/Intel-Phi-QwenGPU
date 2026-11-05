@@ -1,0 +1,3 @@
+  so far: 48 positions judged, top-1 41.67 %
+  so far: 96 positions judged, top-1 44.79 %
+  so far: 144 positions judged, top-1 48.61 %

@@ -1,0 +1,17 @@
+host: prompt 19 tokens
+host: image: ROM 524 blocks, 982 descriptors, M 6307010 words, A 12587456 blocks, S 4718592, W 58789888 blocks
+host: 1048576 records, 106383191 tokens, 90436774.1 tok/s, position 5
+host: 2097152 records, 212821627 tokens, 93153025.5 tok/s, position 11
+host: 3145728 records, 319218644 tokens, 93736703.0 tok/s, position 17
+position 18: machine 0 '!'  reference 57044 'Rain'  DIFFER  (425661271 trace tokens so far, 93538947.9 tok/s)
+position 19: machine 0 '!'  reference 21235 ' Rain'  DIFFER  (425661271 trace tokens so far, 93538947.9 tok/s)
+position 20: machine 0 '!'  reference 21235 ' Rain'  DIFFER  (425661271 trace tokens so far, 93538947.9 tok/s)
+position 21: machine 0 '!'  reference 198 '\n'  DIFFER  (425661271 trace tokens so far, 93538947.9 tok/s)
+host: 4194304 records, 425661271 tokens, 93538947.9 tok/s, position 22
+position 22: machine 0 '!'  reference 248046 '<|im_end|>'  DIFFER  (486430524 trace tokens so far, 39637364.7 tok/s)
+position 23: machine 0 '!'  reference 248046 '<|im_end|>'  DIFFER  (486430524 trace tokens so far, 39637364.7 tok/s)
+position 24: machine 0 '!'  reference 198 '\n'  DIFFER  (486430524 trace tokens so far, 39637364.7 tok/s)
+position 25: machine 0 '!'  reference 198 '\n'  DIFFER  (486430524 trace tokens so far, 39637364.7 tok/s)
+host: rc 0 ; 8 tokens emitted, 0 same as the reference; 4793098 records, 24818 launches, 486430524 trace tokens, hash 381f9592d6e10892, 13.7 s, 35443219.1 trace tok/s, 18708866.31 trace tokens per position over 26 positions
+text: !!!!!!!!
+ops: 1:3115958 2:35194 3:2905538 4:12506 5:1452732 6:1412250 7:1446592 8:468 9:11908 10:1445492 11:71274 12:30628 13:101680 14:87848 15:1417172 16:65632 17:6526966 18:1488784 19:402368 20:479232 21:239616 22:1872 23:1872 24:10634 25:23156 26:48920 27:11258 28:10010

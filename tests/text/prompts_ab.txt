@@ -1,0 +1,6 @@
+Tell a story about a dog.
+Explain why the sky is blue.
+Write a C program that prints the first twenty prime numbers.
+Why did the Roman Empire fall?
+Tell a story about a lighthouse keeper who finds a message in a bottle.
+How does a transistor work?

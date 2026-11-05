@@ -1,0 +1,3 @@
+host: M is 6314946 words (25.3 MB), A 12587456 blocks (453.1 MB), S 4718592 elements
+host: W 1.999 GB, 58789888 blocks
+host: wrote out/gpucl: ROM 541 blocks (2930 instructions, 39 instances), queue 982 descriptors, M 6314946 words

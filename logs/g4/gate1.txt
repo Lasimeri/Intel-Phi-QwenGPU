@@ -1,0 +1,4 @@
+host: circuit: 205877 units, 23019 nodes (9 heads, 66 banks), 30020 dims, 141 layers, built in 0.2 s
+host: prompt 19 tokens, 8 to generate; the circuit predicts every token of the reference's stream
+host: MISMATCH at token 81975: the machine wrote EXEC(4124), the circuit predicted NEXT(0)
+host: rc 1; 81975 tokens fed, 81974 agreed, 81975 passes, 804.3 passes/s, 101.9 s

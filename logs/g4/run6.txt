@@ -1,0 +1,36 @@
+host: prompt 19 tokens, ids: 248045 846 198 7734 264 6185 36974 883 10849 13 248046 198 248045 74455 198 248068 271 248069 271
+host: image: ROM 709 blocks, 982 descriptors, M 6314946 words, A 12587456 blocks, S 4718592, W 58789888 blocks
+host: 1048576 records, 72070666 tokens, 32129043.8 tok/s, position 1
+host: 2097152 records, 144116324 tokens, 33517059.3 tok/s, position 2
+host: 3145728 records, 216176140 tokens, 33990681.9 tok/s, position 3
+host: 4194304 records, 288296390 tokens, 34170626.9 tok/s, position 4
+host: 5242880 records, 360286741 tokens, 34359794.7 tok/s, position 5
+host: 6291456 records, 432366717 tokens, 34506257.6 tok/s, position 7
+host: 7340032 records, 504415983 tokens, 34562547.7 tok/s, position 8
+host: 8388608 records, 576475756 tokens, 34626590.1 tok/s, position 9
+host: 9437184 records, 648586757 tokens, 34656541.9 tok/s, position 10
+host: 10485760 records, 720592592 tokens, 34665140.3 tok/s, position 11
+host: 11534336 records, 792687462 tokens, 34655116.5 tok/s, position 13
+host: 12582912 records, 864714023 tokens, 34687142.0 tok/s, position 14
+host: 13631488 records, 936775072 tokens, 34711562.7 tok/s, position 15
+host: 14680064 records, 1008878707 tokens, 34729319.9 tok/s, position 16
+host: 15728640 records, 1080901757 tokens, 34750987.5 tok/s, position 17
+host: 16777216 records, 1153000366 tokens, 34707135.2 tok/s, position 18
+position 18: machine 57044 'Rain'  reference 57044 'Rain'  same  (1225200386 trace tokens so far, 34607831.7 tok/s)
+host: 17825792 records, 1225200386 tokens, 34607831.7 tok/s, position 19
+position 19: machine 16563 ' falls'  reference 16563 ' falls'  same  (1297406658 trace tokens so far, 31330253.9 tok/s)
+host: 18874368 records, 1297406658 tokens, 31330253.9 tok/s, position 20
+position 20: machine 54166 ' softly'  reference 54166 ' softly'  same  (1369646256 trace tokens so far, 31339627.9 tok/s)
+host: 19922944 records, 1369646256 tokens, 31339627.9 tok/s, position 21
+position 21: machine 11 ','  reference 11 ','  same  (1441885946 trace tokens so far, 31345639.4 tok/s)
+host: 20971520 records, 1441885946 tokens, 31345639.4 tok/s, position 22
+position 22: machine 198 '\n'  reference 198 '\n'  same  (1514130659 trace tokens so far, 31348249.0 tok/s)
+host: 22020096 records, 1514130659 tokens, 31348249.0 tok/s, position 23
+position 23: machine 18978 'Green'  reference 18978 'Green'  same  (1586348684 trace tokens so far, 31349493.6 tok/s)
+host: 23068672 records, 1586348684 tokens, 31349493.6 tok/s, position 24
+position 24: machine 10583 ' leaves'  reference 10583 ' leaves'  same  (1658588315 trace tokens so far, 31353513.6 tok/s)
+host: 24117248 records, 1658588315 tokens, 31353513.6 tok/s, position 25
+position 25: machine 2404 ' turn'  reference 2404 ' turn'  same  (1688967096 trace tokens so far, 31276207.2 tok/s)
+host: rc 0 ; 8 tokens emitted, 8 same as the reference; 24556716 records, 24818 launches, 1688967096 trace tokens, hash ee9fcde2143e34ff, 54.2 s, 31172647.6 trace tok/s, 64960272.92 trace tokens per position over 26 positions
+text: Rain falls softly,\nGreen leaves turn
+ops: 1:8031778 2:759782 3:2730647 4:143546 5:1475188 6:446628 7:902457 8:103610 9:69940 10:844667 11:1644284 12:780988 13:1986815 14:1876887 15:1346324 16:1339200 17:17552186 18:2699070 19:38957056 20:7667712 21:3833856 22:29952 23:193856 24:684096 25:869497 26:133562 27:93626

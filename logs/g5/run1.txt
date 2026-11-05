@@ -1,0 +1,7 @@
+host: loaded the model in 14.6 s: 143 computer layers, hidden 16384, 2020797 nonzero weights
+host: prompt 19 tokens, 8 to generate
+host, inside the model: 65536 trace tokens, 125 tok/s, 525.4 s, position 0
+host, inside the model: 131072 trace tokens, 103 tok/s, 1268.2 s, position 0
+host, inside the model: 196608 trace tokens, 104 tok/s, 1896.0 s, position 0
+host: 200000 trace tokens, 1936.1 s, 103 tok/s, hash d7c10b971f64934d, 0 positions, 0 full scans of the output head
+

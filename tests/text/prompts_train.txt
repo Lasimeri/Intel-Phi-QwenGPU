@@ -1,0 +1,25 @@
+Tell a story about a lighthouse keeper who finds a message in a bottle.
+Write a Python function that checks whether a string is a palindrome, and explain it.
+Explain how a refrigerator works.
+What causes the seasons on Earth?
+Write a C program that prints the first twenty prime numbers.
+Give me a recipe for tomato soup.
+Summarize the plot of Romeo and Juliet in a paragraph.
+What is the difference between TCP and UDP?
+Write a short poem about autumn rain.
+Translate "Where is the train station?" into French, Spanish and German.
+Explain what a black hole is to a ten year old.
+List five tips for learning to play the guitar.
+Why did the Roman Empire fall?
+Solve 37 times 43 step by step.
+Write a polite email asking my landlord to fix a leaking tap.
+How does a transistor work?
+Describe the water cycle.
+Write a SQL query that finds the three largest orders per customer.
+What are the main differences between cats and dogs as pets?
+Explain gradient descent in plain language.
+Tell a joke about programmers.
+What is the meaning of the word serendipity? Use it in a sentence.
+Write a limerick about a cat who loves cheese.
+How do vaccines train the immune system?
+Give a brief history of the printing press.

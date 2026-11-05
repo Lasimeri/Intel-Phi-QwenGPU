@@ -1,0 +1,15 @@
+== tensor table
+base tensors 753, merged tensors 3657, chip tensors 2904, merged int keys 53
+base data at 10990752, merged data at 11173600, base bytes 37791158784
+== the 35B's bytes, byte for byte (cmp)
+cmp: the 35B's 37791158784 bytes are identical in the merged file
+== the GPU's layers in the merged file against the evaluator (3000 steps, every dim)
+host: rc 4; 3000 tokens fed, 2999 agreed, 25.7 passes/s, 116.8 s, 0 full scans of the output head, 94791000 slot values compared
+host: emit_gate: every token predicted by the file (to the token limit)
+== the runner on the merged file with the file's own tokenizer (20000 steps), hashes against the reference
+host: prompt 19 tokens, 8 to generate
+host: 20000 trace tokens, 225.5 s, 89 tok/s, hash c0931e531afd8b01, 0 positions, 0 full scans of the output head
+join: /dev/fd/63:7: is not sorted: 12288 b297eca4c449e047
+join: input is not in sorted order
+ hash points compared,  equal
+== done

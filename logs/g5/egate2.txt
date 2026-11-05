@@ -1,0 +1,24 @@
+host: the file: 143 layers, hidden 16384, 2020831 nonzero weights, 2.82 GB of data, loaded in 12.8 s
+host: dims compared every pass: 9020 slots
+host: prompt 19 tokens, 8 to generate; the file predicts every token of the reference's stream
+host: DIMS DIFFER after token 1 (EXEC(4096)): 19 slots; the lowest levels:
+host:   level 4 slot 2635 = dim 25651 (dp5.sup.y2.u.r4): file 0, evaluator 1
+host:   level 254 slot 641 = dim 26234 (dp5.sup.y3.w58): file 1, evaluator 0
+host:   level 254 slot 642 = dim 26235 (dp5.sup.y3.w59): file 1, evaluator 0
+host:   level 254 slot 643 = dim 26236 (dp5.sup.y3.w60): file 1, evaluator 0
+host:   level 254 slot 644 = dim 26237 (dp5.sup.y3.w61): file 1, evaluator 0
+host:   level 256 slot 445 = dim 26272 (dp5.sup.y3.o32): file 0, evaluator 1
+host:   level 256 slot 483 = dim 26273 (dp5.sup.y3.o33): file 0, evaluator 1
+host:   level 256 slot 484 = dim 26274 (dp5.sup.y3.o34): file 0, evaluator 1
+host:   level 256 slot 485 = dim 26275 (dp5.sup.y3.o35): file 0, evaluator 1
+host:   level 256 slot 489 = dim 26279 (dp5.sup.y3.o39): file 0, evaluator 1
+host:   level 256 slot 497 = dim 26282 (dp5.sup.y3.o42): file 0, evaluator 1
+host:   level 256 slot 498 = dim 26283 (dp5.sup.y3.o43): file 0, evaluator 1
+host:   level 256 slot 506 = dim 26285 (dp5.sup.y3.o45): file 0, evaluator 1
+host:   level 256 slot 507 = dim 26286 (dp5.sup.y3.o46): file 1, evaluator 0
+host:   level 256 slot 609 = dim 26288 (dp5.sup.y3.o48): file 1, evaluator 0
+host:   level 256 slot 632 = dim 26289 (dp5.sup.y3.o49): file 1, evaluator 0
+host:   level 256 slot 633 = dim 26290 (dp5.sup.y3.o50): file 1, evaluator 0
+host:   level 256 slot 634 = dim 26291 (dp5.sup.y3.o51): file 1, evaluator 0
+host:   level 256 slot 638 = dim 26295 (dp5.sup.y3.o55): file 1, evaluator 0
+host: rc 4; 1 tokens fed, 1 agreed, 0.1 passes/s, 12.8 s, 0 full scans of the output head, 18040 slot values compared

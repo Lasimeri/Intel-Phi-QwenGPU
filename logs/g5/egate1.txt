@@ -1,0 +1,22 @@
+host: the file: 143 layers, hidden 16384, 2018112 nonzero weights, 2.80 GB of data, loaded in 6.6 s
+host: dims compared every pass: 8656 slots
+host: prompt 19 tokens, 8 to generate; the file predicts every token of the reference's stream
+host: DIMS DIFFER after token 0 (NEXT(0)):
+host:   slot 0 = dim 31036 (exit.fam.b0): file 0, evaluator 1
+host:   slot 1 = dim 31037 (exit.fam.b1): file 0, evaluator 1
+host:   slot 16 = dim 31052 (exit.pay.b12): file 0, evaluator 1
+host:   slot 55 = dim 29931 (ucur.val.b12): file 0, evaluator 1
+host:   slot 57 = dim 29933 (ucur.val.b14): file 0, evaluator 1
+host:   slot 58 = dim 29934 (ucur.val.b15): file 0, evaluator 1
+host:   slot 59 = dim 886 (live.br0): file 0, evaluator 1
+host:   slot 65 = dim 29936 (ucur.val.b17): file 0, evaluator 1
+host:   slot 66 = dim 29937 (ucur.val.b18): file 0, evaluator 1
+host:   slot 67 = dim 29938 (ucur.val.b19): file 0, evaluator 1
+host:   slot 71 = dim 29942 (ucur.val.b23): file 0, evaluator 1
+host:   slot 74 = dim 29945 (ucur.val.b26): file 0, evaluator 1
+host:   slot 75 = dim 29946 (ucur.val.b27): file 0, evaluator 1
+host:   slot 76 = dim 29947 (ucur.val.b28): file 0, evaluator 1
+host:   slot 77 = dim 29948 (ucur.val.b29): file 0, evaluator 1
+host:   slot 85 = dim 25956 (dp5.sup.res.b0): file 0, evaluator 1
+host: 1066 slots differ
+host: rc 4; 0 tokens fed, 0 agreed, 0.0 passes/s, 10.0 s, 0 full scans of the output head, 8656 slot values compared

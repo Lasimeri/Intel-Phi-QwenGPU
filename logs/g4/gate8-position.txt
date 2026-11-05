@@ -1,0 +1,20 @@
+host: circuit: 206699 units, 23446 nodes (9 heads, 67 banks), 31598 dims, 141 layers, built in 0.2 s
+host: prompt 19 tokens, 8 to generate; the circuit predicts every token of the reference's stream
+host: 99999 tokens agree, 1821.8 passes/s
+host: 199999 tokens agree, 1812.9 passes/s
+host: 299999 tokens agree, 1769.0 passes/s
+host: 399999 tokens agree, 1639.3 passes/s
+host: 499999 tokens agree, 1609.6 passes/s
+host: 599999 tokens agree, 1267.5 passes/s
+host: 699999 tokens agree, 1316.9 passes/s
+host: 799999 tokens agree, 1353.6 passes/s
+host: 899999 tokens agree, 1383.3 passes/s
+host: 999999 tokens agree, 1403.4 passes/s
+host: 1099999 tokens agree, 1436.0 passes/s
+host: 1199999 tokens agree, 1462.2 passes/s
+host: 1299999 tokens agree, 1483.2 passes/s
+host: 1399999 tokens agree, 1504.6 passes/s
+host: 1499999 tokens agree, 1518.4 passes/s
+host: 1599999 tokens agree, 1533.6 passes/s
+host: 1699999 tokens agree, 1545.9 passes/s
+host: 1799999 tokens agree, 1551.5 passes/s

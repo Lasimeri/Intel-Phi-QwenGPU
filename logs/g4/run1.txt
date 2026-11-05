@@ -1,0 +1,29 @@
+host: prompt 19 tokens, ids: 248045 846 198 7734 264 6185 36974 883 10849 13 248046 198 248045 74455 198 248068 271 248069 271
+host: image: ROM 540 blocks, 982 descriptors, M 6314946 words, A 12587456 blocks, S 4718592, W 58789888 blocks
+host: 1048576 records, 70673268 tokens, 33709226.8 tok/s, position 1
+host: 2097152 records, 141314231 tokens, 34997926.4 tok/s, position 3
+host: 3145728 records, 211977959 tokens, 35560019.0 tok/s, position 4
+host: 4194304 records, 282770826 tokens, 35726639.5 tok/s, position 6
+host: 5242880 records, 353414775 tokens, 35878569.9 tok/s, position 8
+host: 6291456 records, 424087616 tokens, 35937641.9 tok/s, position 9
+host: 7340032 records, 494844386 tokens, 35969097.9 tok/s, position 11
+host: 8388608 records, 565478176 tokens, 36018522.9 tok/s, position 13
+host: 9437184 records, 636197561 tokens, 36090248.2 tok/s, position 14
+host: 10485760 records, 706900018 tokens, 36131504.4 tok/s, position 16
+host: 11534336 records, 777562432 tokens, 36150038.5 tok/s, position 18
+position 18: machine 57044 'Rain'  reference 57044 'Rain'  same  (848151976 trace tokens so far, 35960834.6 tok/s)
+host: 12582912 records, 848151976 tokens, 35960834.6 tok/s, position 19
+position 19: machine 16563 ' falls'  reference 16563 ' falls'  same  (918766046 trace tokens so far, 30898441.3 tok/s)
+host: 13631488 records, 918766046 tokens, 30898441.3 tok/s, position 20
+position 20: machine 11 ','  reference 54166 ' softly'  DIFFER  (989305981 trace tokens so far, 30941061.8 tok/s)
+position 21: machine 198 '\n'  reference 198 '\n'  same  (989305981 trace tokens so far, 30941061.8 tok/s)
+host: 14680064 records, 989305981 tokens, 30941061.8 tok/s, position 22
+position 22: machine 1719 'the'  reference 67 'd'  DIFFER  (1059864810 trace tokens so far, 30864889.8 tok/s)
+host: 15728640 records, 1059864810 tokens, 30864889.8 tok/s, position 23
+position 23: machine 12515 ' sky'  reference 1814 ' world'  DIFFER  (1130416525 trace tokens so far, 30897527.9 tok/s)
+position 24: machine 15417 ' opens'  reference 10263 ' turns'  DIFFER  (1130416525 trace tokens so far, 30897527.9 tok/s)
+host: 16777216 records, 1130416525 tokens, 30897527.9 tok/s, position 25
+position 25: machine 6669 ' wide'  reference 6669 ' wide'  same  (1179876348 trace tokens so far, 30747325.1 tok/s)
+host: rc 0 ; 8 tokens emitted, 4 same as the reference; 17511650 records, 24818 launches, 1179876348 trace tokens, hash 6f9a34e3611bb71a, 38.6 s, 30601861.2 trace tok/s, 45379859.54 trace tokens per position over 26 positions
+text: Rain falls,\nthe sky opens wide
+ops: 1:8001840 2:759782 3:2730654 4:143546 5:1475188 6:446628 7:902464 8:103610 9:69940 10:844674 11:1644284 12:780988 13:1986822 14:1876894 15:1346324 16:1339200 17:17552186 18:2699070 19:38957056 20:7667712 21:3833856 22:29952 23:29952 24:193856 25:654144 26:869504 27:133562 28:93626

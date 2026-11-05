@@ -1,0 +1,15 @@
+host: circuit: 206669 units, 23415 nodes (9 heads, 66 banks), 31056 dims, 141 layers, built in 0.2 s
+host: prompt 19 tokens, 8 to generate; the circuit predicts every token of the reference's stream
+host: 99999 tokens agree, 1453.8 passes/s
+host: 199999 tokens agree, 1439.1 passes/s
+host: 299999 tokens agree, 1454.3 passes/s
+host: 399999 tokens agree, 1458.0 passes/s
+host: 499999 tokens agree, 1460.6 passes/s
+host: 599999 tokens agree, 1452.2 passes/s
+host: 699999 tokens agree, 1463.5 passes/s
+host: 799999 tokens agree, 1466.4 passes/s
+host: MISMATCH at token 828728: the machine wrote VLO(26018), the circuit predicted VLO(6532)
+host: the tokens before it: LSTEP(0) LSTEP(0) LSTEP(0) VLO(1) VHI(0) VLO(6532) VHI(0) VLO(39703) VHI(26018) VLO(16) VEND(0) EXEC(191) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) LSTEP(0) VLO(26018) VHI(6532) VLO(0) VHI(0)
+host: rc 4; 828728 tokens fed, 828727 agreed, 828728 passes, 1466.7 passes/s, 565.0 s
+host: u2 of slot 0: machine 428107170, circuit 0
+host: scratch: 32 2 0 0 172645 2028574 0 0 104 0 73897 0 3054 0 3063 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1705155351 32767 0 0 0 0 6532 32767 0 0 0 0 31 0 0

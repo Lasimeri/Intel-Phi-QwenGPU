@@ -1,0 +1,28 @@
+host: prompt 19 tokens
+host: image: ROM 524 blocks, 982 descriptors, M 6307010 words, A 12587456 blocks, S 4718592, W 58789888 blocks
+host: 1048576 records, 65714439 tokens, 32633498.9 tok/s, position 1
+host: 2097152 records, 131490207 tokens, 34968339.7 tok/s, position 3
+host: 3145728 records, 197237418 tokens, 36094561.7 tok/s, position 5
+host: 4194304 records, 262972354 tokens, 37315075.6 tok/s, position 6
+host: 5242880 records, 328735293 tokens, 38263126.7 tok/s, position 8
+host: 6291456 records, 394425678 tokens, 38489599.4 tok/s, position 10
+host: 7340032 records, 460231070 tokens, 38562115.1 tok/s, position 11
+host: 8388608 records, 526106041 tokens, 38808802.4 tok/s, position 13
+host: 9437184 records, 591714606 tokens, 38904937.3 tok/s, position 15
+host: 10485760 records, 657571030 tokens, 38855066.7 tok/s, position 16
+host: 11534336 records, 723211636 tokens, 38982422.8 tok/s, position 18
+position 18: machine 246875 '拶'  reference 57044 'Rain'  DIFFER  (789029198 trace tokens so far, 39016862.0 tok/s)
+position 19: machine 246875 '拶'  reference 28310 'る'  DIFFER  (789029198 trace tokens so far, 39016862.0 tok/s)
+host: 12582912 records, 789029198 tokens, 39016862.0 tok/s, position 20
+position 20: machine 246875 '拶'  reference 246875 '拶'  same  (854763138 trace tokens so far, 32919735.8 tok/s)
+host: 13631488 records, 854763138 tokens, 32919735.8 tok/s, position 21
+position 21: machine 246875 '拶'  reference 198 '\n'  DIFFER  (920448799 trace tokens so far, 33157139.1 tok/s)
+position 22: machine 246875 '拶'  reference 198 '\n'  DIFFER  (920448799 trace tokens so far, 33157139.1 tok/s)
+host: 14680064 records, 920448799 tokens, 33157139.1 tok/s, position 23
+position 23: machine 246875 '拶'  reference 198 '\n'  DIFFER  (986240311 trace tokens so far, 33135037.0 tok/s)
+position 24: machine 246875 '拶'  reference 198 '\n'  DIFFER  (986240311 trace tokens so far, 33135037.0 tok/s)
+host: 15728640 records, 986240311 tokens, 33135037.0 tok/s, position 25
+position 25: machine 246875 '拶'  reference 198 '\n'  DIFFER  (1013222712 trace tokens so far, 32879542.9 tok/s)
+host: rc 0 ; 8 tokens emitted, 1 same as the reference; 16157618 records, 24818 launches, 1013222712 trace tokens, hash 94f83021e8bdda5f, 31.0 s, 32656085.8 trace tok/s, 38970104.31 trace tokens per position over 26 positions
+text: 拶拶拶拶拶拶拶拶
+ops: 1:7725684 2:636902 3:2636806 4:143546 5:1475188 6:432874 7:858536 8:89856 9:69940 10:842218 11:1582844 12:780988 13:1738606 14:1628678 15:1274900 16:1237824 17:17367866 18:2246718 19:35024896 20:7667712 21:3833856 22:29952 23:29952 24:193856 25:531264 26:867048 27:133562 28:93626

@@ -1,0 +1,10 @@
+  so far: 48 positions judged, top-1 89.58 %
+  so far: 96 positions judged, top-1 86.46 %
+  so far: 144 positions judged, top-1 88.19 %
+  so far: 192 positions judged, top-1 84.38 %
+  so far: 240 positions judged, top-1 84.58 %
+  so far: 288 positions judged, top-1 84.38 %
+host, 2B in integers against the exact 2B, 6 prompts, 288 positions: top-1 84.38 %, top-5 98.96 %, misses 45, mean rank 0.271
+operations as trace tokens per inner token, at the unit's costs (a model, not a trace), over 410 positions:
+  matrix rows 117.580 M, quantize 0.788 M, elementwise 2.713 M, GDN state 19.169 M, attention 0.054 M, rms 0.118 M; total 140.421 M
+largest magnitudes: matrix output 6628315 (Q.16), block product 34002, state 67681838446 (Q.32)

@@ -1,0 +1,2 @@
+host: 143 computer layers, hidden 16384 (Qwen's 2048 + 16 ballast + 9020 slots for 31601 dims, 5300 spare), shared expert 8192 units, c = 2^-35; circuit 206702 units, 23449 nodes, 67 banks
+host: wrote out/model/chip-2b.gguf: 9 key heads, 9 value heads, 67 banks, 238281 units (31580 of them handovers and the exit's clears; 17 constant-zero units left out), 2020797 nonzero weights, 1451697 pages written, logical 401.62 GB

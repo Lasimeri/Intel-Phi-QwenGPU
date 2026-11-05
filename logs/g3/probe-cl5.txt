@@ -1,0 +1,552 @@
+host: prompt 19 tokens, probing 1 positions, 549 checks per position
+host: position 0 token 248045 '<|im_start|>': 531 reference tensors
+  d    0 embed              inp_embd               L-1  ok (2048 words)
+  d    5 norm_e             attn_norm              L0   ok (2048 words)
+  d    7 gemv_ring64        linear_attn_qkv_mixed  L0   ok (6144 words)
+  d    8 gemv_h64           z                      L0   ok (2048 words)
+  d   11 gdn_gates          gdn_decay              L0   ok (16 words)
+  d   11 gdn_gates          gdn_beta               L0   ok (16 words)
+  d   12 conv_silu          conv_output_silu       L0   ok (6144 words)
+  d   15 quant_vec128_scale gdn_qi                 L0   ok (2048 words)
+  d   15 quant_vec128_scale gdn_ki                 L0   ok (2048 words)
+  d   15 quant_vec128_scale gdn_vi                 L0   ok (2048 words)
+  d   15 quant_vec128_scale gdn_qs                 L0   ok (16 words)
+  d   15 quant_vec128_scale gdn_ks                 L0   ok (16 words)
+  d   15 quant_vec128_scale gdn_vs                 L0   ok (16 words)
+  d   16 gdn_head           gdn_kreal              L0   ok (2048 words)
+  d   16 gdn_head           gdn_o                  L0   ok (2048 words)
+  d   16 gdn_head           gdn_dbg                L0   ok (128 words)
+  d   16 gdn_head           gdn_on                 L0   ok (2048 words)
+  d   16 gdn_head           gdn_sz                 L0   ok (2048 words)
+  d   16 gdn_head           gdn_se                 L0   ok (16 words)
+  d   16 gdn_head           gdn_smax               L0   ok (16 words)
+  d   16 gdn_head           gdn_state              L0   ok (262144 state elements)
+  d   16 gdn_head           final_output           L0   ok (2048 words)
+  d   17 quant_blocks       mix_q                  L0   ok (2048 words)
+  d   17 quant_blocks       mix_xs                 L0   ok (64 words)
+  d   18 gemv_h64           linear_attn_out        L0   ok (2048 words)
+  d   19 add_into           attn_residual          L0   ok (2048 words)
+  d   24 norm_e             attn_post_norm         L0   ok (2048 words)
+  d   30 gemv_ffx192        ffn_out                L0   ok (2048 words)
+  d   31 add_into           l_out                  L0   ok (2048 words)
+  d   36 norm_e             attn_norm              L1   ok (2048 words)
+  d   38 gemv_ring64        linear_attn_qkv_mixed  L1   ok (6144 words)
+  d   39 gemv_h64           z                      L1   ok (2048 words)
+  d   42 gdn_gates          gdn_decay              L1   ok (16 words)
+  d   42 gdn_gates          gdn_beta               L1   ok (16 words)
+  d   43 conv_silu          conv_output_silu       L1   ok (6144 words)
+  d   46 quant_vec128_scale gdn_qi                 L1   ok (2048 words)
+  d   46 quant_vec128_scale gdn_ki                 L1   ok (2048 words)
+  d   46 quant_vec128_scale gdn_vi                 L1   ok (2048 words)
+  d   46 quant_vec128_scale gdn_qs                 L1   ok (16 words)
+  d   46 quant_vec128_scale gdn_ks                 L1   ok (16 words)
+  d   46 quant_vec128_scale gdn_vs                 L1   ok (16 words)
+  d   47 gdn_head           gdn_kreal              L1   ok (2048 words)
+  d   47 gdn_head           gdn_o                  L1   ok (2048 words)
+  d   47 gdn_head           gdn_dbg                L1   ok (128 words)
+  d   47 gdn_head           gdn_on                 L1   ok (2048 words)
+  d   47 gdn_head           gdn_sz                 L1   ok (2048 words)
+  d   47 gdn_head           gdn_se                 L1   ok (16 words)
+  d   47 gdn_head           gdn_smax               L1   ok (16 words)
+  d   47 gdn_head           gdn_state              L1   ok (262144 state elements)
+  d   47 gdn_head           final_output           L1   ok (2048 words)
+  d   48 quant_blocks       mix_q                  L1   ok (2048 words)
+  d   48 quant_blocks       mix_xs                 L1   ok (64 words)
+  d   49 gemv_h64           linear_attn_out        L1   ok (2048 words)
+  d   50 add_into           attn_residual          L1   ok (2048 words)
+  d   55 norm_e             attn_post_norm         L1   ok (2048 words)
+  d   61 gemv_ffx192        ffn_out                L1   ok (2048 words)
+  d   62 add_into           l_out                  L1   ok (2048 words)
+  d   67 norm_e             attn_norm              L2   ok (2048 words)
+  d   69 gemv_ring64        linear_attn_qkv_mixed  L2   ok (6144 words)
+  d   70 gemv_h64           z                      L2   ok (2048 words)
+  d   73 gdn_gates          gdn_decay              L2   ok (16 words)
+  d   73 gdn_gates          gdn_beta               L2   ok (16 words)
+  d   74 conv_silu          conv_output_silu       L2   ok (6144 words)
+  d   77 quant_vec128_scale gdn_qi                 L2   ok (2048 words)
+  d   77 quant_vec128_scale gdn_ki                 L2   ok (2048 words)
+  d   77 quant_vec128_scale gdn_vi                 L2   ok (2048 words)
+  d   77 quant_vec128_scale gdn_qs                 L2   ok (16 words)
+  d   77 quant_vec128_scale gdn_ks                 L2   ok (16 words)
+  d   77 quant_vec128_scale gdn_vs                 L2   ok (16 words)
+  d   78 gdn_head           gdn_kreal              L2   ok (2048 words)
+  d   78 gdn_head           gdn_o                  L2   ok (2048 words)
+  d   78 gdn_head           gdn_dbg                L2   ok (128 words)
+  d   78 gdn_head           gdn_on                 L2   ok (2048 words)
+  d   78 gdn_head           gdn_sz                 L2   ok (2048 words)
+  d   78 gdn_head           gdn_se                 L2   ok (16 words)
+  d   78 gdn_head           gdn_smax               L2   ok (16 words)
+  d   78 gdn_head           gdn_state              L2   ok (262144 state elements)
+  d   78 gdn_head           final_output           L2   ok (2048 words)
+  d   79 quant_blocks       mix_q                  L2   ok (2048 words)
+  d   79 quant_blocks       mix_xs                 L2   ok (64 words)
+  d   80 gemv_h64           linear_attn_out        L2   ok (2048 words)
+  d   81 add_into           attn_residual          L2   ok (2048 words)
+  d   86 norm_e             attn_post_norm         L2   ok (2048 words)
+  d   92 gemv_ffx192        ffn_out                L2   ok (2048 words)
+  d   93 add_into           l_out                  L2   ok (2048 words)
+  d   98 norm_e             attn_norm              L3   ok (2048 words)
+  d  141 attn_pv            attn_gated             L3   DIFFER: 1980 of 2048 words, max |diff| 64862, first at 0: [0] 0 vs 804 [1] 0 vs -2181 [2] 0 vs -2221 [3] 0 vs 481 [4] 0 vs 455 [5] 0 vs -2262
+  d  143 gemv_h64           attn_output            L3   DIFFER: 2048 of 2048 words, max |diff| 28175, first at 0: [0] 0 vs -3245 [1] 0 vs 1101 [2] 0 vs -745 [3] 0 vs -4961 [4] 0 vs 255 [5] 0 vs 1776
+  d  144 add_into           attn_residual          L3   DIFFER: 2048 of 2048 words, max |diff| 28175, first at 0: [0] 657 vs -2588 [1] 7173 vs 8274 [2] -3741 vs -4486 [3] 708 vs -4253 [4] 9143 vs 9398 [5] -2770 vs -994
+  d  149 norm_e             attn_post_norm         L3   DIFFER: 2048 of 2048 words, max |diff| 75846, first at 0: [0] 4603 vs -18794 [1] 50678 vs 60594 [2] -16774 vs -20850 [3] 4819 vs -30007 [4] 59279 vs 63161 [5] -19536 vs -7266
+  d  155 gemv_ffx192        ffn_out                L3   DIFFER: 2047 of 2048 words, max |diff| 17676, first at 0: [0] -3661 vs -2140 [1] 114 vs -549 [2] 2919 vs 2304 [3] 2354 vs 730 [4] 466 vs 221 [5] 2945 vs 1503
+  d  156 add_into           l_out                  L3   DIFFER: 2048 of 2048 words, max |diff| 45851, first at 0: [0] -3004 vs -4728 [1] 7287 vs 7725 [2] -822 vs -2182 [3] 3062 vs -3523 [4] 9609 vs 9619 [5] 175 vs 509
+  d  161 norm_e             attn_norm              L4   DIFFER: 2048 of 2048 words, max |diff| 314362, first at 0: [0] -21891 vs -32702 [1] 51729 vs 52049 [2] -4237 vs -10676 [3] 22653 vs -24739 [4] 72582 vs 68962 [5] 1250 vs 3451
+  d  163 gemv_ring64        linear_attn_qkv_mixed  L4   DIFFER: 6144 of 6144 words, max |diff| 165579, first at 0: [0] 151143 vs 139838 [1] -17650 vs -11071 [2] -14480 vs -25371 [3] 110617 vs 119528 [4] 147803 vs 191739 [5] 41800 vs 32360
+  d  164 gemv_h64           z                      L4   DIFFER: 2048 of 2048 words, max |diff| 98591, first at 0: [0] -51488 vs -54232 [1] -66453 vs -67368 [2] 20623 vs 25108 [3] -3939 vs -1429 [4] -66686 vs -54554 [5] 38668 vs 60549
+  d  167 gdn_gates          gdn_decay              L4   DIFFER: 16 of 16 words, max |diff| 1215, first at 0: [0] 25026 vs 25934 [1] 1227 vs 1508 [2] 32465 vs 32418 [3] 12795 vs 13085 [4] 32513 vs 32291 [5] 31482 vs 31054
+  d  167 gdn_gates          gdn_beta               L4   DIFFER: 15 of 16 words, max |diff| 665, first at 0: [0] 19942 vs 20607 [1] 25559 vs 26196 [2] 29969 vs 29929 [3] 21575 vs 21489 [4] 32214 vs 32266 [5] 32736 vs 32737
+  d  168 conv_silu          conv_output_silu       L4   DIFFER: 3628 of 6144 words, max |diff| 24625, first at 0: [0] -15075 vs -14437 [1] -508 vs -382 [2] 1040 vs 1841 [3] -7269 vs -7743 [4] -10950 vs -13139 [5] 2522 vs 1841
+  d  171 quant_vec128_scale gdn_qi                 L4   DIFFER: 1490 of 2048 words, max |diff| 61, first at 0: [0] -76 vs -91 [1] -3 vs -2 [2] 5 vs 12 [3] -37 vs -49 [4] -55 vs -83 [5] 13 vs 12
+  d  171 quant_vec128_scale gdn_ki                 L4   DIFFER: 1025 of 2048 words, max |diff| 42, first at 0: [0] -1 vs 0 [1] -37 vs -30 [2] 3 vs 2 [3] 3 vs 1 [4] -24 vs -20 [11] -15 vs -12
+  d  171 quant_vec128_scale gdn_vi                 L4   DIFFER: 632 of 2048 words, max |diff| 27, first at 4: [4] -2 vs -1 [5] 1 vs 2 [10] 0 vs -1 [12] -1 vs 0 [14] 0 vs -1 [23] 0 vs -1
+  d  171 quant_vec128_scale gdn_qs                 L4   DIFFER: 16 of 16 words, max |diff| 2563, first at 0: [0] 4029 vs 3248 [1] 8043 vs 7830 [2] 7366 vs 4803 [3] 5424 vs 5110 [4] 3307 vs 3238 [5] 9937 vs 10352
+  d  171 quant_vec128_scale gdn_ks                 L4   DIFFER: 16 of 16 words, max |diff| 10586, first at 0: [0] 75409 vs 85995 [1] 65888 vs 64489 [2] 42534 vs 39319 [3] 66992 vs 58166 [4] 75177 vs 76015 [5] 81156 vs 79232
+  d  171 quant_vec128_scale gdn_vs                 L4   DIFFER: 16 of 16 words, max |diff| 42411, first at 0: [0] 31786 vs 31371 [1] 20843 vs 22165 [2] 55836 vs 48130 [3] 18497 vs 17974 [4] 503677 vs 522169 [5] 3411845 vs 3454256
+  d  172 gdn_head           gdn_kreal              L4   DIFFER: 1582 of 2048 words, max |diff| 3001986, first at 0: [0] -75409 vs 0 [1] -2790133 vs -2579850 [2] 226227 vs 171990 [3] 226227 vs 85995 [4] -1809816 vs -1719900 [5] 75409 vs 85995
+  d  172 gdn_head           gdn_o                  L4   DIFFER: 1409 of 2048 words, max |diff| 1449657, first at 0: [0] -3167 vs -6530 [2] -3167 vs -6530 [4] -6863 vs -6530 [5] 3167 vs 12500 [8] -3167 vs -6530 [10] 0 vs -6530
+  d  172 gdn_head           gdn_dbg                L4   DIFFER: 110 of 128 words, max |diff| 2922143, first at 0: [0] 429651 vs 790509 [1] 16507 vs 16448 [2] 2907 vs 2901 [3] 590 vs 874 [4] 16787 vs 16799 [5] 251665 vs 202736
+  d  172 gdn_head           gdn_on                 L4   DIFFER: 1409 of 2048 words, max |diff| 27140, first at 0: [0] -159 vs -264 [2] -159 vs -264 [4] -349 vs -268 [5] 180 vs 573 [8] -163 vs -270 [10] 0 vs -323
+  d  172 gdn_head           gdn_sz                 L4   DIFFER: 2034 of 2048 words, max |diff| 64981, first at 0: [0] -16153 vs -16501 [1] -17697 vs -17764 [2] 11827 vs 14916 [3] -1984 vs -759 [4] -17714 vs -16566 [5] 24869 vs 43223
+  d  172 gdn_head           gdn_se                 L4   DIFFER: 1 of 16 words, max |diff| 1, first at 1: [1] 19 vs 18
+  d  172 gdn_head           gdn_smax               L4   DIFFER: 16 of 16 words, max |diff| 15016, first at 0: [0] 21912 vs 25484 [1] 32181 vs 17165 [2] 32627 vs 25964 [3] 24511 vs 20598 [4] 17474 vs 18347 [5] 32463 vs 32088
+  d  172 gdn_head           gdn_state              L4   DIFFER: 118623 of 262144 elements, max |diff| 15016, first at 0 (head 0 row 0 col 0): [0] 1 vs 0 [2] 1 vs 0 [4] 3 vs 0 [5] -1 vs 0 [8] 1 vs 0 [12] 1 vs 0
+  d  172 gdn_head           final_output           L4   DIFFER: 1394 of 2048 words, max |diff| 22832, first at 0: [0] 39 vs 66 [2] -29 vs -60 [4] 94 vs 68 [5] 68 vs 378 [8] 0 vs -8 [10] 0 vs 49
+  d  173 quant_blocks       mix_q                  L4   DIFFER: 1152 of 2048 words, max |diff| 254, first at 0: [0] 53 vs 22 [2] -39 vs -20 [4] 127 vs 23 [5] 92 vs 127 [8] 0 vs -3 [10] 0 vs 16
+  d  173 quant_blocks       mix_xs                 L4   DIFFER: 64 of 64 words, max |diff| 46024, first at 0: [0] 189 vs 762 [1] 3157 vs 10593 [2] 129 vs 254 [3] 625 vs 824 [4] 2181 vs 2090 [5] 2975 vs 3397
+  d  174 gemv_h64           linear_attn_out        L4   DIFFER: 2046 of 2048 words, max |diff| 12109, first at 0: [0] 2970 vs 3023 [1] 2007 vs 1906 [2] 1540 vs 1281 [3] 759 vs 1121 [4] 460 vs 0 [5] -1480 vs -1567
+  d  175 add_into           attn_residual          L4   DIFFER: 2048 of 2048 words, max |diff| 33742, first at 0: [0] -34 vs -1705 [1] 9294 vs 9631 [2] 718 vs -901 [3] 3821 vs -2402 [4] 10069 vs 9619 [5] -1305 vs -1058
+  d  180 norm_e             attn_post_norm         L4   DIFFER: 2048 of 2048 words, max |diff| 138148, first at 0: [0] -211 vs -10052 [1] 57657 vs 56974 [2] 2741 vs -3280 [3] 22679 vs -13595 [4] 55701 vs 50743 [5] -7987 vs -6175
+  d  186 gemv_ffx192        ffn_out                L4   DIFFER: 2048 of 2048 words, max |diff| 9267, first at 0: [0] 558 vs 537 [1] 1211 vs 1458 [2] -832 vs -554 [3] -1031 vs 63 [4] 884 vs 301 [5] -960 vs -139
+  d  187 add_into           l_out                  L4   DIFFER: 2048 of 2048 words, max |diff| 24475, first at 0: [0] 524 vs -1168 [1] 10505 vs 11089 [2] -114 vs -1455 [3] 2790 vs -2339 [4] 10953 vs 9920 [5] -2265 vs -1197
+  d  192 norm_e             attn_norm              L5   DIFFER: 2048 of 2048 words, max |diff| 153328, first at 0: [0] 3686 vs -7779 [1] 71390 vs 71352 [2] -469 vs -5659 [3] 19596 vs -15555 [4] 80726 vs 69225 [5] -15785 vs -7898
+  d  194 gemv_ring64        linear_attn_qkv_mixed  L5   DIFFER: 6144 of 6144 words, max |diff| 131531, first at 0: [0] 29594 vs 47743 [1] 28541 vs 44650 [2] -6935 vs -2643 [3] 70335 vs 78859 [4] 20459 vs 33623 [5] 25215 vs 12526
+  d  195 gemv_h64           z                      L5   DIFFER: 2048 of 2048 words, max |diff| 66493, first at 0: [0] 67035 vs 71335 [1] 64308 vs 57298 [2] -33283 vs -31398 [3] -15613 vs -15419 [4] -21639 vs -7465 [5] -73719 vs -59537
+  d  198 gdn_gates          gdn_decay              L5   DIFFER: 16 of 16 words, max |diff| 2092, first at 0: [0] 20148 vs 20011 [1] 28511 vs 28567 [2] 22324 vs 21914 [3] 32402 vs 32244 [4] 29865 vs 29734 [5] 31267 vs 31543
+  d  198 gdn_gates          gdn_beta               L5   DIFFER: 16 of 16 words, max |diff| 977, first at 0: [0] 31751 vs 31747 [1] 32331 vs 32323 [2] 25426 vs 24449 [3] 32447 vs 32367 [4] 32637 vs 32645 [5] 32046 vs 31888
+  d  199 conv_silu          conv_output_silu       L5   DIFFER: 3427 of 6144 words, max |diff| 37131, first at 0: [0] 3216 vs 5519 [1] -3615 vs -5360 [2] 128 vs 0 [3] -6686 vs -7365 [4] 777 vs 1305 [5] -2342 vs -1255
+  d  202 quant_vec128_scale gdn_qi                 L5   DIFFER: 1522 of 2048 words, max |diff| 63, first at 0: [0] 13 vs 24 [1] -15 vs -23 [2] 1 vs 0 [3] -27 vs -31 [4] 3 vs 6 [5] -10 vs -5
+  d  202 quant_vec128_scale gdn_ki                 L5   DIFFER: 1010 of 2048 words, max |diff| 74, first at 2: [2] -49 vs -47 [4] -50 vs -44 [7] -4 vs -1 [8] -23 vs -26 [13] -95 vs -93 [14] -69 vs -72
+  d  202 quant_vec128_scale gdn_vi                 L5   DIFFER: 649 of 2048 words, max |diff| 56, first at 2: [2] 0 vs -1 [7] 0 vs -1 [10] -11 vs -12 [17] 0 vs -1 [20] -1 vs 0 [23] -11 vs -6
+  d  202 quant_vec128_scale gdn_qs                 L5   DIFFER: 16 of 16 words, max |diff| 2044, first at 0: [0] 4427 vs 4285 [1] 6620 vs 6691 [2] 3261 vs 3431 [3] 8560 vs 8545 [4] 7151 vs 7810 [5] 7472 vs 7160
+  d  202 quant_vec128_scale gdn_ks                 L5   DIFFER: 16 of 16 words, max |diff| 3945, first at 0: [0] 51796 vs 52561 [1] 113320 vs 113431 [2] 74124 vs 76826 [3] 75440 vs 77308 [4] 72723 vs 73103 [5] 44425 vs 44017
+  d  202 quant_vec128_scale gdn_vs                 L5   DIFFER: 15 of 16 words, max |diff| 5602, first at 0: [0] 32488 vs 31706 [1] 11423 vs 12024 [2] 3711 vs 5640 [3] 169561 vs 171728 [4] 427216 vs 425549 [5] 50934 vs 50531
+  d  203 gdn_head           gdn_kreal              L5   DIFFER: 1782 of 2048 words, max |diff| 3984633, first at 0: [0] -51796 vs -52561 [1] -51796 vs -52561 [2] -2538004 vs -2470367 [3] -51796 vs -52561 [4] -2589800 vs -2312684 [5] -51796 vs -52561
+  d  203 gdn_head           gdn_o                  L5   DIFFER: 1492 of 2048 words, max |diff| 2304783, first at 0: [0] 1728 vs 3328 [2] 0 vs 3328 [4] 1728 vs 3328 [7] 0 vs 3328 [8] -81870 vs -151329 [9] 1728 vs 3328
+  d  203 gdn_head           gdn_dbg                L5   DIFFER: 113 of 128 words, max |diff| 4645861, first at 0: [0] 212082 vs 391700 [1] 19559 vs 19638 [2] 3164 vs 3170 [3] 349 vs 624 [4] 16780 vs 16788 [5] 276641 vs 267640
+  d  203 gdn_head           gdn_on                 L5   DIFFER: 1481 of 2048 words, max |diff| 52113, first at 0: [0] 107 vs 199 [2] 0 vs 201 [4] 106 vs 198 [7] 0 vs 190 [8] -4788 vs -8562 [9] 83 vs 155
+  d  203 gdn_head           gdn_sz                 L5   DIFFER: 2021 of 2048 words, max |diff| 27913, first at 0: [0] 49102 vs 53206 [1] 46727 vs 40246 [2] -12569 vs -12033 [4] -9090 vs -3615 [5] -18070 vs -17117 [7] -15434 vs -16468
+  d  203 gdn_head           gdn_se                 L5   DIFFER: 2 of 16 words, max |diff| 1, first at 2: [2] 21 vs 20 [5] 17 vs 18
+  d  203 gdn_head           gdn_smax               L5   DIFFER: 16 of 16 words, max |diff| 15893, first at 0: [0] 24493 vs 24253 [1] 19185 vs 20209 [2] 25649 vs 19425 [3] 23783 vs 24623 [4] 29051 vs 29096 [5] 16620 vs 32513
+  d  203 gdn_head           gdn_state              L5   DIFFER: 142832 of 262144 elements, max |diff| 15893, first at 2 (head 0 row 0 col 2): [2] 0 vs 2 [7] 0 vs 2 [10] 17 vs 18 [17] 0 vs 2 [20] 2 vs 0 [23] 17 vs 9
+  d  203 gdn_head           final_output           L5   DIFFER: 1487 of 2048 words, max |diff| 15302, first at 0: [0] 80 vs 162 [2] 0 vs -37 [4] -15 vs -11 [7] 0 vs -48 [8] -6739 vs -12945 [9] -13 vs -18
+  d  204 quant_blocks       mix_q                  L5   DIFFER: 1206 of 2048 words, max |diff| 254, first at 18: [18] 0 vs -1 [23] 4 vs 2 [26] 1 vs 0 [27] 0 vs 1 [28] 1 vs 0 [32] 0 vs 2
+  d  204 quant_blocks       mix_xs                 L5   DIFFER: 64 of 64 words, max |diff| 30845, first at 0: [0] 13584 vs 26094 [1] 4812 vs 6489 [2] 1191 vs 2260 [3] 189 vs 867 [4] 16074 vs 17376 [5] 52345 vs 67243
+  d  205 gemv_h64           linear_attn_out        L5   DIFFER: 2045 of 2048 words, max |diff| 4086, first at 0: [0] -1216 vs -1244 [1] -963 vs -1479 [2] 1387 vs 924 [3] -479 vs -84 [4] 1239 vs 1172 [5] -3382 vs -2601
+  d  206 add_into           attn_residual          L5   DIFFER: 2048 of 2048 words, max |diff| 28561, first at 0: [0] -692 vs -2412 [1] 9542 vs 9610 [2] 1273 vs -531 [3] 2311 vs -2423 [4] 12192 vs 11092 [5] -5647 vs -3798
+  d  211 norm_e             attn_post_norm         L5   DIFFER: 2048 of 2048 words, max |diff| 113273, first at 0: [0] -4023 vs -13286 [1] 56683 vs 54079 [2] 4060 vs -1604 [3] 12938 vs -12851 [4] 61379 vs 52899 [5] -33403 vs -21283
+  d  217 gemv_ffx192        ffn_out                L5   DIFFER: 2048 of 2048 words, max |diff| 6564, first at 0: [0] -446 vs -984 [1] -5399 vs -5625 [2] 896 vs 794 [3] 1349 vs 1645 [4] 733 vs 277 [5] 408 vs 809
+  d  218 add_into           l_out                  L5   DIFFER: 2048 of 2048 words, max |diff| 21997, first at 0: [0] -1138 vs -3396 [1] 4143 vs 3985 [2] 2169 vs 263 [3] 3660 vs -778 [4] 12925 vs 11369 [5] -5239 vs -2989
+  d  223 norm_e             attn_norm              L6   DIFFER: 2048 of 2048 words, max |diff| 120869, first at 0: [0] -7515 vs -21151 [1] 26139 vs 23710 [2] 7372 vs 843 [3] 23091 vs -4629 [4] 82533 vs 68462 [5] -33960 vs -18271
+  d  225 gemv_ring64        linear_attn_qkv_mixed  L6   DIFFER: 6144 of 6144 words, max |diff| 64620, first at 0: [0] -6108 vs -23612 [1] -32813 vs -15530 [2] -33683 vs -44163 [3] -98360 vs -113128 [4] 58882 vs 44241 [5] 37291 vs 51794
+  d  226 gemv_h64           z                      L6   DIFFER: 2048 of 2048 words, max |diff| 26822, first at 0: [0] 22470 vs 42255 [1] 100467 vs 109511 [2] 130441 vs 133463 [3] 77291 vs 88506 [4] 10154 vs 12308 [5] 9777 vs 23111
+  d  229 gdn_gates          gdn_decay              L6   DIFFER: 15 of 16 words, max |diff| 696, first at 0: [0] 30558 vs 30573 [1] 11627 vs 11452 [2] 17798 vs 18176 [3] 12720 vs 12535 [4] 25607 vs 25934 [6] 12584 vs 13111
+  d  229 gdn_gates          gdn_beta               L6   DIFFER: 16 of 16 words, max |diff| 989, first at 0: [0] 27034 vs 27342 [1] 21517 vs 21227 [2] 27447 vs 27342 [3] 30595 vs 30610 [4] 27770 vs 27034 [5] 30918 vs 30966
+  d  230 conv_silu          conv_output_silu       L6   DIFFER: 2711 of 6144 words, max |diff| 8814, first at 0: [0] -884 vs -3159 [1] -5360 vs -2695 [2] -1378 vs -1743 [3] -11754 vs -12953 [4] 13010 vs 9371 [5] -1132 vs -1500
+  d  233 quant_vec128_scale gdn_qi                 L6   DIFFER: 1524 of 2048 words, max |diff| 52, first at 0: [0] -2 vs -7 [1] -12 vs -6 [2] -3 vs -4 [3] -26 vs -27 [4] 29 vs 20 [5] -2 vs -3
+  d  233 quant_vec128_scale gdn_ki                 L6   DIFFER: 794 of 2048 words, max |diff| 52, first at 1: [1] -1 vs 0 [5] 4 vs 5 [10] 2 vs 1 [15] -83 vs -80 [16] -1 vs -2 [21] -30 vs -18
+  d  233 quant_vec128_scale gdn_vi                 L6   DIFFER: 458 of 2048 words, max |diff| 84, first at 2: [2] 0 vs -32 [13] 0 vs -32 [27] 0 vs -32 [40] 0 vs -32 [43] 0 vs -32 [59] 0 vs -32
+  d  233 quant_vec128_scale gdn_qs                 L6   DIFFER: 16 of 16 words, max |diff| 906, first at 0: [0] 6683 vs 7004 [1] 6041 vs 6359 [2] 3118 vs 3073 [3] 3714 vs 3867 [4] 4682 vs 5260 [5] 3779 vs 4685
+  d  233 quant_vec128_scale gdn_ks                 L6   DIFFER: 16 of 16 words, max |diff| 7332, first at 0: [0] 87770 vs 89125 [1] 115577 vs 115134 [2] 72859 vs 70647 [3] 51772 vs 56402 [4] 48958 vs 48961 [5] 78587 vs 78063
+  d  233 quant_vec128_scale gdn_vs                 L6   DIFFER: 11 of 16 words, max |diff| 3052, first at 2: [2] 3270 vs 2530 [4] 33262 vs 33195 [6] 229900 vs 232714 [7] 66423 vs 69475 [8] 48926 vs 49726 [9] 20615 vs 20569
+  d  234 gdn_head           gdn_kreal              L6   DIFFER: 1663 of 2048 words, max |diff| 3047080, first at 1: [1] -87770 vs 0 [2] -263310 vs -267375 [3] 351080 vs 356500 [4] -87770 vs -89125 [5] 351080 vs 445625 [7] -87770 vs -89125
+  d  234 gdn_head           gdn_o                  L6   DIFFER: 1250 of 2048 words, max |diff| 4228250, first at 0: [0] -662727 vs -677002 [2] 0 vs -677002 [7] -662727 vs -677002 [8] -662727 vs -677002 [9] -662727 vs -677002 [11] -662727 vs -677002
+  d  234 gdn_head           gdn_dbg                L6   DIFFER: 108 of 128 words, max |diff| 2182490, first at 0: [0] 2630593 vs 2686663 [1] 75521 vs 82882 [2] 6218 vs 6514 [3] 802 vs 899 [4] 16796 vs 16801 [5] 417220 vs 437130
+  d  234 gdn_head           gdn_on                 L6   DIFFER: 1235 of 2048 words, max |diff| 12732, first at 0: [0] -3235 vs -3463 [2] 0 vs -4307 [7] -3621 vs -3876 [8] -4056 vs -4341 [9] -3621 vs -3876 [11] -4120 vs -4410
+  d  234 gdn_head           gdn_sz                 L6   DIFFER: 2005 of 2048 words, max |diff| 22115, first at 0: [0] 13010 vs 27700 [1] 82508 vs 91965 [2] 114610 vs 117963 [3] 58885 vs 70104 [4] 5372 vs 6718 [5] 5224 vs 13524
+  d  234 gdn_head           gdn_se                 L6   ok (16 words)
+  d  234 gdn_head           gdn_smax               L6   DIFFER: 16 of 16 words, max |diff| 6059, first at 0: [0] 17821 vs 18302 [1] 19116 vs 18786 [2] 23981 vs 17922 [3] 18077 vs 19704 [4] 20730 vs 20141 [5] 23444 vs 23324
+  d  234 gdn_head           gdn_state              L6   DIFFER: 110272 of 262144 elements, max |diff| 13852, first at 128 (head 0 row 1 col 0): [128] 35 vs 0 [135] 35 vs 0 [136] 35 vs 0 [137] 35 vs 0 [139] 35 vs 0 [142] 35 vs 0
+  d  234 gdn_head           final_output           L6   DIFFER: 1242 of 2048 words, max |diff| 65650, first at 0: [0] -642 vs -1464 [2] 0 vs -7752 [7] 514 vs 544 [8] 174 vs 254 [9] 759 vs 670 [11] -150 vs -133
+  d  235 quant_blocks       mix_q                  L6   DIFFER: 1026 of 2048 words, max |diff| 127, first at 0: [0] -14 vs -24 [2] 0 vs -127 [7] 11 vs 9 [9] 16 vs 11 [11] -3 vs -2 [13] 0 vs 12
+  d  235 quant_blocks       mix_xs                 L6   DIFFER: 64 of 64 words, max |diff| 132334, first at 0: [0] 11865 vs 15626 [1] 22193 vs 23231 [2] 11689 vs 15177 [3] 5193 vs 5910 [4] 990 vs 968 [5] 1482 vs 1449
+  d  236 gemv_h64           linear_attn_out        L6   DIFFER: 2047 of 2048 words, max |diff| 5801, first at 0: [0] -2819 vs -1989 [1] 7115 vs 7648 [2] 20708 vs 20500 [3] 14553 vs 14132 [4] 9615 vs 9742 [5] -3870 vs -4034
+  d  237 add_into           attn_residual          L6   DIFFER: 2048 of 2048 words, max |diff| 25570, first at 0: [0] -3957 vs -5385 [1] 11258 vs 11633 [2] 22877 vs 20763 [3] 18213 vs 13354 [4] 22540 vs 21111 [5] -9109 vs -7023
+  d  242 norm_e             attn_post_norm         L6   DIFFER: 2047 of 2048 words, max |diff| 42392, first at 0: [0] -8279 vs -11173 [1] 24310 vs 24912 [2] 27398 vs 24661 [3] 35751 vs 25997 [4] 40379 vs 37507 [5] -19505 vs -14914
+  d  248 gemv_ffx192        ffn_out                L6   DIFFER: 2046 of 2048 words, max |diff| 2781, first at 0: [0] 3422 vs 3479 [1] -648 vs -304 [2] 597 vs 636 [3] -5155 vs -4431 [4] 2207 vs 2113 [5] -664 vs -976
+  d  249 add_into           l_out                  L6   DIFFER: 2048 of 2048 words, max |diff| 22789, first at 0: [0] -535 vs -1906 [1] 10610 vs 11329 [2] 23474 vs 21399 [3] 13058 vs 8923 [4] 24747 vs 23224 [5] -9773 vs -7999
+  d  254 norm_e             attn_norm              L7   DIFFER: 2047 of 2048 words, max |diff| 46949, first at 0: [0] -1026 vs -3621 [1] 21209 vs 22438 [2] 29711 vs 26836 [3] 23817 vs 16126 [4] 45520 vs 42327 [5] -19107 vs -15495
+  d  297 attn_pv            attn_gated             L7   DIFFER: 1344 of 2048 words, max |diff| 433179, first at 0: [0] 0 vs -7196 [1] 0 vs 16554 [2] 0 vs -24040 [3] 0 vs 4134 [5] 0 vs 14489 [7] 0 vs 9786
+  d  299 gemv_h64           attn_output            L7   DIFFER: 2048 of 2048 words, max |diff| 89286, first at 0: [0] 0 vs -1565 [1] 0 vs -4348 [2] 0 vs -3148 [3] 0 vs -3204 [4] 0 vs -859 [5] 0 vs 11065
+  d  300 add_into           attn_residual          L7   DIFFER: 2048 of 2048 words, max |diff| 112075, first at 0: [0] -535 vs -3471 [1] 10610 vs 6981 [2] 23474 vs 18251 [3] 13058 vs 5719 [4] 24747 vs 22365 [5] -9773 vs 3066
+  d  305 norm_e             attn_post_norm         L7   DIFFER: 2048 of 2048 words, max |diff| 152524, first at 0: [0] -1110 vs -7600 [1] 22959 vs 15946 [2] 22389 vs 18375 [3] 25230 vs 11665 [4] 43157 vs 41171 [5] -21096 vs 6985
+  d  311 gemv_ffx192        ffn_out                L7   DIFFER: 2048 of 2048 words, max |diff| 52244, first at 0: [0] -6758 vs -2275 [1] 16428 vs 478 [2] 1707 vs -1723 [3] 4806 vs 5362 [4] 2127 vs 1428 [5] 2391 vs 1326
+  d  312 add_into           l_out                  L7   DIFFER: 2048 of 2048 words, max |diff| 71249, first at 0: [0] -7293 vs -5746 [1] 27038 vs 7459 [2] 25181 vs 16528 [3] 17864 vs 11081 [4] 26874 vs 23793 [5] -7382 vs 4392
+  d  317 norm_e             attn_norm              L8   DIFFER: 2048 of 2048 words, max |diff| 184109, first at 0: [0] -16429 vs -15516 [1] 62989 vs 20830 [2] 24865 vs 19563 [3] 36445 vs 27099 [4] 51183 vs 54319 [5] -17543 vs 12511
+  d  319 gemv_ring64        linear_attn_qkv_mixed  L8   DIFFER: 6144 of 6144 words, max |diff| 814693, first at 0: [0] -76294 vs -73398 [1] 100384 vs 87853 [2] 64681 vs 78798 [3] 18647 vs 20675 [4] -103253 vs -119414 [5] 4963 vs -11859
+  d  320 gemv_h64           z                      L8   DIFFER: 2048 of 2048 words, max |diff| 387357, first at 0: [0] -36471 vs -36969 [1] 46087 vs 51391 [2] 59374 vs 70293 [3] 52947 vs 49654 [4] 20479 vs 35612 [5] 43916 vs 41572
+  d  323 gdn_gates          gdn_decay              L8   DIFFER: 14 of 16 words, max |diff| 4801, first at 0: [0] 25557 vs 24114 [1] 30738 vs 29821 [2] 32672 vs 32608 [3] 32370 vs 31806 [4] 32307 vs 32386 [5] 14308 vs 11775
+  d  323 gdn_gates          gdn_beta               L8   DIFFER: 16 of 16 words, max |diff| 4932, first at 0: [0] 29666 vs 31394 [1] 26459 vs 30587 [2] 32084 vs 32353 [3] 28185 vs 30603 [4] 28753 vs 30456 [5] 28411 vs 30106
+  d  324 conv_silu          conv_output_silu       L8   DIFFER: 4291 of 6144 words, max |diff| 189419, first at 0: [0] -3159 vs -3044 [2] -6487 vs -7649 [3] 1305 vs 1438 [4] 2248 vs 2660 [5] 257 vs -884 [6] 777 vs 646
+  d  327 quant_vec128_scale gdn_qi                 L8   DIFFER: 1841 of 2048 words, max |diff| 146, first at 0: [0] -8 vs -10 [2] -17 vs -24 [3] 3 vs 5 [4] 6 vs 8 [5] 1 vs -3 [8] 17 vs 12
+  d  327 quant_vec128_scale gdn_ki                 L8   DIFFER: 1401 of 2048 words, max |diff| 238, first at 0: [0] -7 vs 0 [1] -6 vs 7 [2] 18 vs 38 [3] 0 vs -3 [4] 0 vs 3 [6] 4 vs -46
+  d  327 quant_vec128_scale gdn_vi                 L8   DIFFER: 1262 of 2048 words, max |diff| 139, first at 1: [1] -7 vs 0 [2] 0 vs 25 [3] -7 vs -25 [5] -7 vs -50 [6] -34 vs -25 [7] -7 vs 0
+  d  327 quant_vec128_scale gdn_qs                 L8   DIFFER: 16 of 16 words, max |diff| 5515, first at 0: [0] 8370 vs 7265 [1] 8365 vs 2850 [2] 9359 vs 4268 [3] 8860 vs 6599 [4] 3793 vs 4861 [5] 7169 vs 7231
+  d  327 quant_vec128_scale gdn_ks                 L8   DIFFER: 16 of 16 words, max |diff| 69771, first at 0: [0] 86157 vs 69839 [1] 71802 vs 59960 [2] 107627 vs 37856 [3] 89644 vs 92563 [4] 84529 vs 86308 [5] 50049 vs 48942
+  d  327 quant_vec128_scale gdn_vs                 L8   DIFFER: 15 of 16 words, max |diff| 39716, first at 0: [0] 4808 vs 1302 [1] 21502 vs 14157 [2] 6200 vs 7333 [3] 12933 vs 14775 [4] 13848 vs 15709 [5] 1566 vs 1278
+  d  328 gdn_head           gdn_kreal              L8   DIFFER: 1734 of 2048 words, max |diff| 15584942, first at 0: [0] -603099 vs 0 [1] -516942 vs 488873 [2] 1550826 vs 2653882 [3] 0 vs -209517 [4] 0 vs 209517 [6] 344628 vs -3212594
+  d  328 gdn_head           gdn_o                  L8   DIFFER: 1625 of 2048 words, max |diff| 5550726, first at 1: [1] -40114 vs 0 [2] 0 vs 341719 [3] -40114 vs -341719 [5] -40114 vs -683433 [6] -194988 vs -341719 [7] -40114 vs 0
+  d  328 gdn_head           gdn_dbg                L8   DIFFER: 119 of 128 words, max |diff| 11188865, first at 0: [0] 728122 vs 1736100 [1] 65019 vs 116683 [2] 5769 vs 7729 [3] 1031 vs 715 [4] 16808 vs 16792 [5] 522166 vs 453662
+  d  328 gdn_head           gdn_on                 L8   DIFFER: 1625 of 2048 words, max |diff| 91347, first at 1: [1] -741 vs 0 [2] 0 vs 2193 [3] -1214 vs -2247 [5] -1355 vs -5017 [6] -5666 vs -2157 [7] -1277 vs 0
+  d  328 gdn_head           gdn_sz                 L8   DIFFER: 2033 of 2048 words, max |diff| 405219, first at 0: [0] -13321 vs -13440 [1] 30822 vs 35121 [2] 42071 vs 52233 [3] 36439 vs 33599 [4] 11660 vs 22507 [5] 28938 vs 27086
+  d  328 gdn_head           gdn_se                 L8   DIFFER: 9 of 16 words, max |diff| 2, first at 0: [0] 20 vs 22 [1] 18 vs 19 [2] 19 vs 20 [3] 19 vs 18 [4] 19 vs 18 [7] 19 vs 20
+  d  328 gdn_head           gdn_smax               L8   DIFFER: 16 of 16 words, max |diff| 11929, first at 0: [0] 22534 vs 20938 [1] 18726 vs 23804 [2] 19629 vs 16468 [3] 29959 vs 19186 [4] 30858 vs 18929 [5] 32665 vs 27623
+  d  328 gdn_head           gdn_state              L8   DIFFER: 169122 of 262144 elements, max |diff| 29861, first at 1 (head 0 row 0 col 1): [1] 68 vs 0 [3] 68 vs 0 [5] 68 vs 0 [6] 333 vs 0 [7] 68 vs 0 [8] 137 vs 0
+  d  328 gdn_head           final_output           L8   DIFFER: 1611 of 2048 words, max |diff| 95161, first at 1: [1] -348 vs 0 [2] 0 vs 1748 [3] -675 vs -1152 [5] -598 vs -2074 [6] -3285 vs -2037 [7] -1080 vs 0
+  d  329 quant_blocks       mix_q                  L8   DIFFER: 1508 of 2048 words, max |diff| 254, first at 1: [1] -7 vs 0 [2] 0 vs 50 [3] -14 vs -33 [5] -13 vs -59 [6] -70 vs -58 [7] -23 vs 0
+  d  329 quant_blocks       mix_xs                 L8   DIFFER: 64 of 64 words, max |diff| 171397, first at 0: [0] 11998 vs 8936 [1] 7214 vs 16545 [2] 33330 vs 6777 [3] 15961 vs 8617 [4] 5249 vs 15400 [5] 9035 vs 13540
+  d  330 gemv_h64           linear_attn_out        L8   DIFFER: 2045 of 2048 words, max |diff| 5386, first at 0: [0] 2073 vs -274 [1] -48 vs -200 [2] 54 vs 27 [3] 1877 vs 534 [4] -1821 vs -1853 [5] 2011 vs 1426
+  d  331 add_into           attn_residual          L8   DIFFER: 2048 of 2048 words, max |diff| 70852, first at 0: [0] -5220 vs -6020 [1] 26990 vs 7259 [2] 25235 vs 16555 [3] 19741 vs 11615 [4] 25053 vs 21940 [5] -5371 vs 5818
+  d  336 norm_e             attn_post_norm         L8   DIFFER: 2048 of 2048 words, max |diff| 110180, first at 0: [0] -9894 vs -13661 [1] 54312 vs 17489 [2] 20702 vs 16260 [3] 34226 vs 24110 [4] 39695 vs 41620 [5] -10609 vs 13759
+  d  342 gemv_ffx192        ffn_out                L8   DIFFER: 2048 of 2048 words, max |diff| 34780, first at 0: [0] -654 vs -983 [1] -2992 vs 833 [2] -725 vs -848 [3] -2630 vs 1770 [4] 6564 vs 3598 [5] 4262 vs 1744
+  d  343 add_into           l_out                  L8   DIFFER: 2048 of 2048 words, max |diff| 71495, first at 0: [0] -5874 vs -7003 [1] 23998 vs 8092 [2] 24510 vs 15707 [3] 17111 vs 13385 [4] 31617 vs 25538 [5] -1109 vs 7562
+  d  348 norm_e             attn_norm              L9   DIFFER: 2048 of 2048 words, max |diff| 195745, first at 0: [0] -13489 vs -19509 [1] 60677 vs 24821 [2] 22921 vs 17820 [3] 35382 vs 33578 [4] 59081 vs 57894 [5] -2728 vs 22561
+  d  350 gemv_ring64        linear_attn_qkv_mixed  L9   DIFFER: 6144 of 6144 words, max |diff| 610703, first at 0: [0] 146600 vs 130557 [1] -243600 vs -223668 [2] 167489 vs 138908 [3] 78350 vs 31589 [4] -35928 vs -12050 [5] -94298 vs -95297
+  d  351 gemv_h64           z                      L9   DIFFER: 2048 of 2048 words, max |diff| 341152, first at 0: [0] -30995 vs -9885 [1] 47782 vs 46614 [2] -444 vs 11742 [3] 89692 vs 97547 [4] 7664 vs -4276 [5] 43906 vs 39753
+  d  354 gdn_gates          gdn_decay              L9   DIFFER: 16 of 16 words, max |diff| 3773, first at 0: [0] 30335 vs 30783 [1] 32736 vs 32624 [2] 29850 vs 29445 [3] 30603 vs 29187 [4] 29416 vs 27499 [5] 32768 vs 32752
+  d  354 gdn_gates          gdn_beta               L9   DIFFER: 16 of 16 words, max |diff| 5446, first at 0: [0] 30344 vs 31464 [1] 31989 vs 32370 [2] 11864 vs 12311 [3] 14410 vs 17183 [4] 18232 vs 22227 [5] 30456 vs 32078
+  d  355 conv_silu          conv_output_silu       L9   DIFFER: 3866 of 6144 words, max |diff| 152954, first at 0: [0] 5965 vs 5224 [1] -16598 vs -16004 [2] -15478 vs -13900 [3] -6387 vs -2812 [4] -5982 vs -2223 [5] -8653 vs -8741
+  d  358 quant_vec128_scale gdn_qi                 L9   DIFFER: 1917 of 2048 words, max |diff| 225, first at 0: [0] 25 vs 17 [1] -71 vs -53 [2] -66 vs -46 [3] -27 vs -9 [4] -26 vs -7 [5] -37 vs -29
+  d  358 quant_vec128_scale gdn_ki                 L9   DIFFER: 1169 of 2048 words, max |diff| 65, first at 0: [0] -19 vs -20 [1] 50 vs 57 [2] 0 vs -3 [5] -1 vs 0 [8] 10 vs 0 [9] -5 vs -3
+  d  358 quant_vec128_scale gdn_vi                 L9   DIFFER: 1079 of 2048 words, max |diff| 184, first at 1: [1] 0 vs -1 [2] 0 vs -1 [4] 0 vs 1 [5] 0 vs -1 [10] 0 vs -1 [16] -1 vs 0
+  d  358 quant_vec128_scale gdn_qs                 L9   DIFFER: 16 of 16 words, max |diff| 4674, first at 0: [0] 3719 vs 4736 [1] 4827 vs 4652 [2] 6259 vs 7323 [3] 2717 vs 5166 [4] 2736 vs 2532 [5] 3901 vs 3790
+  d  358 quant_vec128_scale gdn_ks                 L9   DIFFER: 16 of 16 words, max |diff| 18472, first at 0: [0] 70868 vs 67210 [1] 61685 vs 50259 [2] 29886 vs 30486 [3] 114316 vs 119991 [4] 84788 vs 78134 [5] 88397 vs 80683
+  d  358 quant_vec128_scale gdn_vs                 L9   DIFFER: 16 of 16 words, max |diff| 40388, first at 0: [0] 44586 vs 51337 [1] 37715 vs 47338 [2] 13237 vs 12326 [3] 16537 vs 20014 [4] 1566 vs 1302 [5] 17606 vs 24518
+  d  359 gdn_head           gdn_kreal              L9   DIFFER: 1661 of 2048 words, max |diff| 4824115, first at 0: [0] -1346492 vs -1344200 [1] 3543400 vs 3830970 [2] 0 vs -201630 [5] -70868 vs 0 [7] -8716764 vs -8266830 [8] 708680 vs 0
+  d  359 gdn_head           gdn_o                  L9   DIFFER: 1452 of 2048 words, max |diff| 3338197, first at 1: [1] 0 vs -3065 [2] 0 vs -3065 [4] 0 vs 3065 [5] 0 vs -3065 [8] -1989 vs -3065 [9] -1989 vs -3065
+  d  359 gdn_head           gdn_dbg                L9   DIFFER: 116 of 128 words, max |diff| 6728964, first at 0: [0] 260223 vs 384861 [1] 16258 vs 16264 [3] 655 vs 1234 [4] 16789 vs 16822 [5] 232274 vs 295211 [6] 524544 vs 775783
+  d  359 gdn_head           gdn_on                 L9   DIFFER: 1452 of 2048 words, max |diff| 259355, first at 1: [1] 0 vs -444 [2] 0 vs -468 [4] 0 vs 424 [5] 0 vs -394 [8] -199 vs -389 [9] -241 vs -471
+  d  359 gdn_head           gdn_sz                 L9   DIFFER: 2043 of 2048 words, max |diff| 348187, first at 0: [0] -11964 vs -4612 [1] 32096 vs 31245 [2] -255 vs 6265 [3] 71405 vs 79572 [4] 3922 vs -2104 [5] 28938 vs 25669
+  d  359 gdn_head           gdn_se                 L9   DIFFER: 7 of 16 words, max |diff| 1, first at 3: [3] 19 vs 18 [6] 22 vs 21 [7] 20 vs 21 [8] 19 vs 18 [9] 19 vs 18 [10] 17 vs 16
+  d  359 gdn_head           gdn_smax               L9   DIFFER: 16 of 16 words, max |diff| 11336, first at 0: [0] 21976 vs 24883 [1] 17058 vs 17652 [2] 17212 vs 16965 [3] 24976 vs 18916 [4] 17756 vs 16585 [5] 21728 vs 29089
+  d  359 gdn_head           gdn_state              L9   DIFFER: 143846 of 262144 elements, max |diff| 31162, first at 1 (head 0 row 0 col 1): [1] 0 vs 31 [2] 0 vs 31 [4] 0 vs -31 [5] 0 vs 31 [8] 26 vs 31 [9] 26 vs 31
+  d  359 gdn_head           final_output           L9   DIFFER: 1445 of 2048 words, max |diff| 45240, first at 1: [1] 0 vs -212 [2] 0 vs -45 [4] 0 vs -14 [5] 0 vs -154 [8] 45 vs 88 [9] -527 vs -543
+  d  360 quant_blocks       mix_q                  L9   DIFFER: 1327 of 2048 words, max |diff| 254, first at 1: [1] 0 vs -47 [2] 0 vs -10 [4] 0 vs -3 [5] 0 vs -34 [8] 11 vs 20 [9] -127 vs -122
+  d  360 quant_blocks       mix_xs                 L9   DIFFER: 64 of 64 words, max |diff| 29682, first at 0: [0] 1062 vs 1143 [1] 16652 vs 31071 [2] 645 vs 1135 [3] 1195 vs 1812 [4] 5453 vs 5434 [5] 7210 vs 2435
+  d  361 gemv_h64           linear_attn_out        L9   DIFFER: 2046 of 2048 words, max |diff| 7559, first at 0: [0] 645 vs 846 [1] 319 vs -243 [2] 15 vs 114 [3] 120 vs -78 [4] 583 vs 973 [5] 1118 vs 265
+  d  362 add_into           attn_residual          L9   DIFFER: 2048 of 2048 words, max |diff| 71112, first at 0: [0] -5229 vs -6157 [1] 24317 vs 7849 [2] 24525 vs 15821 [3] 17231 vs 13307 [4] 32200 vs 26511 [5] 9 vs 7827
+  d  367 norm_e             attn_post_norm         L9   DIFFER: 2048 of 2048 words, max |diff| 114928, first at 0: [0] -10022 vs -14320 [1] 50465 vs 19766 [2] 20920 vs 16376 [3] 30264 vs 28362 [4] 51416 vs 51369 [5] 18 vs 19217
+  d  373 gemv_ffx192        ffn_out                L9   DIFFER: 2047 of 2048 words, max |diff| 14127, first at 0: [0] 2867 vs 1617 [1] 1315 vs -3408 [2] -361 vs 134 [3] 450 vs -1889 [4] 4144 vs -757 [5] 12908 vs 4424
+  d  374 add_into           l_out                  L9   DIFFER: 2048 of 2048 words, max |diff| 82055, first at 0: [0] -2362 vs -4540 [1] 25632 vs 4441 [2] 24164 vs 15955 [3] 17681 vs 11418 [4] 36344 vs 25754 [5] 12917 vs 12251
+  d  379 norm_e             attn_norm              L10  DIFFER: 2048 of 2048 words, max |diff| 216155, first at 0: [0] -5323 vs -12492 [1] 65697 vs 13896 [2] 23880 vs 19249 [3] 35418 vs 27923 [4] 66893 vs 57868 [5] 31408 vs 36367
+  d  381 gemv_ring64        linear_attn_qkv_mixed  L10  DIFFER: 6144 of 6144 words, max |diff| 500469, first at 0: [0] 52228 vs 36021 [1] 41314 vs 60189 [2] 14919 vs 20730 [3] 25141 vs 33107 [4] 57559 vs 52805 [5] -40312 vs -75587
+  d  382 gemv_h64           z                      L10  DIFFER: 2048 of 2048 words, max |diff| 183686, first at 0: [0] 89182 vs 80186 [1] 83522 vs 71141 [2] 55983 vs 54001 [3] 131081 vs 139546 [4] 6175 vs -5028 [5] 69537 vs 85986
+  d  385 gdn_gates          gdn_decay              L10  DIFFER: 16 of 16 words, max |diff| 5685, first at 0: [0] 19358 vs 13673 [1] 30498 vs 31482 [2] 17259 vs 13337 [3] 28974 vs 30217 [4] 30783 vs 30573 [5] 28455 vs 26823
+  d  385 gdn_gates          gdn_beta               L10  DIFFER: 16 of 16 words, max |diff| 5779, first at 0: [0] 31326 vs 32212 [1] 31724 vs 31667 [2] 28942 vs 30414 [3] 23074 vs 27126 [4] 31857 vs 32338 [5] 26318 vs 28712
+  d  386 conv_silu          conv_output_silu       L10  DIFFER: 4007 of 6144 words, max |diff| 44627, first at 0: [0] -1378 vs -1008 [1] 386 vs 646 [3] -2223 vs -2928 [4] 3780 vs 3497 [5] -634 vs -1008 [6] -1378 vs -884
+  d  389 quant_vec128_scale gdn_qi                 L10  DIFFER: 1918 of 2048 words, max |diff| 193, first at 0: [0] -11 vs -7 [1] 3 vs 5 [3] -17 vs -21 [4] 29 vs 25 [5] -5 vs -7 [6] -11 vs -6
+  d  389 quant_vec128_scale gdn_ki                 L10  DIFFER: 1448 of 2048 words, max |diff| 114, first at 0: [0] 4 vs -2 [1] -14 vs -9 [2] 3 vs 0 [3] 3 vs 6 [4] 1 vs -1 [5] 3 vs -2
+  d  389 quant_vec128_scale gdn_vi                 L10  DIFFER: 1256 of 2048 words, max |diff| 254, first at 0: [0] 7 vs 0 [1] -7 vs -32 [2] 7 vs 32 [3] 0 vs -16 [4] -11 vs 0 [5] 0 vs 16
+  d  389 quant_vec128_scale gdn_qs                 L10  DIFFER: 16 of 16 words, max |diff| 3245, first at 0: [0] 7172 vs 6834 [1] 6550 vs 5323 [2] 4270 vs 4840 [3] 6224 vs 2979 [4] 5400 vs 4660 [5] 4952 vs 6710
+  d  389 quant_vec128_scale gdn_ks                 L10  DIFFER: 16 of 16 words, max |diff| 45366, first at 0: [0] 82959 vs 105289 [1] 83863 vs 65771 [2] 46668 vs 53222 [3] 70350 vs 79162 [4] 39569 vs 38019 [5] 67357 vs 70175
+  d  389 quant_vec128_scale gdn_vs                 L10  DIFFER: 15 of 16 words, max |diff| 12743, first at 0: [0] 14775 vs 2032 [1] 20014 vs 21613 [2] 7333 vs 3270 [3] 6483 vs 6765 [4] 21000 vs 30067 [5] 3270 vs 2631
+  d  390 gdn_head           gdn_kreal              L10  DIFFER: 1735 of 2048 words, max |diff| 9139024, first at 0: [0] 331836 vs -210578 [1] -1161426 vs -947601 [2] 248877 vs 0 [3] 248877 vs 631734 [4] 82959 vs -105289 [5] 248877 vs -210578
+  d  390 gdn_head           gdn_o                  L10  DIFFER: 1493 of 2048 words, max |diff| 6071302, first at 0: [0] 41808 vs 0 [1] -41808 vs -100996 [2] 41808 vs 100996 [3] 0 vs -50531 [4] -65794 vs 0 [5] 0 vs 50531
+  d  390 gdn_head           gdn_dbg                L10  DIFFER: 117 of 128 words, max |diff| 3474479, first at 0: [0] 759768 vs 400995 [1] 36410 vs 98437 [2] 4317 vs 7099 [3] 2760 vs 285 [4] 17002 vs 16779 [5] 442323 vs 427079
+  d  390 gdn_head           gdn_on                 L10  DIFFER: 1493 of 2048 words, max |diff| 201141, first at 0: [0] 3823 vs 0 [1] -4512 vs -1315 [2] 3961 vs 1154 [3] 0 vs -628 [4] -7156 vs 0 [5] 0 vs 635
+  d  390 gdn_head           gdn_sz                 L10  DIFFER: 2040 of 2048 words, max |diff| 186000, first at 0: [0] 70884 vs 61901 [1] 65207 vs 52963 [2] 39116 vs 37326 [3] 115448 vs 124686 [4] 3216 vs -2460 [5] 51506 vs 67517
+  d  390 gdn_head           gdn_se                 L10  DIFFER: 9 of 16 words, max |diff| 3, first at 0: [0] 18 vs 21 [2] 20 vs 21 [4] 19 vs 18 [8] 21 vs 22 [9] 23 vs 21 [11] 20 vs 19
+  d  390 gdn_head           gdn_smax               L10  DIFFER: 16 of 16 words, max |diff| 8353, first at 0: [0] 17602 vs 25274 [1] 24409 vs 20635 [2] 18161 vs 19412 [3] 19297 vs 26637 [4] 24270 vs 16946 [5] 21258 vs 19441
+  d  390 gdn_head           gdn_state              L10  DIFFER: 157530 of 262144 elements, max |diff| 50641, first at 0 (head 0 row 0 col 0): [0] 31 vs 0 [1] -31 vs 100 [2] 31 vs -100 [3] 0 vs 50 [4] -48 vs 0 [5] 0 vs -50
+  d  390 gdn_head           final_output           L10  DIFFER: 1492 of 2048 words, max |diff| 168295, first at 0: [0] 4135 vs 0 [1] -4489 vs -1063 [2] 2364 vs 657 [3] 0 vs -1195 [4] -351 vs 0 [5] 0 vs 654
+  d  391 quant_blocks       mix_q                  L10  DIFFER: 1424 of 2048 words, max |diff| 241, first at 0: [0] 31 vs 0 [1] -33 vs -31 [2] 18 vs 19 [3] 0 vs -34 [4] -3 vs 0 [5] 0 vs 19
+  d  391 quant_blocks       mix_xs                 L10  DIFFER: 64 of 64 words, max |diff| 281471, first at 0: [0] 34358 vs 8908 [1] 25703 vs 3854 [2] 57483 vs 7091 [3] 49696 vs 9482 [4] 18236 vs 28289 [5] 3917 vs 15289
+  d  392 gemv_h64           linear_attn_out        L10  DIFFER: 2048 of 2048 words, max |diff| 28751, first at 0: [0] -867 vs -42 [1] -9613 vs -2047 [2] -896 vs -313 [3] 2611 vs 472 [4] -944 vs -433 [5] 3807 vs -201
+  d  393 add_into           attn_residual          L10  DIFFER: 2048 of 2048 words, max |diff| 72276, first at 0: [0] -3229 vs -4582 [1] 16019 vs 2394 [2] 23268 vs 15642 [3] 20292 vs 11890 [4] 35400 vs 25321 [5] 16724 vs 12050
+  d  398 norm_e             attn_post_norm         L10  DIFFER: 2048 of 2048 words, max |diff| 125313, first at 0: [0] -6336 vs -10852 [1] 33280 vs 6003 [2] 21093 vs 17115 [3] 36622 vs 25901 [4] 59503 vs 51371 [5] 34097 vs 29653
+  d  404 gemv_ffx192        ffn_out                L10  DIFFER: 2048 of 2048 words, max |diff| 8076, first at 0: [0] 245 vs -548 [1] 1441 vs 2654 [2] 759 vs 1659 [3] -4308 vs -531 [4] 657 vs 649 [5] -1834 vs 671
+  d  405 add_into           l_out                  L10  DIFFER: 2048 of 2048 words, max |diff| 73586, first at 0: [0] -2984 vs -5130 [1] 17460 vs 5048 [2] 24027 vs 17301 [3] 15984 vs 11359 [4] 36057 vs 25970 [5] 14890 vs 12721
+  d  410 norm_e             attn_norm              L11  DIFFER: 2048 of 2048 words, max |diff| 183805, first at 0: [0] -5889 vs -11983 [1] 37333 vs 12776 [2] 20875 vs 17792 [3] 28717 vs 24156 [4] 63753 vs 54353 [5] 30539 vs 30884
+  d  453 attn_pv            attn_gated             L11  DIFFER: 1352 of 2048 words, max |diff| 149878, first at 0: [0] 0 vs 5161 [1] 0 vs 5533 [4] 0 vs 9394 [5] 0 vs 4529 [10] 0 vs 7079 [11] 0 vs 8783
+  d  455 gemv_h64           attn_output            L11  DIFFER: 2048 of 2048 words, max |diff| 83757, first at 0: [0] 0 vs 4774 [1] 0 vs -73 [2] 0 vs -2206 [3] 0 vs 561 [4] 0 vs -4824 [5] 0 vs -4906
+  d  456 add_into           attn_residual          L11  DIFFER: 2048 of 2048 words, max |diff| 68449, first at 0: [0] -2984 vs -356 [1] 17460 vs 4975 [2] 24027 vs 15095 [3] 15984 vs 11920 [4] 36057 vs 21146 [5] 14890 vs 7815
+  d  461 norm_e             attn_post_norm         L11  DIFFER: 2048 of 2048 words, max |diff| 136446, first at 0: [0] -5833 vs -922 [1] 36027 vs 13605 [2] 24981 vs 20800 [3] 29478 vs 29135 [4] 63841 vs 49620 [5] 30486 vs 21205
+  d  467 gemv_ffx192        ffn_out                L11  DIFFER: 2048 of 2048 words, max |diff| 25153, first at 0: [0] 4875 vs 4611 [1] 5811 vs 1216 [2] -3367 vs -2665 [3] -1203 vs -1596 [4] -686 vs -3416 [5] -11571 vs -147
+  d  468 add_into           l_out                  L11  DIFFER: 2048 of 2048 words, max |diff| 77047, first at 0: [0] 1891 vs 4255 [1] 23271 vs 6191 [2] 20660 vs 12430 [3] 14781 vs 10324 [4] 35371 vs 17730 [5] 3319 vs 7668
+  d  473 norm_e             attn_norm              L12  DIFFER: 2048 of 2048 words, max |diff| 287773, first at 0: [0] 4988 vs 16570 [1] 67139 vs 26364 [2] 29484 vs 26183 [3] 36145 vs 37264 [4] 81449 vs 60260 [5] 9025 vs 30776
+  d  475 gemv_ring64        linear_attn_qkv_mixed  L12  DIFFER: 6144 of 6144 words, max |diff| 296351, first at 0: [0] 276 vs 6768 [1] 35829 vs -25102 [2] -26649 vs -49752 [3] -137468 vs -153246 [4] 126018 vs 86012 [5] -122117 vs -75382
+  d  476 gemv_h64           z                      L12  DIFFER: 2048 of 2048 words, max |diff| 248069, first at 0: [0] 49280 vs 45516 [1] 12122 vs 44910 [2] 40970 vs 40072 [3] 48551 vs 29179 [4] 11415 vs 7349 [5] 5940 vs 1035
+  d  479 gdn_gates          gdn_decay              L12  DIFFER: 15 of 16 words, max |diff| 4262, first at 0: [0] 32181 vs 31161 [1] 15853 vs 14218 [2] 31070 vs 30365 [3] 32704 vs 32624 [4] 31374 vs 30158 [5] 32688 vs 32704
+  d  479 gdn_gates          gdn_beta               L12  DIFFER: 16 of 16 words, max |diff| 10367, first at 0: [0] 30595 vs 31789 [1] 26714 vs 28092 [2] 28670 vs 31082 [3] 20577 vs 24377 [4] 15170 vs 15712 [5] 30680 vs 31927
+  d  480 conv_silu          conv_output_silu       L12  DIFFER: 4366 of 6144 words, max |diff| 78770, first at 0: [0] -128 vs -382 [1] 2112 vs -1500 [2] -2104 vs -3728 [3] 15623 vs 17788 [4] -4829 vs -3388 [5] 5519 vs 3356
+  d  483 quant_vec128_scale gdn_qi                 L12  DIFFER: 1942 of 2048 words, max |diff| 148, first at 0: [0] 0 vs -2 [1] 5 vs -7 [2] -5 vs -18 [3] 38 vs 84 [4] -12 vs -16 [5] 13 vs 16
+  d  483 quant_vec128_scale gdn_ki                 L12  DIFFER: 1445 of 2048 words, max |diff| 254, first at 2: [2] -4 vs 0 [3] -4 vs -3 [4] 0 vs -3 [5] -4 vs -3 [6] -4 vs -3 [7] -4 vs -5
+  d  483 quant_vec128_scale gdn_vi                 L12  DIFFER: 1099 of 2048 words, max |diff| 67, first at 2: [2] -1 vs 0 [4] -36 vs -27 [5] -2 vs -1 [6] -4 vs -11 [8] -8 vs -7 [9] -1 vs 0
+  d  483 quant_vec128_scale gdn_qs                 L12  DIFFER: 16 of 16 words, max |diff| 6473, first at 0: [0] 7842 vs 4485 [1] 3847 vs 4337 [2] 4508 vs 3683 [3] 4949 vs 3652 [4] 6210 vs 7688 [5] 10300 vs 3827
+  d  483 quant_vec128_scale gdn_ks                 L12  DIFFER: 16 of 16 words, max |diff| 16545, first at 0: [0] 43972 vs 51911 [1] 62145 vs 76005 [2] 67191 vs 71146 [3] 97752 vs 101800 [4] 131731 vs 131396 [5] 72168 vs 76096
+  d  483 quant_vec128_scale gdn_vs                 L12  DIFFER: 16 of 16 words, max |diff| 57612, first at 0: [0] 56249 vs 68600 [1] 36668 vs 28950 [2] 20665 vs 22971 [3] 456537 vs 472491 [4] 20843 vs 17287 [5] 32210 vs 40734
+  d  484 gdn_head           gdn_kreal              L12  DIFFER: 1802 of 2048 words, max |diff| 13523087, first at 2: [2] -175888 vs 0 [3] -175888 vs -155733 [4] 0 vs -155733 [5] -175888 vs -155733 [6] -175888 vs -155733 [7] -175888 vs -259555
+  d  484 gdn_head           gdn_o                  L12  DIFFER: 1572 of 2048 words, max |diff| 8300108, first at 0: [0] -4532 vs -17615 [2] -4532 vs 0 [4] -160375 vs -477455 [5] -8815 vs -17615 [6] -17823 vs -194481 [8] -35783 vs -123690
+  d  484 gdn_head           gdn_dbg                L12  DIFFER: 116 of 128 words, max |diff| 15511399, first at 0: [0] 565857 vs 2245540 [1] 20789 vs 19763 [2] 3262 vs 3180 [3] 3397 vs 7515 [4] 17117 vs 18383 [5] 480395 vs 255826
+  d  484 gdn_head           gdn_on                 L12  DIFFER: 1571 of 2048 words, max |diff| 270371, first at 0: [0] -1038 vs -2149 [2] -762 vs 0 [4] -31571 vs -50053 [5] -1853 vs -1973 [6] -3844 vs -22334 [8] -8261 vs -15207
+  d  484 gdn_head           gdn_sz                 L12  DIFFER: 2042 of 2048 words, max |diff| 173928, first at 0: [0] 33383 vs 30190 [1] 6567 vs 29771 [2] 26679 vs 25870 [3] 32738 vs 17605 [4] 6115 vs 3780 [5] 3076 vs 516
+  d  484 gdn_head           gdn_se                 L12  DIFFER: 8 of 16 words, max |diff| 1, first at 3: [3] 14 vs 13 [4] 18 vs 19 [5] 18 vs 17 [7] 14 vs 13 [9] 20 vs 19 [10] 19 vs 18
+  d  484 gdn_head           gdn_smax               L12  DIFFER: 16 of 16 words, max |diff| 13627, first at 0: [0] 17345 vs 25947 [1] 27906 vs 28336 [2] 18249 vs 23286 [3] 26310 vs 16797 [4] 19094 vs 32721 [5] 32693 vs 22683
+  d  484 gdn_head           gdn_state              L12  DIFFER: 166906 of 262144 elements, max |diff| 37472, first at 256 (head 0 row 2 col 0): [256] 4 vs 0 [258] 4 vs 0 [260] 155 vs 0 [261] 9 vs 0 [262] 17 vs 0 [264] 34 vs 0
+  d  484 gdn_head           final_output           L12  DIFFER: 1555 of 2048 words, max |diff| 137303, first at 0: [0] -529 vs -990 [2] -310 vs 0 [4] -2946 vs -2887 [5] -87 vs -16 [6] -466 vs -1631 [8] 310 vs 1412
+  d  485 quant_blocks       mix_q                  L12  DIFFER: 1437 of 2048 words, max |diff| 254, first at 0: [0] -11 vs -21 [2] -6 vs 0 [4] -59 vs -60 [5] -2 vs 0 [6] -9 vs -34 [8] 6 vs 29
+  d  485 quant_blocks       mix_xs                 L12  DIFFER: 64 of 64 words, max |diff| 101870, first at 0: [0] 12881 vs 12266 [1] 43165 vs 77383 [2] 10764 vs 19381 [3] 17916 vs 14560 [4] 18136 vs 13685 [5] 802 vs 683
+  d  486 gemv_h64           linear_attn_out        L12  DIFFER: 2047 of 2048 words, max |diff| 4573, first at 0: [0] -672 vs -3180 [1] -1528 vs -3795 [2] 440 vs -16 [3] -388 vs 142 [4] -1347 vs -2351 [5] 1463 vs 788
+  d  487 add_into           attn_residual          L12  DIFFER: 2048 of 2048 words, max |diff| 76755, first at 0: [0] 1219 vs 1075 [1] 21743 vs 2396 [2] 21100 vs 12414 [3] 14393 vs 10466 [4] 34024 vs 15379 [5] 4782 vs 8456
+  d  492 norm_e             attn_post_norm         L12  DIFFER: 2048 of 2048 words, max |diff| 156058, first at 0: [0] 2589 vs 3415 [1] 48524 vs 7996 [2] 28425 vs 25005 [3] 29349 vs 31910 [4] 67793 vs 45818 [5] 10603 vs 28032
+  d  498 gemv_ffx192        ffn_out                L12  DIFFER: 2047 of 2048 words, max |diff| 10402, first at 0: [0] 3541 vs 626 [1] -3486 vs -52 [2] -1348 vs -34 [3] -387 vs 439 [4] 345 vs 3030 [5] 3015 vs 4236
+  d  499 add_into           l_out                  L12  DIFFER: 2048 of 2048 words, max |diff| 81306, first at 0: [0] 4760 vs 1701 [1] 18257 vs 2344 [2] 19752 vs 12380 [3] 14006 vs 10905 [4] 34369 vs 18409 [5] 7797 vs 12692
+  d  504 norm_e             attn_norm              L13  DIFFER: 2048 of 2048 words, max |diff| 298875, first at 0: [0] 12627 vs 7047 [1] 52014 vs 10429 [2] 29917 vs 29282 [3] 34740 vs 42239 [4] 79464 vs 66467 [5] 21338 vs 54244
+  d  506 gemv_ring64        linear_attn_qkv_mixed  L13  DIFFER: 6144 of 6144 words, max |diff| 207214, first at 0: [0] 71975 vs 63143 [1] 58384 vs 50983 [2] -63234 vs -124984 [3] 164628 vs 165079 [4] 81401 vs 70822 [5] 24571 vs 19858
+  d  507 gemv_h64           z                      L13  DIFFER: 2048 of 2048 words, max |diff| 119540, first at 0: [0] 78027 vs 59850 [1] 60706 vs 41438 [2] 58721 vs 14005 [3] 85735 vs 68108 [4] 143750 vs 118729 [5] 33307 vs 44976
+  d  510 gdn_gates          gdn_decay              L13  DIFFER: 16 of 16 words, max |diff| 5418, first at 0: [0] 27837 vs 24542 [1] 19367 vs 16884 [2] 18562 vs 14225 [3] 24578 vs 19160 [4] 32592 vs 32103 [5] 32134 vs 31130
+  d  510 gdn_gates          gdn_beta               L13  DIFFER: 16 of 16 words, max |diff| 6002, first at 0: [0] 22143 vs 27447 [1] 26499 vs 30154 [2] 21633 vs 24831 [3] 24737 vs 29837 [4] 26979 vs 31031 [5] 10878 vs 16224
+  d  511 conv_silu          conv_output_silu       L13  DIFFER: 4343 of 6144 words, max |diff| 42561, first at 0: [0] -8917 vs -8021 [1] -5674 vs -5043 [2] 1841 vs 3780 [4] 10340 vs 8734 [5] 1706 vs 1305 [6] 5519 vs 4352
+  d  514 quant_vec128_scale gdn_qi                 L13  DIFFER: 1944 of 2048 words, max |diff| 140, first at 0: [0] -49 vs -38 [1] -31 vs -24 [2] 10 vs 18 [3] -25 vs -21 [4] 56 vs 42 [5] 9 vs 6
+  d  514 quant_vec128_scale gdn_ki                 L13  DIFFER: 1380 of 2048 words, max |diff| 131, first at 1: [1] 0 vs 2 [3] -103 vs -88 [4] 2 vs -4 [6] 5 vs 9 [7] -4 vs -2 [9] 0 vs -2
+  d  514 quant_vec128_scale gdn_vi                 L13  DIFFER: 1363 of 2048 words, max |diff| 148, first at 0: [0] -43 vs -63 [2] -43 vs -63 [4] -43 vs -63 [7] -43 vs -63 [8] 0 vs -63 [10] 43 vs 127
+  d  514 quant_vec128_scale gdn_qs                 L13  DIFFER: 16 of 16 words, max |diff| 2716, first at 0: [0] 3976 vs 4080 [1] 8850 vs 7458 [2] 4202 vs 5309 [3] 2590 vs 2844 [4] 6826 vs 4296 [5] 6450 vs 4849
+  d  514 quant_vec128_scale gdn_ks                 L13  DIFFER: 16 of 16 words, max |diff| 70879, first at 0: [0] 65793 vs 58321 [1] 68576 vs 51531 [2] 65581 vs 57989 [3] 79094 vs 84706 [4] 53995 vs 54704 [5] 94686 vs 85772
+  d  514 quant_vec128_scale gdn_vs                 L13  DIFFER: 15 of 16 words, max |diff| 25602, first at 0: [0] 770 vs 518 [1] 36461 vs 36479 [2] 12264 vs 14652 [3] 4257 vs 5362 [4] 4959 vs 3999 [5] 9516 vs 9950
+  d  515 gdn_head           gdn_kreal              L13  DIFFER: 1735 of 2048 words, max |diff| 11146513, first at 1: [1] 0 vs 116642 [2] -131586 vs -116642 [3] -6776679 vs -5132248 [4] 131586 vs -233284 [6] 328965 vs 524889 [7] -263172 vs -116642
+  d  515 gdn_head           gdn_o                  L13  DIFFER: 1596 of 2048 words, max |diff| 2128132, first at 0: [0] -17890 vs 469359 [2] -17890 vs 469359 [4] -17890 vs 469359 [7] -17890 vs 469359 [8] 0 vs 469359 [10] 17890 vs -946001
+  d  515 gdn_head           gdn_dbg                L13  DIFFER: 116 of 128 words, max |diff| 4289777, first at 0: [0] 52737 vs 946001 [1] 152101 vs 313804 [2] 8824 vs 12675 [3] 7 vs 90 [5] 248503 vs 255003 [6] 106305 vs 1906900
+  d  515 gdn_head           gdn_on                 L13  DIFFER: 1596 of 2048 words, max |diff| 40338, first at 0: [0] -34 vs 453 [2] -34 vs 460 [4] -34 vs 463 [7] -34 vs 460 [8] 0 vs 420 [10] 35 vs -941
+  d  515 gdn_head           gdn_sz                 L13  DIFFER: 2039 of 2048 words, max |diff| 111350, first at 0: [0] 59636 vs 42531 [1] 43454 vs 26883 [2] 41613 vs 7638 [3] 67259 vs 50300 [4] 129179 vs 101838 [5] 20776 vs 29771
+  d  515 gdn_head           gdn_se                 L13  DIFFER: 6 of 16 words, max |diff| 1, first at 0: [0] 23 vs 24 [2] 20 vs 19 [3] 21 vs 20 [10] 21 vs 22 [12] 18 vs 17 [14] 19 vs 18
+  d  515 gdn_head           gdn_smax               L13  DIFFER: 16 of 16 words, max |diff| 12561, first at 0: [0] 16456 vs 24327 [1] 30373 vs 25984 [2] 31904 vs 19343 [3] 30545 vs 24849 [4] 26492 vs 24895 [5] 17972 vs 25389
+  d  515 gdn_head           gdn_state              L13  DIFFER: 163815 of 262144 elements, max |diff| 27736, first at 128 (head 0 row 1 col 0): [128] 0 vs -190 [130] 0 vs -190 [132] 0 vs -190 [135] 0 vs -190 [136] 0 vs -190 [138] 0 vs 383
+  d  515 gdn_head           final_output           L13  DIFFER: 1593 of 2048 words, max |diff| 17260, first at 0: [0] -31 vs 294 [2] -22 vs 54 [4] -67 vs 719 [7] -28 vs 221 [8] 0 vs 713 [10] -10 vs 208
+  d  516 quant_blocks       mix_q                  L13  DIFFER: 1501 of 2048 words, max |diff| 254, first at 0: [0] -59 vs 52 [2] -42 vs 10 [4] -127 vs 127 [7] -53 vs 39 [8] 0 vs 126 [10] -19 vs 37
+  d  516 quant_blocks       mix_xs                 L13  DIFFER: 64 of 64 words, max |diff| 34792, first at 0: [0] 135 vs 1449 [1] 113 vs 1095 [2] 157 vs 2014 [3] 115 vs 1552 [4] 23875 vs 25906 [5] 5912 vs 4185
+  d  517 gemv_h64           linear_attn_out        L13  DIFFER: 2045 of 2048 words, max |diff| 3521, first at 0: [0] 1409 vs 878 [1] 421 vs 298 [2] -147 vs 47 [3] 267 vs -303 [4] -793 vs -164 [5] -263 vs -583
+  d  518 add_into           attn_residual          L13  DIFFER: 2048 of 2048 words, max |diff| 81996, first at 0: [0] 6169 vs 2579 [1] 18678 vs 2642 [2] 19605 vs 12427 [3] 14273 vs 10602 [4] 33576 vs 18245 [5] 7534 vs 12109
+  d  523 norm_e             attn_post_norm         L13  DIFFER: 2048 of 2048 words, max |diff| 189987, first at 0: [0] 13641 vs 8909 [1] 43195 vs 9545 [2] 32208 vs 31894 [3] 30507 vs 35402 [4] 71681 vs 60852 [5] 17249 vs 43312
+  d  529 gemv_ffx192        ffn_out                L13  DIFFER: 2048 of 2048 words, max |diff| 22200, first at 0: [0] 5315 vs -1279 [1] -2835 vs 350 [2] 46 vs 98 [3] 5627 vs 340 [4] 995 vs 561 [5] 5535 vs -1598
+  d  530 add_into           l_out                  L13  DIFFER: 2048 of 2048 words, max |diff| 73354, first at 0: [0] 11484 vs 1300 [1] 15843 vs 2992 [2] 19651 vs 12525 [3] 19900 vs 10942 [4] 34571 vs 18806 [5] 13069 vs 10511
+  d  535 norm_e             attn_norm              L14  DIFFER: 2048 of 2048 words, max |diff| 271614, first at 0: [0] 30804 vs 5399 [1] 44332 vs 12964 [2] 36320 vs 35845 [3] 50948 vs 43377 [4] 87722 vs 73889 [5] 37057 vs 46149
+  d  537 gemv_ring64        linear_attn_qkv_mixed  L14  DIFFER: 6144 of 6144 words, max |diff| 361024, first at 0: [0] 15925 vs 53107 [1] 152020 vs 99772 [2] 95113 vs 74116 [3] 18328 vs -4069 [4] -162410 vs -211225 [5] 11380 vs -20702
+  d  538 gemv_h64           z                      L14  DIFFER: 2048 of 2048 words, max |diff| 140843, first at 0: [0] 30710 vs 47120 [1] -3808 vs -11508 [2] 114753 vs 99708 [3] 87311 vs 8453 [4] 60295 vs 41895 [5] 78323 vs 43193
+  d  541 gdn_gates          gdn_decay              L14  DIFFER: 16 of 16 words, max |diff| 4005, first at 0: [0] 28275 vs 26189 [1] 30873 vs 28847 [2] 21542 vs 20546 [3] 31497 vs 31130 [4] 15150 vs 13794 [5] 30918 vs 27607
+  d  541 gdn_gates          gdn_beta               L14  DIFFER: 16 of 16 words, max |diff| 5675, first at 0: [0] 8514 vs 14189 [1] 30473 vs 31445 [2] 27720 vs 30792 [3] 25711 vs 27786 [4] 28185 vs 29979 [5] 30979 vs 32295
+  d  542 conv_silu          conv_output_silu       L14  DIFFER: 4515 of 6144 words, max |diff| 152364, first at 0: [0] 3076 vs 11660 [1] -6686 vs -4612 [2] -10489 vs -8653 [3] -2812 vs 516 [4] 36882 vs 51265 [5] -1743 vs 3356
+  d  545 quant_vec128_scale gdn_qi                 L14  DIFFER: 1925 of 2048 words, max |diff| 172, first at 0: [0] 11 vs 29 [1] -23 vs -11 [2] -36 vs -21 [3] -10 vs 1 [5] -6 vs 8 [6] -20 vs -8
+  d  545 quant_vec128_scale gdn_ki                 L14  DIFFER: 1509 of 2048 words, max |diff| 127, first at 0: [0] -5 vs -8 [1] 5 vs 0 [2] 5 vs 8 [5] -5 vs -15 [6] -5 vs -8 [7] 5 vs 8
+  d  545 quant_vec128_scale gdn_vi                 L14  DIFFER: 1299 of 2048 words, max |diff| 81, first at 0: [0] 0 vs -2 [3] -24 vs 2 [5] -2 vs 0 [6] -2 vs 0 [7] -113 vs -76 [9] -15 vs -6
+  d  545 quant_vec128_scale gdn_qs                 L14  DIFFER: 16 of 16 words, max |diff| 3990, first at 0: [0] 3729 vs 5491 [1] 7243 vs 9973 [2] 4240 vs 4385 [3] 5202 vs 6503 [4] 4495 vs 8485 [5] 4041 vs 6102
+  d  545 quant_vec128_scale gdn_ks                 L14  DIFFER: 16 of 16 words, max |diff| 23413, first at 0: [0] 69439 vs 59750 [1] 115128 vs 110348 [2] 59046 vs 58573 [3] 114654 vs 105055 [4] 79431 vs 56018 [5] 53211 vs 51628
+  d  545 quant_vec128_scale gdn_vs                 L14  DIFFER: 16 of 16 words, max |diff| 21663, first at 0: [0] 14652 vs 15608 [1] 38839 vs 41879 [2] 9079 vs 12024 [3] 20014 vs 18323 [4] 35120 vs 36227 [5] 51337 vs 47733
+  d  546 gdn_head           gdn_kreal              L14  DIFFER: 1811 of 2048 words, max |diff| 8818753, first at 0: [0] -347195 vs -478000 [1] 347195 vs 0 [2] 347195 vs 478000 [5] -347195 vs -896250 [6] -347195 vs -478000 [7] 347195 vs 478000
+  d  546 gdn_head           gdn_o                  L14  DIFFER: 1696 of 2048 words, max |diff| 3606219, first at 0: [0] 0 vs -11166 [1] -2961 vs -11166 [2] -2961 vs -11166 [3] -33894 vs 11166 [5] -2961 vs 0 [6] -2961 vs 0
+  d  546 gdn_head           gdn_dbg                L14  DIFFER: 120 of 128 words, max |diff| 7269229, first at 0: [0] 179899 vs 710819 [1] 51300 vs 33002 [2] 5124 vs 4110 [3] 50 vs 471 [4] 16777 vs 16783 [5] 233065 vs 343069
+  d  546 gdn_head           gdn_on                 L14  DIFFER: 1695 of 2048 words, max |diff| 118676, first at 0: [0] 0 vs -227 [1] -20 vs -218 [2] -20 vs -216 [3] -158 vs 153 [5] -20 vs 0 [6] -21 vs 0
+  d  546 gdn_head           gdn_sz                 L14  DIFFER: 2038 of 2048 words, max |diff| 137585, first at 0: [0] 18710 vs 31670 [1] -1864 vs -5255 [2] 97709 vs 81706 [3] 69067 vs 4496 [4] 42992 vs 27291 [5] 59887 vs 28317
+  d  546 gdn_head           gdn_se                 L14  DIFFER: 8 of 16 words, max |diff| 1, first at 0: [0] 21 vs 20 [1] 17 vs 16 [2] 20 vs 19 [4] 17 vs 18 [6] 18 vs 17 [12] 19 vs 18
+  d  546 gdn_head           gdn_smax               L14  DIFFER: 16 of 16 words, max |diff| 14577, first at 0: [0] 31767 vs 24264 [1] 31231 vs 16654 [2] 27248 vs 19883 [3] 27046 vs 24519 [4] 18021 vs 27889 [5] 19397 vs 18242
+  d  546 gdn_head           gdn_state              L14  DIFFER: 183937 of 262144 elements, max |diff| 31767, first at 0 (head 0 row 0 col 0): [0] 0 vs 24 [1] 20 vs 24 [2] 20 vs 24 [3] 236 vs -24 [5] 20 vs 0 [6] 20 vs 0
+  d  546 gdn_head           final_output           L14  DIFFER: 1691 of 2048 words, max |diff| 72281, first at 0: [0] 0 vs -110 [1] 1 vs 17 [2] -30 vs -269 [3] -167 vs 10 [5] -18 vs 0 [6] -28 vs 0
+  d  547 quant_blocks       mix_q                  L14  DIFFER: 1580 of 2048 words, max |diff| 254, first at 0: [0] 0 vs -8 [1] 0 vs 1 [2] -14 vs -18 [3] -77 vs 1 [5] -8 vs 0 [6] -13 vs 0
+  d  547 quant_blocks       mix_xs                 L14  DIFFER: 64 of 64 words, max |diff| 103990, first at 0: [0] 554 vs 3723 [1] 538 vs 3673 [2] 284 vs 1828 [3] 466 vs 5985 [4] 105065 vs 20180 [5] 59037 vs 15082
+  d  548 gemv_h64           linear_attn_out        L14  DIFFER: 2047 of 2048 words, max |diff| 8098, first at 0: [0] -6882 vs -4031 [1] -5127 vs -2537 [2] -1121 vs -567 [3] 2381 vs -205 [4] 1001 vs 2626 [5] 752 vs -990
+  d  549 add_into           attn_residual          L14  DIFFER: 2048 of 2048 words, max |diff| 71101, first at 0: [0] 4602 vs -2731 [1] 10716 vs 455 [2] 18530 vs 11958 [3] 22281 vs 10737 [4] 35572 vs 21432 [5] 13821 vs 9521
+  d  554 norm_e             attn_post_norm         L14  DIFFER: 2048 of 2048 words, max |diff| 182480, first at 0: [0] 10543 vs -9660 [1] 25093 vs 1645 [2] 46903 vs 46733 [3] 50063 vs 37248 [4] 82449 vs 76698 [5] 33065 vs 35169
+  d  560 gemv_ffx192        ffn_out                L14  DIFFER: 2048 of 2048 words, max |diff| 105563, first at 0: [0] 42366 vs 57403 [1] -56919 vs -67176 [2] 35864 vs 42101 [3] -1065 vs -1495 [4] 60487 vs 77774 [5] 53171 vs 66664
+  d  561 add_into           l_out                  L14  DIFFER: 2047 of 2048 words, max |diff| 85271, first at 0: [0] 46968 vs 54672 [1] -46203 vs -66721 [2] 54394 vs 54059 [3] 21216 vs 9242 [4] 96059 vs 99206 [5] 66992 vs 76185
+  d  566 norm_e             attn_norm              L15  DIFFER: 2048 of 2048 words, max |diff| 84723, first at 0: [0] 47707 vs 54484 [1] -46929 vs -66491 [2] 44736 vs 43621 [3] 21245 vs 9080 [4] 100025 vs 101352 [5] 70539 vs 78705
+  d  609 attn_pv            attn_gated             L15  DIFFER: 808 of 2048 words, max |diff| 2694215, first at 0: [0] 0 vs -17050 [1] 0 vs 7470 [2] 0 vs 1904 [6] 0 vs -3161 [7] 0 vs 3227 [9] 0 vs 2600
+  d  611 gemv_h64           attn_output            L15  DIFFER: 2048 of 2048 words, max |diff| 461542, first at 0: [0] 0 vs -71113 [1] 0 vs 56717 [2] 0 vs -34354 [3] 0 vs -3861 [4] 0 vs -80993 [5] 0 vs -68784
+  d  612 add_into           attn_residual          L15  DIFFER: 2048 of 2048 words, max |diff| 376271, first at 0: [0] 46968 vs -16441 [1] -46203 vs -10004 [2] 54394 vs 19705 [3] 21216 vs 5381 [4] 96059 vs 18213 [5] 66992 vs 7401
+  d  617 norm_e             attn_post_norm         L15  DIFFER: 2048 of 2048 words, max |diff| 376027, first at 0: [0] 49960 vs -60766 [1] -51094 vs -38441 [2] 53347 vs 67150 [3] 22111 vs 19486 [4] 103816 vs 68394 [5] 74084 vs 28438
+  d  623 gemv_ffx192        ffn_out                L15  DIFFER: 2048 of 2048 words, max |diff| 92186, first at 0: [0] 6714 vs -5371 [1] 959 vs 68 [2] -9998 vs 3883 [3] -13730 vs -2176 [4] 16833 vs -5282 [5] 6955 vs -7595
+  d  624 add_into           l_out                  L15  DIFFER: 2048 of 2048 words, max |diff| 468457, first at 0: [0] 53682 vs -21812 [1] -45244 vs -9936 [2] 44396 vs 23588 [3] 7486 vs 3205 [4] 112892 vs 12931 [5] 73947 vs -194
+  d  629 norm_e             attn_norm              L16  DIFFER: 2048 of 2048 words, max |diff| 755697, first at 0: [0] 63585 vs -92389 [1] -55422 vs -43524 [2] 43698 vs 83025 [3] 9012 vs 13798 [4] 134911 vs 55260 [5] 90712 vs -851
+  d  631 gemv_ring64        linear_attn_qkv_mixed  L16  DIFFER: 6143 of 6144 words, max |diff| 936470, first at 0: [0] -93736 vs -20301 [1] -68414 vs -30105 [2] 54931 vs -62292 [3] 81168 vs 50209 [4] 41221 vs 66224 [5] -150451 vs 786019
+  d  632 gemv_h64           z                      L16  DIFFER: 2048 of 2048 words, max |diff| 303043, first at 0: [0] -30851 vs -18982 [1] 102543 vs 116012 [2] -79378 vs -76846 [3] 78007 vs 58721 [4] 746 vs 2475 [5] 16957 vs 31441
+  d  635 gdn_gates          gdn_decay              L16  DIFFER: 15 of 16 words, max |diff| 9156, first at 0: [0] 32561 vs 30350 [1] 28028 vs 18872 [2] 32768 vs 32592 [3] 28428 vs 21448 [4] 32752 vs 31405 [5] 23464 vs 17369
+  d  635 gdn_gates          gdn_beta               L16  DIFFER: 16 of 16 words, max |diff| 16335, first at 0: [0] 23727 vs 32494 [1] 23154 vs 30431 [2] 26134 vs 31989 [3] 21776 vs 30649 [4] 23180 vs 31755 [5] 22778 vs 29888
+  d  636 conv_silu          conv_output_silu       L16  DIFFER: 5541 of 6144 words, max |diff| 303280, first at 0: [0] -10950 vs -2928 [1] -6487 vs -3044 [2] 6567 vs -6186 [3] -13380 vs -9431 [4] -7077 vs -10410 [5] -16661 vs 286619
+  d  639 quant_vec128_scale gdn_qi                 L16  DIFFER: 1959 of 2048 words, max |diff| 162, first at 0: [0] -23 vs -1 [1] -14 vs -1 [2] 14 vs -3 [3] -28 vs -4 [4] -15 vs -5 [5] -35 vs 127
+  d  639 quant_vec128_scale gdn_ki                 L16  DIFFER: 1807 of 2048 words, max |diff| 236, first at 0: [0] 0 vs 4 [1] 0 vs 1 [2] -1 vs -2 [3] 5 vs 60 [4] 0 vs -1 [5] 0 vs 1
+  d  639 quant_vec128_scale gdn_vi                 L16  DIFFER: 1575 of 2048 words, max |diff| 238, first at 0: [0] 3 vs -2 [1] -3 vs -2 [2] 96 vs 17 [3] 3 vs 2 [4] 8 vs 12 [5] -3 vs 0
+  d  639 quant_vec128_scale gdn_qs                 L16  DIFFER: 16 of 16 words, max |diff| 4481, first at 0: [0] 5004 vs 9485 [1] 4838 vs 4400 [2] 4244 vs 6274 [3] 6122 vs 3817 [4] 3731 vs 7741 [5] 3693 vs 4432
+  d  639 quant_vec128_scale gdn_ks                 L16  DIFFER: 16 of 16 words, max |diff| 74389, first at 0: [0] 124919 vs 50530 [1] 70823 vs 55850 [2] 50809 vs 54970 [3] 70222 vs 78165 [4] 36526 vs 42297 [5] 63364 vs 61247
+  d  639 quant_vec128_scale gdn_vs                 L16  DIFFER: 16 of 16 words, max |diff| 279728, first at 0: [0] 12024 vs 17287 [1] 30295 vs 33457 [2] 88995 vs 177168 [3] 55423 vs 100908 [4] 198618 vs 317115 [5] 34899 vs 36785
+  d  640 gdn_head           gdn_kreal              L16  DIFFER: 1961 of 2048 words, max |diff| 21372483, first at 0: [0] 0 vs 202120 [1] 0 vs 50530 [2] -124919 vs -101060 [3] 624595 vs 3031800 [4] 0 vs -50530 [5] 0 vs 50530
+  d  640 gdn_head           gdn_o                  L16  DIFFER: 1769 of 2048 words, max |diff| 5160520, first at 0: [0] 15341 vs -17311 [1] -15341 vs -17311 [2] 490658 vs 147572 [3] 15341 vs 17311 [4] 40779 vs 104123 [5] -15341 vs 0
+  d  640 gdn_head           gdn_dbg                L16  DIFFER: 122 of 128 words, max |diff| 9802486, first at 0: [0] 649126 vs 1102383 [1] 66699 vs 59485 [2] 5843 vs 5518 [3] 1113 vs 3385 [4] 16814 vs 17115 [5] 312065 vs 581112
+  d  640 gdn_head           gdn_on                 L16  DIFFER: 1769 of 2048 words, max |diff| 318966, first at 0: [0] 495 vs -1040 [1] -517 vs -1087 [2] 18966 vs 10622 [3] 473 vs 993 [4] 1173 vs 5579 [5] -482 vs 0
+  d  640 gdn_head           gdn_sz                 L16  DIFFER: 2045 of 2048 words, max |diff| 205684, first at 0: [0] -11894 vs -8204 [1] 84655 vs 99083 [2] -18220 vs -18171 [3] 59636 vs 41613 [4] 257 vs 1172 [5] 9531 vs 19268
+  d  640 gdn_head           gdn_se                 L16  DIFFER: 10 of 16 words, max |diff| 3, first at 2: [2] 17 vs 15 [3] 17 vs 16 [4] 16 vs 15 [7] 14 vs 13 [9] 18 vs 15 [10] 20 vs 17
+  d  640 gdn_head           gdn_smax               L16  DIFFER: 16 of 16 words, max |diff| 13148, first at 0: [0] 32674 vs 26023 [1] 22773 vs 26067 [2] 27086 vs 17852 [3] 19425 vs 27705 [4] 19272 vs 24407 [5] 23090 vs 30868
+  d  640 gdn_head           gdn_state              L16  DIFFER: 210433 of 262144 elements, max |diff| 49733, first at 0 (head 0 row 0 col 0): [0] 0 vs -13 [1] 0 vs -13 [2] 0 vs 110 [3] 0 vs 13 [4] 0 vs 77 [6] 0 vs 65
+  d  640 gdn_head           final_output           L16  DIFFER: 1762 of 2048 words, max |diff| 109461, first at 0: [0] -90 vs 130 [1] -668 vs -1643 [2] -5273 vs -2945 [3] 430 vs 631 [4] 5 vs 100 [5] -70 vs 0
+  d  641 quant_blocks       mix_q                  L16  DIFFER: 1650 of 2048 words, max |diff| 254, first at 0: [0] -2 vs 1 [1] -16 vs -14 [2] -127 vs -26 [3] 10 vs 6 [4] 0 vs 1 [5] -2 vs 0
+  d  641 quant_blocks       mix_xs                 L16  DIFFER: 63 of 64 words, max |diff| 193720, first at 0: [0] 10629 vs 29035 [1] 17390 vs 9369 [2] 11536 vs 14417 [3] 14945 vs 36900 [4] 55320 vs 34189 [5] 17468 vs 11574
+  d  642 gemv_h64           linear_attn_out        L16  DIFFER: 2048 of 2048 words, max |diff| 24800, first at 0: [0] -151 vs 940 [1] 936 vs -1081 [2] 1010 vs 483 [3] -1116 vs -2336 [4] -1642 vs -2894 [5] -322 vs 1648
+  d  643 add_into           attn_residual          L16  DIFFER: 2048 of 2048 words, max |diff| 493257, first at 0: [0] 53531 vs -20872 [1] -44308 vs -11017 [2] 45406 vs 24071 [3] 6370 vs 869 [4] 111250 vs 10037 [5] 73625 vs 1454
+  d  648 norm_e             attn_post_norm         L16  DIFFER: 2048 of 2048 words, max |diff| 531677, first at 0: [0] 60435 vs -83725 [1] -51547 vs -45541 [2] 45471 vs 85648 [3] 6950 vs 3369 [4] 122357 vs 39222 [5] 84486 vs 5929
+  d  654 gemv_ffx192        ffn_out                L16  DIFFER: 2048 of 2048 words, max |diff| 39016, first at 0: [0] 7330 vs -3975 [1] 5919 vs 8509 [2] 2278 vs 778 [3] 5467 vs 456 [4] -19938 vs -736 [5] 4225 vs 3357
+  d  655 add_into           l_out                  L16  DIFFER: 2048 of 2048 words, max |diff| 475377, first at 0: [0] 60861 vs -24847 [1] -38389 vs -2508 [2] 47684 vs 24849 [3] 11837 vs 1325 [4] 91312 vs 9301 [5] 77850 vs 4811
+  d  660 norm_e             attn_norm              L17  DIFFER: 2048 of 2048 words, max |diff| 804036, first at 0: [0] 76635 vs -108711 [1] -49284 vs -11188 [2] 56599 vs 102486 [3] 15030 vs 5845 [4] 112727 vs 39897 [5] 99671 vs 21402
+  d  662 gemv_ring64        linear_attn_qkv_mixed  L17  DIFFER: 6144 of 6144 words, max |diff| 734208, first at 0: [0] -121530 vs -47093 [1] 64446 vs 71692 [2] 14705 vs -48550 [3] 20659 vs -12423 [4] -68557 vs -23216 [5] 58444 vs 81844
+  d  663 gemv_h64           z                      L17  DIFFER: 2048 of 2048 words, max |diff| 257778, first at 0: [0] 18562 vs 21345 [1] -10682 vs 20537 [2] -8688 vs -21741 [3] -16563 vs 1154 [4] 95656 vs 36213 [5] -8161 vs -8004
+  d  666 gdn_gates          gdn_decay              L17  DIFFER: 16 of 16 words, max |diff| 8602, first at 0: [0] 24173 vs 16630 [1] 32608 vs 29416 [2] 18863 vs 16958 [3] 24209 vs 18140 [4] 32640 vs 31191 [5] 29690 vs 22909
+  d  666 gdn_gates          gdn_beta               L17  DIFFER: 16 of 16 words, max |diff| 24050, first at 0: [0] 20696 vs 29380 [1] 24831 vs 32354 [2] 17884 vs 28585 [3] 15011 vs 27447 [4] 21604 vs 32504 [5] 7499 vs 31549
+  d  667 conv_silu          conv_output_silu       L17  DIFFER: 5616 of 6144 words, max |diff| 187953, first at 0: [0] -17193 vs -9682 [1] 6567 vs 7484 [2] 2248 vs -6686 [3] 1040 vs -759 [4] -5043 vs -1864 [5] 2522 vs 3497
+  d  670 quant_vec128_scale gdn_qi                 L17  DIFFER: 1962 of 2048 words, max |diff| 153, first at 0: [0] -40 vs -12 [1] 15 vs 9 [2] 5 vs -8 [3] 2 vs -1 [4] -12 vs -2 [5] 6 vs 4
+  d  670 quant_vec128_scale gdn_ki                 L17  DIFFER: 1762 of 2048 words, max |diff| 207, first at 0: [0] 0 vs 4 [1] -41 vs -46 [2] 0 vs -16 [3] -36 vs -34 [4] -73 vs -15 [5] 21 vs 17
+  d  670 quant_vec128_scale gdn_vi                 L17  DIFFER: 1749 of 2048 words, max |diff| 185, first at 0: [0] 0 vs -5 [1] -16 vs -32 [2] 3 vs 4 [3] 13 vs -41 [4] 28 vs -47 [5] 0 vs -1
+  d  670 quant_vec128_scale gdn_qs                 L17  DIFFER: 16 of 16 words, max |diff| 4072, first at 0: [0] 6985 vs 9014 [1] 3687 vs 2338 [2] 4725 vs 4164 [3] 5226 vs 3048 [4] 6492 vs 5397 [5] 3483 vs 5596
+  d  670 quant_vec128_scale gdn_ks                 L17  DIFFER: 16 of 16 words, max |diff| 61265, first at 0: [0] 51752 vs 41075 [1] 79778 vs 69281 [2] 63295 vs 54838 [3] 87097 vs 70753 [4] 53276 vs 43135 [5] 54788 vs 70593
+  d  670 quant_vec128_scale gdn_vs                 L17  DIFFER: 16 of 16 words, max |diff| 249260, first at 0: [0] 78394 vs 54189 [1] 25773 vs 34235 [2] 53778 vs 39972 [3] 32337 vs 36969 [4] 92767 vs 160397 [5] 100908 vs 184280
+  d  671 gdn_head           gdn_kreal              L17  DIFFER: 1924 of 2048 words, max |diff| 12559442, first at 0: [0] 0 vs 164300 [1] -2121832 vs -1889450 [2] 0 vs -657200 [3] -1863072 vs -1396550 [4] -3777896 vs -616125 [5] 1086792 vs 698275
+  d  671 gdn_head           gdn_o                  L17  DIFFER: 1889 of 2048 words, max |diff| 9568188, first at 0: [0] 0 vs -11232 [1] -65352 vs -71504 [2] 12165 vs 8870 [3] 53011 vs -91678 [4] 114238 vs -105134 [5] 0 vs -2324
+  d  671 gdn_head           gdn_dbg                L17  DIFFER: 122 of 128 words, max |diff| 19287056, first at 0: [0] 517980 vs 283956 [1] 59678 vs 112342 [2] 5527 vs 7584 [3] 4693 vs 2278 [4] 17421 vs 16931 [5] 420429 vs 558257
+  d  671 gdn_head           gdn_on                 L17  DIFFER: 1889 of 2048 words, max |diff| 390277, first at 0: [0] 0 vs -1098 [1] -10185 vs -7398 [2] 1420 vs 687 [3] 8053 vs -9247 [4] 19592 vs -11971 [5] 0 vs -193
+  d  671 gdn_head           gdn_sz                 L17  DIFFER: 2038 of 2048 words, max |diff| 237048, first at 0: [0] 10504 vs 12331 [1] -4936 vs 11827 [2] -4063 vs -9090 [3] -7269 vs 516 [4] 77448 vs 22896 [6] -8741 vs 3780
+  d  671 gdn_head           gdn_se                 L17  DIFFER: 10 of 16 words, max |diff| 4, first at 0: [0] 17 vs 18 [1] 18 vs 17 [3] 18 vs 17 [4] 17 vs 16 [5] 18 vs 15 [7] 15 vs 13
+  d  671 gdn_head           gdn_smax               L17  DIFFER: 16 of 16 words, max |diff| 10733, first at 0: [0] 19245 vs 29978 [1] 23405 vs 17589 [2] 27906 vs 28723 [3] 19381 vs 16455 [4] 24473 vs 25773 [5] 19005 vs 23518
+  d  671 gdn_head           gdn_state              L17  DIFFER: 221155 of 262144 elements, max |diff| 44454, first at 0 (head 0 row 0 col 0): [0] 0 vs -37 [1] 0 vs -238 [2] 0 vs 30 [3] 0 vs -305 [4] 0 vs -349 [5] 0 vs -7
+  d  671 gdn_head           final_output           L17  DIFFER: 1888 of 2048 words, max |diff| 204977, first at 0: [0] 0 vs -207 [1] 767 vs -1335 [2] -88 vs -95 [3] -893 vs -73 [4] 23153 vs -4182 [5] 0 vs 11
+  d  672 quant_blocks       mix_q                  L17  DIFFER: 1757 of 2048 words, max |diff| 254, first at 0: [0] 0 vs -5 [1] 4 vs -32 [2] 0 vs -2 [3] -5 vs -2 [4] 127 vs -100 [6] 13 vs -17
+  d  672 quant_blocks       mix_xs                 L17  DIFFER: 64 of 64 words, max |diff| 393480, first at 0: [0] 46671 vs 10728 [1] 142028 vs 35572 [2] 23425 vs 10375 [3] 15979 vs 21214 [4] 57074 vs 172417 [5] 30039 vs 70096
+  d  673 gemv_h64           linear_attn_out        L17  DIFFER: 2048 of 2048 words, max |diff| 17811, first at 0: [0] 459 vs -618 [1] 3698 vs 515 [2] -2958 vs -1877 [3] 4520 vs 3755 [4] 7886 vs 890 [5] 920 vs -974
+  d  674 add_into           attn_residual          L17  DIFFER: 2048 of 2048 words, max |diff| 481236, first at 0: [0] 61320 vs -25465 [1] -34691 vs -1993 [2] 44726 vs 22972 [3] 16357 vs 5080 [4] 99198 vs 10191 [5] 78770 vs 3837
+  d  679 norm_e             attn_post_norm         L17  DIFFER: 2048 of 2048 words, max |diff| 461679, first at 0: [0] 73031 vs -104374 [1] -42293 vs -8362 [2] 46580 vs 82334 [3] 19049 vs 20360 [4] 111599 vs 39457 [5] 96169 vs 16122
+  d  685 gemv_ffx192        ffn_out                L17  DIFFER: 2048 of 2048 words, max |diff| 33781, first at 0: [0] 688 vs -1208 [1] -5515 vs -3243 [2] 409 vs 4350 [3] 4317 vs 3194 [4] -350 vs 3248 [5] -6240 vs -6913
+  d  686 add_into           l_out                  L17  DIFFER: 2048 of 2048 words, max |diff| 448292, first at 0: [0] 62008 vs -26673 [1] -40206 vs -5236 [2] 45135 vs 27322 [3] 20674 vs 8274 [4] 98848 vs 13439 [5] 72530 vs -3076
+  d  691 norm_e             attn_norm              L18  DIFFER: 2048 of 2048 words, max |diff| 722431, first at 0: [0] 79538 vs -112339 [1] -52280 vs -22355 [2] 62421 vs 124070 [3] 25900 vs 34036 [4] 128879 vs 57533 [5] 95076 vs -13240
+  d  693 gemv_ring64        linear_attn_qkv_mixed  L18  DIFFER: 6144 of 6144 words, max |diff| 1174619, first at 0: [0] -160397 vs -129624 [1] 121833 vs 183482 [2] 20345 vs 140181 [3] -140591 vs -105304 [4] 107662 vs -9580 [5] -106427 vs -200303
+  d  694 gemv_h64           z                      L18  DIFFER: 2048 of 2048 words, max |diff| 455203, first at 0: [0] -75873 vs -233024 [1] -19182 vs -6658 [2] -18977 vs -72548 [3] -26809 vs -75607 [4] -31664 vs 8075 [5] 79480 vs -42724
+  d  697 gdn_gates          gdn_decay              L18  DIFFER: 16 of 16 words, max |diff| 9981, first at 0: [0] 32608 vs 31252 [1] 21839 vs 12633 [2] 32640 vs 28679 [3] 19358 vs 13626 [4] 29806 vs 27540 [5] 24844 vs 22368
+  d  697 gdn_gates          gdn_beta               L18  DIFFER: 16 of 16 words, max |diff| 15705, first at 0: [0] 27499 vs 32341 [1] 21373 vs 30555 [2] 26979 vs 31018 [3] 20815 vs 30877 [4] 19759 vs 29888 [5] 17470 vs 29284
+  d  698 conv_silu          conv_output_silu       L18  DIFFER: 5843 of 6144 words, max |diff| 195186, first at 0: [0] -17844 vs -18238 [1] -17336 vs -18112 [2] -1984 vs -11026 [3] -17488 vs -15563 [4] 18525 vs -1378 [5] -17193 vs -17053
+  d  701 quant_vec128_scale gdn_qi                 L18  DIFFER: 1965 of 2048 words, max |diff| 223, first at 0: [0] -36 vs -22 [1] -35 vs -22 [2] -4 vs -13 [3] -36 vs -19 [4] 38 vs -2 [5] -35 vs -21
+  d  701 quant_vec128_scale gdn_ki                 L18  DIFFER: 1765 of 2048 words, max |diff| 232, first at 0: [0] -4 vs -20 [1] 0 vs -1 [2] 1 vs 2 [4] 2 vs 12 [5] 1 vs 5 [6] 0 vs -1
+  d  701 quant_vec128_scale gdn_vi                 L18  DIFFER: 1735 of 2048 words, max |diff| 177, first at 0: [0] 33 vs 30 [1] 0 vs 5 [2] -4 vs 7 [3] -23 vs -41 [4] 2 vs 26 [5] -48 vs -75
+  d  701 quant_vec128_scale gdn_qs                 L18  DIFFER: 16 of 16 words, max |diff| 6278, first at 0: [0] 3934 vs 5441 [1] 2853 vs 3553 [2] 3595 vs 4790 [3] 5405 vs 5226 [4] 9073 vs 10618 [5] 4582 vs 7379
+  d  701 quant_vec128_scale gdn_ks                 L18  DIFFER: 16 of 16 words, max |diff| 45666, first at 0: [0] 100721 vs 55055 [1] 43569 vs 57869 [2] 92492 vs 109064 [3] 106919 vs 90766 [4] 60723 vs 40375 [5] 80594 vs 107935
+  d  701 quant_vec128_scale gdn_vs                 L18  DIFFER: 16 of 16 words, max |diff| 393446, first at 0: [0] 36537 vs 50934 [1] 25197 vs 70795 [2] 573994 vs 967440 [3] 53778 vs 91819 [4] 314281 vs 317115 [5] 65992 vs 89465
+  d  702 gdn_head           gdn_kreal              L18  DIFFER: 1937 of 2048 words, max |diff| 18572342, first at 0: [0] -402884 vs -1101100 [1] 0 vs -55055 [2] 100721 vs 110110 [3] -201442 vs -110110 [4] 201442 vs 660660 [5] 100721 vs 275275
+  d  702 gdn_head           gdn_o                  L18  DIFFER: 1889 of 2048 words, max |diff| 6248694, first at 0: [0] 7970 vs 667747 [1] 0 vs 111249 [2] -976 vs 155697 [3] -5398 vs -912514 [4] 443 vs 578688 [5] -11287 vs -1669204
+  d  702 gdn_head           gdn_dbg                L18  DIFFER: 123 of 128 words, max |diff| 9124989, first at 0: [0] 29864 vs 2826450 [1] 105092 vs 88952 [2] 7335 vs 6748 [3] 202 vs 24352 [4] 16778 vs 29571 [5] 245863 vs 192935
+  d  702 gdn_head           gdn_on                 L18  DIFFER: 1889 of 2048 words, max |diff| 442474, first at 0: [0] 715 vs 47034 [1] 0 vs 8556 [2] -90 vs 11358 [3] -514 vs -68209 [4] 44 vs 44920 [5] -930 vs -107975
+  d  702 gdn_head           gdn_sz                 L18  DIFFER: 2043 of 2048 words, max |diff| 259236, first at 0: [0] -18144 vs -6458 [1] -8204 vs -3274 [2] -8204 vs -18030 [3] -10722 vs -18137 [4] -12101 vs 4208 [5] 61144 vs -14641
+  d  702 gdn_head           gdn_se                 L18  DIFFER: 11 of 16 words, max |diff| 3, first at 1: [1] 19 vs 17 [2] 13 vs 12 [3] 17 vs 16 [5] 17 vs 16 [9] 16 vs 14 [10] 18 vs 17
+  d  702 gdn_head           gdn_smax               L18  DIFFER: 16 of 16 words, max |diff| 11110, first at 0: [0] 23195 vs 20787 [1] 21512 vs 28692 [2] 20518 vs 23442 [3] 27432 vs 29491 [4] 21607 vs 21928 [5] 21297 vs 32407
+  d  702 gdn_head           gdn_state              L18  DIFFER: 226278 of 262144 elements, max |diff| 36728, first at 0 (head 0 row 0 col 0): [0] -190 vs -773 [1] 0 vs -129 [2] 23 vs -180 [3] 132 vs 1057 [4] -12 vs -670 [5] 276 vs 1933
+  d  702 gdn_head           final_output           L18  DIFFER: 1889 of 2048 words, max |diff| 457314, first at 0: [0] -198 vs -4635 [1] 0 vs -427 [2] 11 vs -3125 [3] 84 vs 18877 [4] -8 vs 2884 [5] -868 vs 24122
+  d  703 quant_blocks       mix_q                  L18  DIFFER: 1772 of 2048 words, max |diff| 254, first at 0: [0] -29 vs -11 [1] 0 vs -1 [2] 2 vs -8 [3] 12 vs 46 [4] -1 vs 7 [5] -127 vs 58
+  d  703 quant_blocks       mix_xs                 L18  DIFFER: 64 of 64 words, max |diff| 921830, first at 0: [0] 1750 vs 105946 [1] 1318 vs 22859 [2] 1169 vs 68713 [3] 1308 vs 74694 [4] 14354 vs 49124 [5] 47529 vs 13471
+  d  704 gemv_h64           linear_attn_out        L18  DIFFER: 2048 of 2048 words, max |diff| 33830, first at 0: [0] -10929 vs 146 [1] -5510 vs -11261 [2] 1128 vs -174 [3] -13303 vs -14670 [4] 11661 vs 7889 [5] 7911 vs 4741
+  d  705 add_into           attn_residual          L18  DIFFER: 2048 of 2048 words, max |diff| 477549, first at 0: [0] 51079 vs -26527 [1] -45716 vs -16497 [2] 46263 vs 27148 [3] 7371 vs -6396 [4] 110509 vs 21328 [5] 80441 vs 1665
+  d  710 norm_e             attn_post_norm         L18  DIFFER: 2048 of 2048 words, max |diff| 403241, first at 0: [0] 62794 vs -104211 [1] -57218 vs -65981 [2] 49190 vs 92243 [3] 8734 vs -24217 [4] 125447 vs 77369 [5] 100542 vs 6650
+  d  716 gemv_ffx192        ffn_out                L18  DIFFER: 2048 of 2048 words, max |diff| 245260, first at 0: [0] -17958 vs 23374 [1] -4990 vs -7886 [2] 3806 vs 1960 [3] 10981 vs -3670 [4] 792 vs 1887 [5] 6541 vs -15222
+  d  717 add_into           l_out                  L18  DIFFER: 2048 of 2048 words, max |diff| 410906, first at 0: [0] 33121 vs -3153 [1] -50706 vs -24383 [2] 50069 vs 29108 [3] 18352 vs -10066 [4] 111301 vs 23215 [5] 86982 vs -13557
+  d  722 norm_e             attn_norm              L19  DIFFER: 2048 of 2048 words, max |diff| 590991, first at 0: [0] 28755 vs -7550 [1] -43214 vs -57316 [2] 69709 vs 111778 [3] 15492 vs -23437 [4] 111946 vs 64403 [5] 86001 vs -36971
+  d  765 attn_pv            attn_gated             L19  DIFFER: 1956 of 2048 words, max |diff| 324007, first at 0: [0] 0 vs 32 [1] 0 vs 1022 [2] 0 vs -1341 [3] 0 vs 2882 [4] 0 vs 1350 [5] 0 vs -981
+  d  767 gemv_h64           attn_output            L19  DIFFER: 2048 of 2048 words, max |diff| 351382, first at 0: [0] 0 vs 506 [1] 0 vs 979 [2] 0 vs -2040 [3] 0 vs 3256 [4] 0 vs 4990 [5] 0 vs 3645
+  d  768 add_into           attn_residual          L19  DIFFER: 2048 of 2048 words, max |diff| 583671, first at 0: [0] 33121 vs -2647 [1] -50706 vs -23404 [2] 50069 vs 27068 [3] 18352 vs -6810 [4] 111301 vs 28205 [5] 86982 vs -9912
+  d  773 norm_e             attn_post_norm         L19  DIFFER: 2048 of 2048 words, max |diff| 440111, first at 0: [0] 39331 vs -9286 [1] -61079 vs -83289 [2] 54588 vs 87186 [3] 21512 vs -23583 [4] 126284 vs 94546 [5] 104478 vs -35174
+  d  779 gemv_ffx192        ffn_out                L19  DIFFER: 2048 of 2048 words, max |diff| 49779, first at 0: [0] -1151 vs -11515 [1] -3614 vs 1635 [2] 9326 vs -7386 [3] -234 vs 5177 [4] -3917 vs 10979 [5] -4 vs -5048
+  d  780 add_into           l_out                  L19  DIFFER: 2048 of 2048 words, max |diff| 542604, first at 0: [0] 31970 vs -14162 [1] -54320 vs -21769 [2] 59395 vs 19682 [3] 18118 vs -1633 [4] 107384 vs 39184 [5] 86978 vs -14960
+  d  785 norm_e             attn_norm              L20  DIFFER: 2048 of 2048 words, max |diff| 589685, first at 0: [0] 36830 vs -44363 [1] -63414 vs -69103 [2] 82434 vs 74279 [3] 20934 vs -5131 [4] 128297 vs 127300 [5] 105403 vs -49296
+  d  787 gemv_ring64        linear_attn_qkv_mixed  L20  DIFFER: 6144 of 6144 words, max |diff| 826422, first at 0: [0] -35809 vs -26936 [1] 18012 vs -37982 [2] -122993 vs -151430 [3] -41129 vs -3649 [4] 8359 vs -109479 [5] -264104 vs 57759
+  d  788 gemv_h64           z                      L20  DIFFER: 2048 of 2048 words, max |diff| 307512, first at 0: [0] -46523 vs -47945 [1] 14685 vs -47170 [2] 21111 vs 10002 [3] -75934 vs -81906 [4] 40917 vs -21975 [5] -50872 vs 18835
+  d  791 gdn_gates          gdn_decay              L20  DIFFER: 16 of 16 words, max |diff| 9476, first at 0: [0] 30335 vs 28847 [1] 29445 vs 25808 [2] 32656 vs 28581 [3] 16325 vs 13117 [4] 32465 vs 30633 [5] 17668 vs 12449
+  d  791 gdn_gates          gdn_beta               L20  DIFFER: 16 of 16 words, max |diff| 15230, first at 0: [0] 18421 vs 31891 [1] 17343 vs 31581 [2] 16224 vs 29520 [3] 16064 vs 28513 [4] 28556 vs 30849 [5] 19759 vs 31113
+  d  792 conv_silu          conv_output_silu       L20  DIFFER: 5919 of 6144 words, max |diff| 183845, first at 0: [0] -4394 vs -3388 [1] 646 vs -1378 [2] -10798 vs -12504 [3] -3840 vs -382 [4] 777 vs -9599 [5] -14174 vs 4641
+  d  795 quant_vec128_scale gdn_qi                 L20  DIFFER: 1965 of 2048 words, max |diff| 207, first at 0: [0] -15 vs -13 [1] 2 vs -5 [2] -37 vs -48 [3] -13 vs -1 [4] 3 vs -37 [5] -48 vs 18
+  d  795 quant_vec128_scale gdn_ki                 L20  DIFFER: 1841 of 2048 words, max |diff| 180, first at 0: [0] 3 vs 11 [2] -2 vs 2 [3] -4 vs -5 [4] 13 vs 16 [5] -26 vs 49 [7] -11 vs -4
+  d  795 quant_vec128_scale gdn_vi                 L20  DIFFER: 1865 of 2048 words, max |diff| 186, first at 0: [0] -20 vs -16 [1] 7 vs 1 [2] -2 vs 2 [3] -6 vs 7 [4] 3 vs 5 [5] -31 vs -20
+  d  795 quant_vec128_scale gdn_qs                 L20  DIFFER: 16 of 16 words, max |diff| 3950, first at 0: [0] 4760 vs 4405 [1] 3638 vs 3070 [2] 5838 vs 6994 [3] 5046 vs 7370 [4] 5726 vs 8718 [5] 4133 vs 5918
+  d  795 quant_vec128_scale gdn_ks                 L20  DIFFER: 16 of 16 words, max |diff| 53666, first at 0: [0] 60629 vs 71610 [1] 47969 vs 79799 [2] 60252 vs 87071 [3] 66956 vs 51061 [4] 70179 vs 69173 [5] 62655 vs 52724
+  d  795 quant_vec128_scale gdn_vs                 L20  DIFFER: 16 of 16 words, max |diff| 362377, first at 0: [0] 77038 vs 118195 [1] 86195 vs 60434 [2] 89465 vs 122235 [3] 150266 vs 59590 [4] 136097 vs 150796 [5] 196957 vs 49327
+  d  796 gdn_head           gdn_kreal              L20  DIFFER: 1960 of 2048 words, max |diff| 11285729, first at 0: [0] 181887 vs 787710 [1] 60629 vs 71610 [2] -121258 vs 143220 [3] -242516 vs -358050 [4] 788177 vs 1145760 [5] -1576354 vs 3508890
+  d  796 gdn_head           gdn_o                  L20  DIFFER: 1967 of 2048 words, max |diff| 3827179, first at 0: [0] -444349 vs -569405 [1] 155580 vs 35578 [2] -44458 vs 71096 [3] -133373 vs 249155 [4] 66583 vs 178024 [5] -688895 vs -711712
+  d  796 gdn_head           gdn_dbg                L20  DIFFER: 127 of 128 words, max |diff| 7228678, first at 0: [0] 2822076 vs 4519414 [1] 75703 vs 55586 [2] 6225 vs 5334 [3] 19623 vs 49838 [4] 25817 vs 52586 [5] 193330 vs 87836
+  d  796 gdn_head           gdn_on                 L20  DIFFER: 1967 of 2048 words, max |diff| 334497, first at 0: [0] -34403 vs -40058 [1] 12269 vs 2549 [2] -3506 vs 5094 [3] -9653 vs 16387 [4] 4987 vs 12117 [5] -53088 vs -49837
+  d  796 gdn_head           gdn_sz                 L20  DIFFER: 2047 of 2048 words, max |diff| 258131, first at 0: [0] -15347 vs -15605 [1] 8105 vs -15478 [2] 12163 vs 5372 [3] -18144 vs -18244 [4] 26477 vs -9176 [5] -16042 vs 10667
+  d  796 gdn_head           gdn_se                 L20  DIFFER: 15 of 16 words, max |diff| 3, first at 0: [0] 17 vs 16 [1] 17 vs 16 [2] 17 vs 15 [3] 16 vs 17 [4] 16 vs 15 [5] 16 vs 17
+  d  796 gdn_head           gdn_smax               L20  DIFFER: 16 of 16 words, max |diff| 14763, first at 0: [0] 19721 vs 30934 [1] 16436 vs 17454 [2] 20045 vs 18003 [3] 18523 vs 19885 [4] 31257 vs 18439 [5] 27944 vs 18547
+  d  796 gdn_head           gdn_state              L20  DIFFER: 238142 of 262144 elements, max |diff| 37321, first at 0 (head 0 row 0 col 0): [0] -73 vs -338 [1] 26 vs 21 [2] -7 vs 42 [3] -22 vs 148 [4] 11 vs 105 [5] -114 vs -422
+  d  796 gdn_head           final_output           L20  DIFFER: 1967 of 2048 words, max |diff| 574751, first at 0: [0] 8056 vs 9538 [1] 1517 vs -602 [2] -651 vs 418 [3] 2672 vs -4562 [4] 2015 vs -1697 [5] 12995 vs -8112
+  d  797 quant_blocks       mix_q                  L20  DIFFER: 1854 of 2048 words, max |diff| 254, first at 0: [0] 41 vs 6 [1] 8 vs 0 [2] -3 vs 0 [3] 14 vs -3 [4] 10 vs -1 [5] 67 vs -5
+  d  797 quant_blocks       mix_xs                 L20  DIFFER: 64 of 64 words, max |diff| 1147501, first at 0: [0] 49855 vs 414416 [1] 98127 vs 195346 [2] 88784 vs 56721 [3] 97363 vs 196747 [4] 80219 vs 20049 [5] 72976 vs 317752
+  d  798 gemv_h64           linear_attn_out        L20  DIFFER: 2048 of 2048 words, max |diff| 115278, first at 0: [0] 732 vs 9514 [1] 2333 vs -3655 [2] 4124 vs -2488 [3] -2616 vs -5800 [4] 1275 vs -9131 [5] 4298 vs 7416
+  d  799 add_into           attn_residual          L20  DIFFER: 2048 of 2048 words, max |diff| 657882, first at 0: [0] 32702 vs -4648 [1] -51987 vs -25424 [2] 63519 vs 17194 [3] 15502 vs -7433 [4] 108659 vs 30053 [5] 91276 vs -7544
+  d  804 norm_e             attn_post_norm         L20  DIFFER: 2048 of 2048 words, max |diff| 699849, first at 0: [0] 39595 vs -14767 [1] -63476 vs -81453 [2] 69867 vs 49623 [3] 18478 vs -23249 [4] 132859 vs 96418 [5] 111915 vs -24270
+  d  810 gemv_ffx192        ffn_out                L20  DIFFER: 2048 of 2048 words, max |diff| 57369, first at 0: [0] 6540 vs 12109 [1] -2699 vs -4379 [2] -216 vs -12772 [3] 12348 vs 5276 [4] -3767 vs -3950 [5] -13010 vs 8612
+  d  811 add_into           l_out                  L20  DIFFER: 2048 of 2048 words, max |diff| 611295, first at 0: [0] 39242 vs 7461 [1] -54686 vs -29803 [2] 63303 vs 4422 [3] 27850 vs -2157 [4] 104892 vs 26103 [5] 78266 vs 1068
+  d  816 norm_e             attn_norm              L21  DIFFER: 2048 of 2048 words, max |diff| 800629, first at 0: [0] 47516 vs 21029 [1] -66961 vs -84945 [2] 84305 vs 13708 [3] 34149 vs -6157 [4] 136118 vs 78848 [5] 98234 vs 3121
+  d  818 gemv_ring64        linear_attn_qkv_mixed  L21  DIFFER: 6144 of 6144 words, max |diff| 731779, first at 0: [0] -91633 vs 41089 [1] 188497 vs 160696 [2] 51223 vs 184327 [3] -109542 vs -6107 [4] -93534 vs -65745 [5] -62136 vs 11605
+  d  819 gemv_h64           z                      L21  DIFFER: 2048 of 2048 words, max |diff| 322701, first at 0: [0] -49481 vs 62611 [1] 60409 vs 21657 [2] 42627 vs -41567 [3] 18537 vs 34383 [4] 6434 vs 58716 [5] 82687 vs 102115
+  d  822 gdn_gates          gdn_decay              L21  DIFFER: 16 of 16 words, max |diff| 10476, first at 0: [0] 24916 vs 24965 [1] 10387 vs 13567 [2] 32529 vs 31621 [3] 11724 vs 12055 [4] 32465 vs 30768 [5] 28110 vs 17634
+  d  822 gdn_gates          gdn_beta               L21  DIFFER: 16 of 16 words, max |diff| 15959, first at 0: [0] 15489 vs 14884 [1] 24106 vs 31420 [2] 28571 vs 32165 [3] 17757 vs 31276 [4] 28726 vs 31850 [5] 13751 vs 24352
+  d  823 conv_silu          conv_output_silu       L21  DIFFER: 5944 of 6144 words, max |diff| 324060, first at 0: [0] -10875 vs 6567 [1] -17213 vs -18057 [2] -8295 vs -17897 [3] -16332 vs -1500 [4] 16517 vs 10996 [5] -11894 vs 2937
+  d  826 quant_vec128_scale gdn_qi                 L21  DIFFER: 1977 of 2048 words, max |diff| 167, first at 0: [0] -21 vs 9 [1] -34 vs -24 [2] -16 vs -24 [3] -32 vs -2 [4] 32 vs 15 [5] -23 vs 4
+  d  826 quant_vec128_scale gdn_ki                 L21  DIFFER: 1881 of 2048 words, max |diff| 229, first at 0: [0] 2 vs -17 [1] 3 vs 27 [2] -13 vs -6 [4] -13 vs -23 [5] 20 vs -13 [6] -2 vs 1
+  d  826 quant_vec128_scale gdn_vi                 L21  DIFFER: 1909 of 2048 words, max |diff| 201, first at 0: [0] 65 vs -17 [1] 4 vs 14 [2] -9 vs 57 [3] 7 vs -13 [4] 1 vs -4 [5] -5 vs 2
+  d  826 quant_vec128_scale gdn_qs                 L21  DIFFER: 16 of 16 words, max |diff| 5231, first at 0: [0] 4449 vs 6446 [1] 6166 vs 8753 [2] 3788 vs 6028 [3] 5193 vs 2686 [4] 7107 vs 8585 [5] 3072 vs 4640
+  d  826 quant_vec128_scale gdn_ks                 L21  DIFFER: 16 of 16 words, max |diff| 82606, first at 0: [0] 64519 vs 57943 [1] 69239 vs 82802 [2] 59613 vs 60178 [3] 103620 vs 80858 [4] 56109 vs 37855 [5] 47273 vs 42268
+  d  826 quant_vec128_scale gdn_vs                 L21  DIFFER: 16 of 16 words, max |diff| 84278, first at 0: [0] 85268 vs 66856 [1] 65992 vs 74345 [2] 76586 vs 55012 [3] 95143 vs 86661 [4] 36757 vs 48529 [5] 106268 vs 55836
+  d  827 gdn_head           gdn_kreal              L21  DIFFER: 1974 of 2048 words, max |diff| 17387526, first at 0: [0] 129038 vs -985031 [1] 193557 vs 1564461 [2] -838747 vs -347658 [3] -64519 vs -57943 [4] -838747 vs -1332689 [5] 1290380 vs -753259
+  d  827 gdn_head           gdn_o                  L21  DIFFER: 2003 of 2048 words, max |diff| 4416634, first at 0: [0] -441685 vs 165525 [1] -27214 vs -136175 [2] 61153 vs -554978 [3] -47547 vs 126634 [4] -6764 vs 39079 [5] 33885 vs -19424
+  d  827 gdn_head           gdn_dbg                L21  DIFFER: 122 of 128 words, max |diff| 8878155, first at 0: [0] 863101 vs 1236425 [1] 106668 vs 95793 [2] 7390 vs 7003 [3] 6659 vs 6549 [4] 18050 vs 18010 [5] 258455 vs 375298
+  d  827 gdn_head           gdn_on                 L21  DIFFER: 2003 of 2048 words, max |diff| 321950, first at 0: [0] -45716 vs 12439 [1] -2909 vs -10567 [2] 5977 vs -39377 [3] -5654 vs 10933 [4] -841 vs 3524 [5] 3638 vs -1514
+  d  827 gdn_head           gdn_sz                 L21  DIFFER: 2046 of 2048 words, max |diff| 273494, first at 0: [0] -15849 vs 45083 [1] 42992 vs 12500 [2] 27905 vs -14437 [3] 10504 vs 21541 [4] 3356 vs 41613 [5] 64186 vs 84118
+  d  827 gdn_head           gdn_se                 L21  DIFFER: 10 of 16 words, max |diff| 3, first at 0: [0] 17 vs 18 [1] 17 vs 16 [6] 18 vs 17 [8] 19 vs 17 [9] 19 vs 18 [10] 18 vs 19
+  d  827 gdn_head           gdn_smax               L21  DIFFER: 16 of 16 words, max |diff| 13080, first at 0: [0] 19531 vs 26431 [1] 25246 vs 22166 [2] 29898 vs 24407 [3] 20063 vs 25116 [4] 27158 vs 26822 [5] 31667 vs 26346
+  d  827 gdn_head           gdn_state              L21  DIFFER: 244500 of 262144 elements, max |diff| 45561, first at 0 (head 0 row 0 col 0): [0] 157 vs 474 [1] 10 vs -390 [2] -22 vs -1588 [3] 17 vs 362 [4] 2 vs 111 [5] -12 vs -56
+  d  827 gdn_head           final_output           L21  DIFFER: 2003 of 2048 words, max |diff| 373645, first at 0: [0] 11056 vs 8557 [1] -1908 vs -2015 [2] 2545 vs 8674 [3] -906 vs 3594 [4] -43 vs 2238 [5] 3563 vs -1943
+  d  828 quant_blocks       mix_q                  L21  DIFFER: 1938 of 2048 words, max |diff| 254, first at 0: [0] 53 vs 76 [1] -9 vs -18 [2] 12 vs 77 [3] -4 vs 32 [4] 0 vs 20 [5] 17 vs -17
+  d  828 quant_blocks       mix_xs                 L21  DIFFER: 64 of 64 words, max |diff| 753174, first at 0: [0] 53226 vs 28948 [1] 88495 vs 110056 [2] 51400 vs 202028 [3] 20051 vs 26211 [4] 42204 vs 72942 [5] 109364 vs 37735
+  d  829 gemv_h64           linear_attn_out        L21  DIFFER: 2048 of 2048 words, max |diff| 45873, first at 0: [0] 2608 vs 2826 [1] -2519 vs 13694 [2] 1516 vs -4724 [3] 632 vs -16456 [4] 6025 vs 2486 [5] -1165 vs 11331
+  d  830 add_into           attn_residual          L21  DIFFER: 2048 of 2048 words, max |diff| 657168, first at 0: [0] 41850 vs 10287 [1] -57205 vs -16109 [2] 64819 vs -302 [3] 28482 vs -18613 [4] 110917 vs 28589 [5] 77101 vs 12399
+  d  835 norm_e             attn_post_norm         L21  DIFFER: 2048 of 2048 words, max |diff| 737090, first at 0: [0] 51696 vs 28121 [1] -70956 vs -44217 [2] 73112 vs -754 [3] 34359 vs -49687 [4] 135124 vs 77073 [5] 96555 vs 34361
+  d  841 gemv_ffx192        ffn_out                L21  DIFFER: 2048 of 2048 words, max |diff| 86677, first at 0: [0] -1491 vs 17703 [1] 14713 vs -10843 [2] -2401 vs 3824 [3] -4783 vs -12520 [4] 8065 vs -11031 [5] 14145 vs -26100
+  d  842 add_into           l_out                  L21  DIFFER: 2048 of 2048 words, max |diff| 671354, first at 0: [0] 40359 vs 27990 [1] -42492 vs -26952 [2] 62418 vs 3522 [3] 23699 vs -31133 [4] 118982 vs 17558 [5] 91246 vs -13701
+  d  847 norm_e             attn_norm              L22  DIFFER: 2048 of 2048 words, max |diff| 799592, first at 0: [0] 44910 vs 59614 [1] -47356 vs -57490 [2] 80608 vs 8706 [3] 26330 vs -66207 [4] 145761 vs 41169 [5] 106192 vs -30519
+  d  849 gemv_ring64        linear_attn_qkv_mixed  L22  DIFFER: 6144 of 6144 words, max |diff| 528732, first at 0: [0] -167982 vs -103473 [1] 204560 vs 215486 [2] -57042 vs -489 [3] 60796 vs 48095 [4] -16696 vs -76087 [5] -70487 vs -70175
+  d  850 gemv_h64           z                      L22  DIFFER: 2048 of 2048 words, max |diff| 382905, first at 0: [0] 225267 vs 158168 [1] -95296 vs 76162 [2] 4146 vs 33944 [3] -13774 vs -15700 [4] 21608 vs -130181 [5] 178301 vs 199646
+  d  853 gdn_gates          gdn_decay              L22  DIFFER: 16 of 16 words, max |diff| 6390, first at 0: [0] 21375 vs 21239 [1] 25408 vs 25758 [2] 789 vs 1510 [3] 29301 vs 29488 [4] 22477 vs 16087 [5] 31590 vs 30084
+  d  853 gdn_gates          gdn_beta               L22  DIFFER: 16 of 16 words, max |diff| 19576, first at 0: [0] 16192 vs 22859 [1] 21460 vs 26733 [2] 9299 vs 28875 [3] 20845 vs 13689 [4] 21575 vs 14916 [5] 22724 vs 26518
+  d  854 conv_silu          conv_output_silu       L22  DIFFER: 5816 of 6144 words, max |diff| 100165, first at 0: [0] 19082 vs 10832 [1] -17764 vs -17962 [2] -3159 vs -128 [3] 5667 vs 4496 [4] -3044 vs -11249 [6] -2460 vs -12699
+  d  857 quant_vec128_scale gdn_qi                 L22  DIFFER: 1995 of 2048 words, max |diff| 254, first at 0: [0] 62 vs 47 [1] -58 vs -78 [2] -10 vs -1 [3] 19 vs 20 [4] -10 vs -49 [5] -28 vs -37
+  d  857 quant_vec128_scale gdn_ki                 L22  DIFFER: 1850 of 2048 words, max |diff| 183, first at 1: [1] -3 vs -20 [2] -2 vs -14 [3] -1 vs -62 [4] 2 vs 5 [5] -1 vs -7 [6] 7 vs -4
+  d  857 quant_vec128_scale gdn_vi                 L22  DIFFER: 1921 of 2048 words, max |diff| 241, first at 0: [0] 2 vs -3 [2] 3 vs 2 [3] -1 vs 2 [4] 8 vs 10 [5] -5 vs 0 [6] -3 vs -1
+  d  857 quant_vec128_scale gdn_qs                 L22  DIFFER: 16 of 16 words, max |diff| 2742, first at 0: [0] 3299 vs 2402 [1] 7667 vs 6917 [2] 4531 vs 4902 [3] 3038 vs 3683 [4] 3071 vs 3197 [5] 3616 vs 4285
+  d  857 quant_vec128_scale gdn_ks                 L22  DIFFER: 16 of 16 words, max |diff| 44917, first at 0: [0] 60617 vs 46899 [1] 58974 vs 74130 [2] 57787 vs 59316 [3] 45421 vs 90338 [4] 66367 vs 75076 [5] 62251 vs 59977
+  d  857 quant_vec128_scale gdn_vs                 L22  DIFFER: 16 of 16 words, max |diff| 54173, first at 0: [0] 57080 vs 35808 [1] 36076 vs 36537 [2] 6829 vs 25983 [3] 31623 vs 36739 [4] 23117 vs 38465 [5] 71678 vs 24179
+  d  858 gdn_head           gdn_kreal              L22  DIFFER: 1958 of 2048 words, max |diff| 13723124, first at 0: [0] -363702 vs -281394 [1] -181851 vs -937980 [2] -121234 vs -656586 [3] -60617 vs -2907738 [4] 121234 vs 234495 [5] -60617 vs -328293
+  d  858 gdn_head           gdn_o                  L22  DIFFER: 1993 of 2048 words, max |diff| 6665387, first at 0: [0] 32883 vs -97036 [1] 32883 vs 64940 [2] 49434 vs 64940 [3] -16355 vs 64940 [4] 131333 vs 324419 [5] -82236 vs 0
+  d  858 gdn_head           gdn_dbg                L22  DIFFER: 123 of 128 words, max |diff| 13435741, first at 0: [0] 2086806 vs 4117787 [1] 26062 vs 48577 [2] 3652 vs 4987 [3] 2950 vs 5788 [4] 17034 vs 17747 [5] 203079 vs 141921
+  d  858 gdn_head           gdn_on                 L22  DIFFER: 1993 of 2048 words, max |diff| 366429, first at 0: [0] 1791 vs -3693 [1] 1754 vs 2420 [2] 2673 vs 2454 [3] -804 vs 2231 [4] 6334 vs 10934 [5] -4169 vs 0
+  d  858 gdn_head           gdn_sz                 L22  DIFFER: 2045 of 2048 words, max |diff| 228019, first at 0: [0] 217989 vs 144937 [1] -18040 vs 57888 [2] 2112 vs 21158 [3] -6186 vs -6980 [4] 12500 vs -15694 [5] 167151 vs 190346
+  d  858 gdn_head           gdn_se                 L22  DIFFER: 11 of 16 words, max |diff| 4, first at 1: [1] 18 vs 17 [2] 22 vs 18 [3] 19 vs 18 [4] 19 vs 18 [5] 17 vs 18 [7] 19 vs 18
+  d  858 gdn_head           gdn_smax               L22  DIFFER: 16 of 16 words, max |diff| 13740, first at 0: [0] 25682 vs 17598 [1] 20930 vs 16596 [2] 26915 vs 20401 [3] 27450 vs 20827 [4] 30347 vs 19746 [5] 23240 vs 17629
+  d  858 gdn_head           gdn_state              L22  DIFFER: 240377 of 262144 elements, max |diff| 39064, first at 0 (head 0 row 0 col 0): [0] -19 vs 20 [1] -19 vs -13 [2] -29 vs -13 [3] 10 vs -13 [4] -76 vs -65 [5] 48 vs 0
+  d  858 gdn_head           final_output           L22  DIFFER: 1993 of 2048 words, max |diff| 496991, first at 0: [0] 5957 vs -8167 [1] -483 vs 2138 [2] 86 vs 792 [3] 76 vs -238 [4] 1208 vs -2618 [5] -10633 vs 0
+  d  859 quant_blocks       mix_q                  L22  DIFFER: 1915 of 2048 words, max |diff| 254, first at 0: [0] 53 vs -18 [1] -4 vs 5 [2] 1 vs 2 [3] 1 vs -1 [4] 11 vs -6 [5] -94 vs 0
+  d  859 quant_blocks       mix_xs                 L22  DIFFER: 64 of 64 words, max |diff| 829509, first at 0: [0] 28823 vs 115674 [1] 35830 vs 58918 [2] 24362 vs 63071 [3] 41222 vs 55127 [4] 41438 vs 71857 [5] 61593 vs 65250
+  d  860 gemv_h64           linear_attn_out        L22  DIFFER: 2048 of 2048 words, max |diff| 40502, first at 0: [0] -1474 vs 9554 [1] 3291 vs -2398 [2] 939 vs -12615 [3] -422 vs 489 [4] 391 vs 5734 [5] 14510 vs 219
+  d  861 add_into           attn_residual          L22  DIFFER: 2048 of 2048 words, max |diff| 711856, first at 0: [0] 38885 vs 37544 [1] -39201 vs -29350 [2] 63357 vs -9093 [3] 23277 vs -30644 [4] 119373 vs 23292 [5] 105756 vs -13482
+  d  866 norm_e             attn_post_norm         L22  DIFFER: 2048 of 2048 words, max |diff| 791140, first at 0: [0] 46976 vs 84965 [1] -47828 vs -67081 [2] 68343 vs -18375 [3] 28200 vs -69547 [4] 147893 vs 54057 [5] 131566 vs -31419
+  d  872 gemv_ffx192        ffn_out                L22  DIFFER: 2048 of 2048 words, max |diff| 116589, first at 0: [0] -13020 vs -26804 [1] 253 vs -12396 [2] 7901 vs 15255 [3] -518 vs 9518 [4] 6311 vs 1691 [5] 5209 vs -37606
+  d  873 add_into           l_out                  L22  DIFFER: 2048 of 2048 words, max |diff| 595267, first at 0: [0] 25865 vs 10740 [1] -38948 vs -41746 [2] 71258 vs 6162 [3] 22759 vs -21126 [4] 125684 vs 24983 [5] 110965 vs -51088
+  d  878 norm_e             attn_norm              L23  DIFFER: 2048 of 2048 words, max |diff| 665369, first at 0: [0] 24816 vs 17206 [1] -36260 vs -64896 [2] 99332 vs 14344 [3] 22113 vs -34275 [4] 148113 vs 49160 [5] 112637 vs -86592
+  d  921 attn_pv            attn_gated             L23  DIFFER: 2012 of 2048 words, max |diff| 941465, first at 0: [0] 0 vs -51561 [1] 0 vs -27189 [2] 0 vs -17437 [3] 0 vs 5424 [4] 0 vs -46955 [5] 0 vs -30846
+  d  923 gemv_h64           attn_output            L23  DIFFER: 2048 of 2048 words, max |diff| 288671, first at 0: [0] 0 vs -22082 [1] 0 vs 58181 [2] 0 vs 14584 [3] 0 vs 19770 [4] 0 vs -15954 [5] 0 vs 34491
+  d  924 add_into           attn_residual          L23  DIFFER: 2048 of 2048 words, max |diff| 883938, first at 0: [0] 25865 vs -11342 [1] -38948 vs 16435 [2] 71258 vs 20746 [3] 22759 vs -1356 [4] 125684 vs 9029 [5] 110965 vs -16597
+  d  929 norm_e             attn_post_norm         L23  DIFFER: 2048 of 2048 words, max |diff| 943327, first at 0: [0] 29267 vs -17241 [1] -43732 vs 24792 [2] 80134 vs 31343 [3] 26148 vs -2093 [4] 140248 vs 13536 [5] 130959 vs -26315
+  d  935 gemv_ffx192        ffn_out                L23  DIFFER: 2048 of 2048 words, max |diff| 808506, first at 0: [0] -5545 vs -17468 [1] 13647 vs -950 [2] -6349 vs -65735 [3] 14793 vs 46781 [4] -1298 vs 36023 [5] -2303 vs 1922
+  d  936 add_into           l_out                  L23  DIFFER: 2048 of 2048 words, max |diff| 513762, first at 0: [0] 20320 vs -28810 [1] -25301 vs 15485 [2] 64909 vs -44989 [3] 37552 vs 45425 [4] 124386 vs 45052 [5] 108662 vs -14675
+  d  941 norm_e             result_norm            L-1  DIFFER: 2048 of 2048 words, max |diff| 1407907, first at 0: [0] 69269 vs -126250 [1] -84816 vs 66730 [2] 286445 vs -255226 [3] 132789 vs 206492 [4] 339559 vs 158103 [5] 355040 vs -61637
+  d  975 gemv_logits        result_output               DIFFER: machine best 400158 at 246974, reference 1451823 at 8678
+host: run to the end: rc 0, 624246 records, 39123259 trace tokens, 462 differing stages over 1 positions

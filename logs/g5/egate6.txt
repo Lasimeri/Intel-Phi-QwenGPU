@@ -1,0 +1,5 @@
+host: the file: 143 layers, hidden 16384, 2020776 nonzero weights, 2.82 GB of data, loaded in 5.3 s
+host: dims compared every pass: 9045 slots
+host: prompt 19 tokens, 8 to generate; the file predicts every token of the reference's stream
+host: rc 4; 3000 tokens fed, 2999 agreed, 11.6 passes/s, 258.0 s, 0 full scans of the output head, 94791000 slot values compared
+host: emit_gate: every token predicted by the file (to the token limit)

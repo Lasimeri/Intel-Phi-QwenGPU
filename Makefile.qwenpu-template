@@ -1,0 +1,252 @@
+# Intel-Phi-QwenPU: C/C++ ports of QwenPU and ChiPFormer, matrix operations on the 7120A's VPU.
+# Host binaries go to out/host; guest programs to out/guest; everything is rebuilt from src/.
+CC       ?= clang
+CFLAGS   := -std=c11 -O2 -g -Wall -Wextra -Werror -D_GNU_SOURCE -ffp-contract=off
+UPSTREAM := input/upstream/QwenPU
+INPUT    := input/stories260k
+OUT      := out/host
+GUEST    := out/guest
+XPACK    := input/toolchains/xpack-14.3.0-1/xpack-riscv-none-elf-gcc-14.3.0-1/bin/riscv-none-elf-gcc
+GENV     := $(UPSTREAM)/chipformer/rv/env
+GSRC     := $(UPSTREAM)/guests/stories260k
+NTOK     ?= 60
+
+# Every build runs 14 jobs: the 5800X has 16 threads, 2 stay with the desktop. `make JOBS=n` overrides it, and so does a -j on
+# make's command line: the tool shell's `make` is an alias for `make -j16`, so call /usr/bin/make there. Each recipe line's output
+# stays whole. `clean` beside other goals runs serially, since it removes what they build.
+JOBS      := 14
+MAKEFLAGS += -j$(JOBS) -Oline
+ifneq ($(filter clean,$(MAKECMDGOALS)),)
+.NOTPARALLEL:
+endif
+$(shell mkdir -p $(OUT) $(GUEST))
+
+RV_SRC := src/rv/decode.c src/rv/elf.c src/rv/flat.c src/rv/machine.c src/rv/vx.c
+RV_HDR := src/rv/spec.h src/rv/decode.h src/rv/elf.h src/rv/flat.h src/rv/machine.h
+
+.PHONY: help all guest check compdb clean
+help:
+	@echo "make all      build the host tools ($(OUT))"
+	@echo "make guest    export the weights and build stories_vx.elf with upstream's compiler"
+	@echo "make check    run the gates"
+	@echo "make compdb   write compile_commands.json and run clangd over the tree"
+	@echo "make clean    remove out/host and out/guest"
+	@echo "scripts/embed_build.sh  the model file: the 35B with the RISC-V machine, the NPU and the 2B inside (docs/embedding.md)"
+	@echo "scripts/embed_run.sh    run the 2B inside it"
+
+all: $(OUT)/gate_qemu $(OUT)/gate_rng $(OUT)/export_vx $(OUT)/rvrun $(OUT)/circ_stats $(OUT)/circ_check $(OUT)/circ_nnz $(OUT)/mkrun
+
+$(OUT)/gate_qemu: tests/rv/gate_qemu.c $(RV_SRC) $(RV_HDR)
+	$(CC) $(CFLAGS) -o $@ tests/rv/gate_qemu.c $(RV_SRC) -lm
+
+$(OUT)/gate_rng: tests/rv/gate_rng.c src/tools/npy_rng.h
+	$(CC) $(CFLAGS) -o $@ tests/rv/gate_rng.c
+
+$(OUT)/export_vx: src/tools/export_vx.c src/tools/npy_rng.h
+	$(CC) $(CFLAGS) -o $@ src/tools/export_vx.c -lm
+
+$(OUT)/rvrun: src/tools/rvrun.c $(RV_SRC) $(RV_HDR)
+	$(CC) $(CFLAGS) -o $@ src/tools/rvrun.c $(RV_SRC) -lm
+
+$(GUEST)/weights_vx.h $(GUEST)/wrom_vx.c &: $(OUT)/export_vx
+	$(OUT)/export_vx $(INPUT)/stories260K.bin $(INPUT)/tok512.bin $(GSRC)/qat_int4.npz $(GUEST)
+
+# upstream's own recipe (guests/stories260k/build_xp.sh with SRC=stories_vx.c LD=vx.ld WROM=wrom_vx.c ASM=)
+guest: $(GUEST)/stories_vx.elf
+$(GUEST)/stories_vx.elf: $(GUEST)/weights_vx.h $(GUEST)/wrom_vx.c
+	$(XPACK) -march=rv32im_zba -mabi=ilp32 -O2 -DNTOK=$(NTOK) -I$(GENV) -I$(GUEST) -nostartfiles -static \
+	  -T$(GSRC)/vx.ld -o $@ $(GENV)/crt0.S $(GSRC)/stories_vx.c $(GUEST)/wrom_vx.c $(GSRC)/exit_xp.c \
+	  -Wl,--start-group -lc -lgcc -Wl,--end-group
+
+check: all
+	$(OUT)/gate_rng
+	$(OUT)/gate_qemu $(UPSTREAM)/tests/data/rv
+
+# the text path's gates that need no long run: the tokenizer on the host, the elementwise functions on the card
+check-text: $(OUT)/tok_gate
+	$(OUT)/tok_gate $(LLAMA_DIR)/models/ggml-vocab-qwen35.gguf $(LLAMA_DIR)/models/ggml-vocab-qwen35.gguf.inp $(LLAMA_DIR)/models/ggml-vocab-qwen35.gguf.out
+	$(OUT)/tok_gate $(MODEL_Q8) tests/text/tok_extra.inp logs/t0/vocab-extra-35B.out
+	scripts/elem_gate.sh
+
+compdb:
+	JOBS=$(JOBS) scripts/compdb.sh
+
+clean:
+	rm -rf $(OUT) $(GUEST)
+	mkdir -p $(OUT) $(GUEST)
+
+# --- the circuit builder (C++) --------------------------------------------------------------------
+CXX      := g++
+CXXFLAGS := -std=c++17 -O2 -g -Wall -Wextra -Werror -ffp-contract=off
+CIRC_HDR := src/circuit/expr.h src/circuit/graph.h src/circuit/core.h src/circuit/vxparts.h src/rv/spec.h src/rv/decode.h
+CIRC_OBJ := $(OUT)/graph.o $(OUT)/core.o $(OUT)/vxcirc.o $(OUT)/core64.o $(OUT)/vx64.o
+
+# The chip builders are giant single functions that run once per tool start. No job count splits one, and at -O2 they were the
+# wall of every build: 29.85, 24.99 and 14.42 s, against 3.73, 2.97 and 2.20 s at -O0.
+$(OUT)/core.o $(OUT)/vxcirc.o $(OUT)/core64.o $(OUT)/vx64.o: CXXFLAGS := $(filter-out -O2,$(CXXFLAGS)) -O0
+
+$(OUT)/%.o: src/circuit/%.cc $(CIRC_HDR)
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+$(OUT)/circ_stats: src/tools/circ_stats.cc $(CIRC_OBJ) $(CIRC_HDR)
+	$(CXX) $(CXXFLAGS) -o $@ src/tools/circ_stats.cc $(CIRC_OBJ)
+
+# the exact evaluator and the teacher-forced gate (links the C machine)
+RV_OBJ := $(OUT)/rv_decode.o $(OUT)/rv_elf.o $(OUT)/rv_machine.o $(OUT)/rv_vx.o
+$(OUT)/rv_%.o: src/rv/%.c $(RV_HDR)
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(OUT)/eval.o: src/circuit/eval.cc src/circuit/eval.h $(CIRC_HDR) src/rv/machine.h
+	$(CXX) $(CXXFLAGS) -c -o $@ src/circuit/eval.cc
+
+$(OUT)/core64.o: src/circuit/core64.cc $(CIRC_HDR) src/rv64/m64.h
+	$(CXX) $(CXXFLAGS) -c -o $@ src/circuit/core64.cc
+$(OUT)/vx64.o: src/circuit/vx64.cc $(CIRC_HDR) src/rv64/m64.h
+	$(CXX) $(CXXFLAGS) -c -o $@ src/circuit/vx64.cc
+$(OUT)/eval64.o: src/circuit/eval64.cc src/circuit/eval.h $(CIRC_HDR) src/rv64/m64.h
+	$(CXX) $(CXXFLAGS) -c -o $@ src/circuit/eval64.cc
+$(OUT)/m64.o: src/rv64/m64.c src/rv64/m64.h
+	$(CC) $(CFLAGS) -c -o $@ src/rv64/m64.c
+# the embedding: the chip as tensors in a model file, and the forward that knows only that file
+$(OUT)/tforward.o: src/exec/tforward.cc src/exec/tforward.h src/text/gguf.h src/text/elem.h
+	$(CXX) $(REFFLAGS) -c -o $@ src/exec/tforward.cc
+$(OUT)/emit64: src/circuit/emit64.cc src/tools/q2b64_host.h $(OUT)/eval64.o $(OUT)/m64.o $(OUT)/eval.o $(OUT)/q2b_fix.o $(OUT)/q2b_ref.o $(OUT)/q35_ref.o $(TEXT_OBJ) $(CIRC_OBJ) $(RV_OBJ)
+	$(CXX) $(REFFLAGS) -o $@ src/circuit/emit64.cc $(OUT)/eval64.o $(OUT)/m64.o $(OUT)/eval.o $(OUT)/q2b_fix.o $(OUT)/q2b_ref.o $(OUT)/q35_ref.o $(TEXT_OBJ) $(CIRC_OBJ) $(RV_OBJ)
+$(OUT)/chip_forward: src/tools/chip_forward.cc $(OUT)/tforward.o $(OUT)/gguf.o $(OUT)/eval64.o $(OUT)/m64.o $(OUT)/eval.o $(CIRC_OBJ) $(RV_OBJ)
+	$(CXX) $(REFFLAGS) -o $@ src/tools/chip_forward.cc $(OUT)/tforward.o $(OUT)/gguf.o $(OUT)/eval64.o $(OUT)/m64.o $(OUT)/eval.o $(CIRC_OBJ) $(RV_OBJ)
+
+
+$(OUT)/dim_name: src/tools/dim_name.cc $(CIRC_OBJ) $(CIRC_HDR)
+	$(CXX) $(CXXFLAGS) -o $@ src/tools/dim_name.cc $(CIRC_OBJ)
+
+$(OUT)/chip_stats: src/tools/chip_stats.cc src/guest64/q2b64_map.h $(OUT)/tforward.o $(TEXT_OBJ)
+	$(CXX) $(REFFLAGS) -o $@ src/tools/chip_stats.cc $(OUT)/tforward.o $(TEXT_OBJ)
+
+$(OUT)/chip_image.o: src/exec/chip_image.cc src/exec/chip_image.hpp src/exec/chip_image.h src/exec/tforward.h src/text/gguf.h src/text/elem.h
+	$(CXX) $(REFFLAGS) -c -o $@ src/exec/chip_image.cc
+
+$(OUT)/chip_host: src/tools/chip_host.cc src/guest64/q2b64_map.h src/exec/chip_image.hpp src/exec/chip_image.h src/text/q35_link.h $(OUT)/chip_image.o $(OUT)/tforward.o $(TEXT_OBJ)
+	$(CXX) $(REFFLAGS) -o $@ src/tools/chip_host.cc $(OUT)/chip_image.o $(OUT)/tforward.o $(TEXT_OBJ)
+
+$(OUT)/chip_watch: src/tools/chip_watch.c
+	$(CC) $(CFLAGS) -o $@ src/tools/chip_watch.c
+
+$(OUT)/native_watch: src/tools/native_watch.c
+	$(CC) $(CFLAGS) -o $@ src/tools/native_watch.c
+
+$(OUT)/chip_run: src/tools/chip_run.cc src/guest64/q2b64_map.h $(OUT)/tforward.o $(TEXT_OBJ)
+	$(CXX) $(REFFLAGS) -o $@ src/tools/chip_run.cc $(OUT)/tforward.o $(TEXT_OBJ)
+
+$(OUT)/circ64_check: src/tools/circ64_check.cc $(OUT)/eval64.o $(OUT)/m64.o $(OUT)/eval.o $(CIRC_OBJ) $(RV_OBJ)
+	$(CXX) $(CXXFLAGS) -o $@ src/tools/circ64_check.cc $(OUT)/eval64.o $(OUT)/m64.o $(OUT)/eval.o $(CIRC_OBJ) $(RV_OBJ)
+
+$(OUT)/circ_check: src/tools/circ_check.cc $(OUT)/eval.o $(CIRC_OBJ) $(RV_OBJ)
+	$(CXX) $(CXXFLAGS) -o $@ src/tools/circ_check.cc $(OUT)/eval.o $(CIRC_OBJ) $(RV_OBJ)
+
+$(OUT)/circ_nnz: src/tools/circ_nnz.cc $(CIRC_OBJ) $(CIRC_HDR)
+	$(CXX) $(CXXFLAGS) -o $@ src/tools/circ_nnz.cc $(CIRC_OBJ)
+
+# --- the plan and its reference executor ----------------------------------------------------------
+EXEC_HDR := src/exec/plan.h src/exec/plan_build.h src/exec/ref.h
+$(OUT)/plan_build.o: src/exec/plan_build.cc $(EXEC_HDR) $(CIRC_HDR)
+	$(CXX) $(CXXFLAGS) -c -o $@ src/exec/plan_build.cc
+$(OUT)/ref.o: src/exec/ref.c $(EXEC_HDR) src/rv/spec.h
+	$(CC) $(CFLAGS) -c -o $@ src/exec/ref.c
+$(OUT)/activity: tests/rv/activity.c src/exec/ref.c $(EXEC_HDR) src/rv/spec.h
+	$(CC) $(CFLAGS) -o $@ tests/rv/activity.c -lm
+$(OUT)/exec_check: src/tools/exec_check.cc $(OUT)/plan_build.o $(OUT)/ref.o $(OUT)/eval.o $(CIRC_OBJ) $(RV_OBJ)
+	$(CXX) $(CXXFLAGS) -o $@ src/tools/exec_check.cc $(OUT)/plan_build.o $(OUT)/ref.o $(OUT)/eval.o $(CIRC_OBJ) $(RV_OBJ)
+
+# --- prompts: any text, any program; the host verifies a card run afterwards ------------------------
+$(OUT)/mkrun: src/tools/mkrun.cc $(OUT)/eval.o $(CIRC_OBJ) $(RV_OBJ)
+	$(CXX) $(CXXFLAGS) -o $@ src/tools/mkrun.cc $(OUT)/eval.o $(CIRC_OBJ) $(RV_OBJ)
+
+# --- the text path: Qwen3.8-35B-A3B from its GGUF ----------------------------------------------------
+LLAMA_DIR ?= $(HOME)/llama.cpp
+MODEL_Q8  ?= $(HOME)/models/Qwen3.8-35B-A3B/Qwen3.8-35B-A3B-Q8_0.gguf
+
+# the independent oracle links llama.cpp as it was built, and changes nothing in its tree
+$(OUT)/llama_dump: tests/text/llama_dump.cpp
+	$(CXX) -std=c++17 -O2 -g -Wall -Wextra -I$(LLAMA_DIR)/include -I$(LLAMA_DIR)/ggml/include -o $@ $< \
+	  -L$(LLAMA_DIR)/build/bin -lllama -lggml -lggml-base -Wl,-rpath,$(LLAMA_DIR)/build/bin
+
+TEXT_HDR := src/text/gguf.h src/text/tok.h
+TEXT_OBJ := $(OUT)/gguf.o $(OUT)/tok.o
+
+# the Unicode classes the pre-tokenizer needs, generated once from Unicode's own table
+$(OUT)/q2b64_check: src/tools/q2b64_check.cc src/tools/q2b64_host.h $(OUT)/m64.o $(OUT)/q2b_fix.o $(OUT)/q2b_ref.o $(OUT)/q35_ref.o $(TEXT_OBJ) $(TEXT_HDR) src/guest64/q2b64_map.h src/text/q2b_fix.h
+	$(CXX) $(REFFLAGS) -o $@ src/tools/q2b64_check.cc $(OUT)/m64.o $(OUT)/q2b_fix.o $(OUT)/q2b_ref.o $(OUT)/q35_ref.o $(TEXT_OBJ)
+
+$(OUT)/gguf_meta: src/tools/gguf_meta.cc $(OUT)/gguf.o src/text/gguf.h
+	$(CXX) $(CXXFLAGS) -o $@ src/tools/gguf_meta.cc $(OUT)/gguf.o
+
+$(OUT)/gen_unicode: src/tools/gen_unicode.c
+	$(CC) $(CFLAGS) -o $@ $<
+src/text/unicode_tab.inc: $(OUT)/gen_unicode input/unicode/UnicodeData.txt
+	$(OUT)/gen_unicode input/unicode/UnicodeData.txt > $@
+
+$(OUT)/gguf.o: src/text/gguf.cc src/text/gguf.h
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+$(OUT)/tok.o: src/text/tok.cc $(TEXT_HDR) src/text/unicode_tab.inc
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+$(OUT)/tok_gate: tests/text/tok_gate.cc $(TEXT_OBJ) $(TEXT_HDR)
+	$(CXX) $(CXXFLAGS) -o $@ tests/text/tok_gate.cc $(TEXT_OBJ)
+
+# the reference fuses by instruction, never through libm; -ffp-contract=off keeps it to the written FMAs
+REFFLAGS := $(CXXFLAGS) -O3 -mfma -mavx2 -fopenmp
+$(OUT)/q35_ref.o: src/text/q35_ref.cc src/text/q35.h src/text/q35_hash.h src/text/elem.h src/text/gguf.h
+	$(CXX) $(REFFLAGS) -c -o $@ $<
+$(OUT)/ref_check: tests/text/ref_check.cc $(OUT)/q35_ref.o $(TEXT_OBJ) $(TEXT_HDR) src/text/q35.h
+	$(CXX) $(REFFLAGS) -o $@ tests/text/ref_check.cc $(OUT)/q35_ref.o $(TEXT_OBJ)
+$(OUT)/q35_pack: src/tools/q35_pack.cc $(OUT)/q35_ref.o $(OUT)/gguf.o src/text/q35.h src/text/q35_layout.h
+	$(CXX) $(REFFLAGS) -o $@ src/tools/q35_pack.cc $(OUT)/q35_ref.o $(OUT)/gguf.o
+$(OUT)/bridge.o: src/circuit/bridge.cc src/circuit/bridge.h $(CIRC_HDR) src/rv/machine.h
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+$(OUT)/bridge_check: tests/text/bridge_check.cc $(OUT)/bridge.o $(OUT)/eval.o $(CIRC_OBJ) $(RV_OBJ) $(TEXT_OBJ) $(TEXT_HDR) src/text/vocab.h
+	$(CXX) $(CXXFLAGS) -o $@ tests/text/bridge_check.cc $(OUT)/bridge.o $(OUT)/eval.o $(CIRC_OBJ) $(RV_OBJ) $(TEXT_OBJ)
+$(OUT)/q35_verify: tests/text/q35_verify.cc $(OUT)/q35_ref.o $(TEXT_OBJ) $(TEXT_HDR) src/text/q35.h
+	$(CXX) $(REFFLAGS) -o $@ tests/text/q35_verify.cc $(OUT)/q35_ref.o $(TEXT_OBJ)
+$(OUT)/q2b_ref.o: src/text/q2b_ref.cc src/text/q2b.h src/text/q35.h src/text/elem.h src/text/gguf.h
+	$(CXX) $(REFFLAGS) -c -o $@ src/text/q2b_ref.cc
+$(OUT)/q2b_check: tests/text/q2b_check.cc $(OUT)/q2b_ref.o $(OUT)/q35_ref.o $(TEXT_OBJ) $(TEXT_HDR) src/text/q2b.h
+	$(CXX) $(REFFLAGS) -o $@ tests/text/q2b_check.cc $(OUT)/q2b_ref.o $(OUT)/q35_ref.o $(TEXT_OBJ)
+$(OUT)/q2b_sweep: tests/text/q2b_sweep.cc $(OUT)/q2b_ref.o $(OUT)/q35_ref.o $(TEXT_OBJ) $(TEXT_HDR) src/text/q2b.h
+	$(CXX) $(REFFLAGS) -o $@ tests/text/q2b_sweep.cc $(OUT)/q2b_ref.o $(OUT)/q35_ref.o $(TEXT_OBJ)
+$(OUT)/q2b_fix.o: src/text/q2b_fix.cc src/text/q2b_fix.h src/text/q2b.h src/text/q35.h src/text/gguf.h
+	$(CXX) $(REFFLAGS) -c -o $@ src/text/q2b_fix.cc
+$(OUT)/q2b_fix_check: tests/text/q2b_fix_check.cc $(OUT)/q2b_fix.o $(OUT)/q2b_ref.o $(OUT)/q35_ref.o $(TEXT_OBJ) $(TEXT_HDR) src/text/q2b_fix.h src/text/q2b.h
+	$(CXX) $(REFFLAGS) -o $@ tests/text/q2b_fix_check.cc $(OUT)/q2b_fix.o $(OUT)/q2b_ref.o $(OUT)/q35_ref.o $(TEXT_OBJ)
+$(OUT)/q2b_pack: src/tools/q2b_pack.cc $(OUT)/q2b_fix.o $(OUT)/q2b_ref.o $(OUT)/q35_ref.o $(TEXT_OBJ) $(TEXT_HDR) src/text/q2b_pack.h src/text/q2b_fix.h
+	$(CXX) $(REFFLAGS) -o $@ src/tools/q2b_pack.cc $(OUT)/q2b_fix.o $(OUT)/q2b_ref.o $(OUT)/q35_ref.o $(TEXT_OBJ)
+$(OUT)/q2b_cardtool: tests/text/q2b_cardtool.cc $(OUT)/q2b_fix.o $(OUT)/q2b_ref.o $(OUT)/q35_ref.o $(TEXT_OBJ) $(TEXT_HDR) src/text/q2b_fix.h
+	$(CXX) $(REFFLAGS) -o $@ tests/text/q2b_cardtool.cc $(OUT)/q2b_fix.o $(OUT)/q2b_ref.o $(OUT)/q35_ref.o $(TEXT_OBJ)
+$(OUT)/align_check: tests/text/align_check.cc $(OUT)/gguf.o src/text/gguf.h
+	$(CXX) $(REFFLAGS) -mf16c -o $@ tests/text/align_check.cc $(OUT)/gguf.o
+$(OUT)/q35_host: src/tools/q35_host.cc $(OUT)/q35_ref.o $(TEXT_OBJ) $(TEXT_HDR) src/text/q35.h src/text/q35_link.h src/text/q35_layout.h
+	$(CXX) $(REFFLAGS) -mf16c -pthread -o $@ src/tools/q35_host.cc $(OUT)/q35_ref.o $(TEXT_OBJ)
+
+guest-prompt: $(GUEST)/stories_prompt.elf
+$(GUEST)/stories_prompt.elf: src/guest/stories_prompt.c $(GUEST)/weights_vx.h $(GUEST)/wrom_vx.c
+	$(XPACK) -march=rv32im_zba -mabi=ilp32 -O2 -I$(GENV) -I$(GUEST) -I$(GSRC) -nostartfiles -static \
+	  -T$(GSRC)/vx.ld -o $@ $(GENV)/crt0.S src/guest/stories_prompt.c $(GUEST)/wrom_vx.c $(GSRC)/exit_xp.c \
+	  -Wl,--start-group -lc -lgcc -Wl,--end-group
+$(OUT)/bridge_plan_check: tests/text/bridge_plan_check.cc $(OUT)/bridge.o $(OUT)/plan_build.o $(OUT)/ref.o $(OUT)/eval.o $(CIRC_OBJ) $(RV_OBJ) $(TEXT_OBJ) $(TEXT_HDR) src/text/vocab.h
+	$(CXX) $(CXXFLAGS) -o $@ tests/text/bridge_plan_check.cc $(OUT)/bridge.o $(OUT)/plan_build.o $(OUT)/ref.o $(OUT)/eval.o $(CIRC_OBJ) $(RV_OBJ) $(TEXT_OBJ)
+$(OUT)/bridge_state: src/tools/bridge_state.cc $(OUT)/bridge.o $(OUT)/plan_build.o $(OUT)/eval.o $(CIRC_OBJ) $(RV_OBJ) $(TEXT_OBJ) $(TEXT_HDR) src/text/vocab.h
+	$(CXX) $(CXXFLAGS) -o $@ src/tools/bridge_state.cc $(OUT)/bridge.o $(OUT)/plan_build.o $(OUT)/eval.o $(CIRC_OBJ) $(RV_OBJ) $(TEXT_OBJ)
+
+# --- the computer inside the outer model: the firmware, and the gates of the whole system ------------
+$(OUT)/export_merges: src/tools/export_merges.c
+	$(CC) $(CFLAGS) -o $@ $<
+$(GUEST)/merges_vx.h: $(OUT)/export_merges $(INPUT)/tok512.bin
+	$(OUT)/export_merges $(INPUT)/tok512.bin > $@
+STORY_TOKENS ?= 16
+guest-bridge: $(GUEST)/stories_bridge.elf
+$(GUEST)/stories_bridge.elf: src/guest/stories_bridge.c $(GUEST)/merges_vx.h $(GUEST)/weights_vx.h $(GUEST)/wrom_vx.c
+	$(XPACK) -march=rv32im_zba -mabi=ilp32 -O2 -DNTOK=$(STORY_TOKENS) -I$(GENV) -I$(GUEST) -I$(GSRC) -nostartfiles -static \
+	  -T$(GSRC)/vx.ld -o $@ $(GENV)/crt0.S src/guest/stories_bridge.c $(GUEST)/wrom_vx.c $(GSRC)/exit_xp.c \
+	  -Wl,--start-group -lc -lgcc -Wl,--end-group
+$(OUT)/bridge_ref: tests/text/bridge_ref.cc $(OUT)/bridge.o $(RV_OBJ) $(CIRC_OBJ) $(TEXT_OBJ) $(TEXT_HDR) src/text/vocab.h
+	$(CXX) $(CXXFLAGS) -o $@ tests/text/bridge_ref.cc $(OUT)/bridge.o $(RV_OBJ) $(CIRC_OBJ) $(TEXT_OBJ)
+$(OUT)/q35_bridge_verify: tests/text/q35_bridge_verify.cc $(OUT)/bridge.o $(OUT)/q35_ref.o $(RV_OBJ) $(TEXT_OBJ) $(TEXT_HDR) src/text/q35.h src/text/vocab.h
+	$(CXX) $(REFFLAGS) -o $@ tests/text/q35_bridge_verify.cc $(OUT)/bridge.o $(OUT)/q35_ref.o $(RV_OBJ) $(TEXT_OBJ)

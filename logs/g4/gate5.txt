@@ -1,0 +1,15 @@
+host: circuit: 206702 units, 23449 nodes (9 heads, 67 banks), 31601 dims, 141 layers, built in 0.2 s
+host: prompt 19 tokens, 8 to generate; the circuit predicts every token of the reference's stream
+host: 99999 tokens agree, 1364.1 passes/s
+host: 199999 tokens agree, 1293.7 passes/s
+host: 299999 tokens agree, 950.3 passes/s
+host: 399999 tokens agree, 1005.7 passes/s
+host: 499999 tokens agree, 1041.7 passes/s
+host: 599999 tokens agree, 1069.0 passes/s
+host: 699999 tokens agree, 1104.4 passes/s
+host: 799999 tokens agree, 1052.2 passes/s
+host: MISMATCH at token 853915: the machine wrote VLO(16661), the circuit predicted VLO(32934)
+host: the tokens before it: EXEC(289) VLO(9) VEND(0) VLO(9) VEND(0) VLO(9) VEND(0) VLO(9) VEND(0) VLO(18) VEND(0) VLO(27) VEND(0) VLO(43) VEND(0) VLO(43) VEND(0) VLO(43) VEND(0) VLO(43) VEND(0) VLO(52) VEND(0) VLO(61) VEND(0) VLO(70) VEND(0) VLO(79) VEND(0) VLO(88) VEND(0) VLO(88) VEND(0) VLO(97) VEND(0) VLO(97) VEND(0) VLO(106) VEND(0) VLO(115) VEND(0) VLO(124) VEND(0) VLO(173) VEND(0) VLO(173) VEND(0) VLO(173) VEND(0) VLO(182) VEND(0) VLO(191) VEND(0) VLO(192) VEND(0) VLO(201) VEND(0) VLO(210) VEND(0) VLO(210) VEND(0) VLO(210) VEND(0) VLO(210) VEND(0)
+host: rc 4; 853915 tokens fed, 853914 agreed, 853915 passes, 1069.1 passes/s, 798.7 s
+host: M[41056]: machine 16661, circuit 32724
+host: scratch: 32 0 0 0 210 210 0 0 4516 0 465422 0 53151 0 46159 0 387848265 0 0 0 0 0 0 0 0 0 0 0 0 41056 32934 8 0 0 0 0 0 0 0 0 0 0 0 0 41056 0 0 0 0 0 0 3 0 0 0 0 41056 1 0 127 0 2047 0 0 0 0 0 4578 0 0 0 1705155351 0 0 0
